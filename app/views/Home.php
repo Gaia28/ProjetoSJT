@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <css rel="stylesheet" href="../../public/assets/css/Home.css">
+    <link rel="stylesheet" href="stylesheet.css" media="../../public/assets/css/Home.css" />
 </head>
 <body>
     <div>
@@ -17,12 +17,12 @@
             <h1> Bem-Vindo a Paróquia </h1>
             <h1>São Judas Tadeu</h1>
 <input id="SaoJudas" type="image" src="../../public/assets/images/padroeiro.jpeg">
-    </div>
+    </section>
     <?php 
         include 'NavBar.php';
     ?>
 
-    <section id="HomePG2">
+    <section class="HomePG" id="HomePG2">
         <h1>onde estamos</h1>
             <img src="../../public/assets/images/xxxxxx" alt="">
             <map id="mapa">
