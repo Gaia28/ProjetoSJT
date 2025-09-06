@@ -17,7 +17,7 @@
             <h1> Bem-Vindo a Paróquia </h1>
             <h1>São Judas Tadeu</h1>
 <input id="SaoJudas" type="image" src="../../public/assets/images/padroeiro.jpeg">
-    </section>
+    </div>
 
     <section id="HomePG2">
         <h1>onde estamos</h1>
