@@ -1,0 +1,5 @@
+/.ENV
+/vendor/
+composer.lock
+composer.json
+index2.html
