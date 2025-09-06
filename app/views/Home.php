@@ -60,6 +60,10 @@
         </article>
 
     </section>
+    <section id="HomePG5">
+        <h1>sobre nós</h1>
+        <p>A Paróquia São Judas Tadeu é uma comunidade vibrante e acolhedora, dedicada a promover a fé, a esperança e o amor entre seus membros. Fundada em [ano de fundação], nossa paróquia tem sido um pilar espiritual na região, oferecendo uma variedade de serviços religiosos, programas educacionais e atividades comunitárias.</p>
+    <section>  
 </main>
 
 </body>
