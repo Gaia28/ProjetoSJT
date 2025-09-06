@@ -18,6 +18,9 @@
             <h1>São Judas Tadeu</h1>
 <input id="SaoJudas" type="image" src="../../public/assets/images/padroeiro.jpeg">
     </div>
+    <?php 
+        include 'NavBar.php';
+    ?>
 
     <section id="HomePG2">
         <h1>onde estamos</h1>
