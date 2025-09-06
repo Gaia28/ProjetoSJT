@@ -11,43 +11,56 @@
        <link rel="import" href="NavBar.php">
     </div>
 
-<seletion id="Home">
+<main id="Home">
 
-    <div id="HomePG1">
+    <section id="HomePG1">
             <h1> Bem-Vindo a Paróquia </h1>
             <h1>São Judas Tadeu</h1>
 <input id="SaoJudas" type="image" src="../../public/assets/images/padroeiro.jpeg">
-    </div>
+    </section>
 
-    <div id="HomePG2">
+    <section id="HomePG2">
         <h1>onde estamos</h1>
             <map id="mapa">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.632573622634!2d-46.55397368502164!3d-23.601648984686803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a5e8b0f6b7b%3A0x8e6f3c4b8c4e4e0a!2sPar%C3%B3quia%20S%C3%A3o%20Judas%20Tadeu!5e0!3m2!1spt-BR!2sbr!4v1696061234567!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <linkwebsite href="">Facebook</linkwebsite>
         <linkwebsite href="">Instagram</linkwebsite>
         <linkwebsite href="">WhatsApp</linkwebsite>
-    </div>
+    </section>
 
-    <div id="HomePG3">
+    <section id="HomePG3">
         <h1>transmissões</h1>
         <p>acompanhe-nos ao vivo no youtube</p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" title="YouTube live stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
-    </div>
+    </section>
 
-    <div id="HomePG4">
-        <h1>notícias</h1>
-        <p>fique por dentro das notícias da paróquia</p>
+    <section id="HomePG4">
+        <h1>horarios</h1>
+        <p>Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
+
         <article>
-            <h2>Título da Notícia 1</h2>
-            <p>Resumo da notícia 1...</p>
-            <a href="#">Leia mais</a>
+            <icon></icon>
+            <h2>missas dominicais</h2>
+            <p>dia:</p>
+            <p>horário:</p>
         </article>
+
         <article>
-            <h2>Título da Notícia 2</h2>
-            <p>Resumo da notícia 2...</p>
-            <a href="#">Leia mais</a>
+            <icon></icon>
+            <h2>missas semanais</h2>
+            <p>dia:</p>
+            <p>horário:</p>
         </article>
-</seletion>
+
+        <article>
+            <icon></icon>
+            <h2>louvor e adoração</h2>
+            <p>dia:</p>
+            <p>horário:</p>
+        </article>
+
+    </section>
+</main>
 
 </body>
 </html>
