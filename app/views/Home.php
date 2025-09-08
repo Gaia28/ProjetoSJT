@@ -35,8 +35,7 @@
     <section id="HomePG3">
         <h1>transmissões</h1>
         <p>acompanhe-nos ao vivo no youtube</p>
-        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" title="YouTube live stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
-    </section>
+        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" title="YouTube live stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>     </section>
 
     <section id="HomePG4">
         <h1>horarios</h1>
