@@ -1,24 +1,93 @@
-body{
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background: rgb(245, 210, 165);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    background-color: #FFE1A8;;
 }
-img{
-    width: 10%;
-}
-.login-container{
-    width: 50%;
+
+.container {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    background: #FFE1A8;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header img {
+    width: 30%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: rgb(146, 15, 15);
+    text-align: center;
+    margin: 0;
+}
+
+.login-container {
+    background-color: rgb(146, 15, 15);
+    padding: 2rem 2rem;
+    color: #FFE1A8;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+    min-width: 320px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #FFE1A8;   
+     font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    background: #f9fafb;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #0984e3;
+    outline: none;
+    background: #fff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background:#FFE1A8;
+    color: rgb(146, 15, 15);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+
 }
