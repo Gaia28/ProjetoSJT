@@ -20,6 +20,17 @@ text-align: center;
     
 }
 
+img.img{
+    display: flex;
+    width: 40%;
+    height: 40%;
+    border: none;
+    border-radius: 5%;
+    align-self: center;
+    align:center
+    
+}
+
 
 section#HomePG3{
     display: relative;
