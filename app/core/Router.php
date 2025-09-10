@@ -13,7 +13,13 @@ class Router
                 break;
 
             case 'admin':
-                require dirname(__DIR__) . '/views/AdminLogin.php';
+                require dirname(__DIR__) . '/controllers/AdminController.php';
+                $controller = new AdminController();
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $controller->processarLogin();
+                } else {
+                    $controller->mostrarLogin();
+                }
                 break;
 
             case 'homeAdmin':
