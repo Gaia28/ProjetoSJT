@@ -7,9 +7,12 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app/core/Router.php';
 
-// Captura a URL da query string
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $url = $_GET['url'] ?? '';
 
-// Instancia e processa a rota
 $router = new Router();
 $router->handle($url);
