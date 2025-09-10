@@ -26,6 +26,10 @@ class Router
                 require dirname(__DIR__) . '/views/HomeAdmin.php';
                 break;
 
+            case 'calendarioParoquial':
+                require dirname(__DIR__) . '/views/CalendarioParoquial.php';
+                break;
+
             default:
                 http_response_code(404);
                 echo "<h1>404 - Página não encontrada</h1>";
