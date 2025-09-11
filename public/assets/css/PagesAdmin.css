@@ -1,0 +1,73 @@
+body {
+ 
+    background-color: #f4f4f4;
+}
+.header {
+    margin: 0;
+    width: 100%;
+    color: #FFE1A8;
+    display: flex;
+    align-items: center;      
+    flex-direction: row;
+    justify-content: flex-start; 
+    padding: 0.5rem 0;
+    gap: 1rem;                
+}
+
+.header img {
+    width: 5rem;
+    height: auto;
+    margin-left: 0.5rem;
+    object-fit: contain;
+}
+
+.header p {
+    font-size: 1rem;
+    color: rgb(146, 15, 15);
+    text-align: left;
+    margin: 0;               
+    padding: 0;
+}
+
+.header nav {
+    margin-left: auto;  
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.header nav a {
+    color: rgb(146, 15, 15);
+    text-decoration: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.containerCalendario {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    
+}
+.containerCalendario h1 {
+    color: rgb(146, 15, 15);
+    margin-top: 1rem;
+}
+.eventos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.evento{
+    width: 20%;
+    height: 30%;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

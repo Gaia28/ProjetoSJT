@@ -13,6 +13,7 @@ class Router
                 break;
 
             case 'admin':
+
                 require dirname(__DIR__) . '/controllers/AdminController.php';
                 $controller = new AdminController();
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,13 +21,16 @@ class Router
                 } else {
                     $controller->mostrarLogin();
                 }
+
                 break;
 
             case 'homeAdmin':
+
                 require dirname(__DIR__) . '/views/HomeAdmin.php';
                 break;
 
             case 'calendarioParoquial':
+                
                 require dirname(__DIR__) . '/views/CalendarioParoquial.php';
                 break;
 
