@@ -50,9 +50,22 @@ body {
     align-items: center;    
     
 }
-.containerCalendario h1 {
+.containerCalendario h1{
     color: rgb(146, 15, 15);
     margin-top: 1rem;
+}
+
+.containerCalendario .botao {
+    background-color: rgb(146, 15, 15);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+ #adicionarEvento{
+    padding: 1rem 2rem;
 }
 .eventos{
     width: 100%;
@@ -68,6 +81,16 @@ body {
     height: 30%;
     padding: 1rem;
     border-radius: 5px;
-    background-color: #fff;
+    color: #FFE1A8;
+    background-color:rgb(146, 15, 15);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.evento .botaoEditar{
+    background-color:#FFE1A8;
+    color: rgb(146, 15, 15);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
 }
