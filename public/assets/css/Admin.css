@@ -142,11 +142,11 @@ button[type="submit"]:hover {
     width: 100%;
     color: #FFE1A8;
     display: flex;
-    align-items: center;      /* Corrigido para centralizar verticalmente */
+    align-items: center;      
     flex-direction: row;
-    justify-content: flex-start; /* Garante alinhamento à esquerda */
+    justify-content: flex-start; 
     padding: 0.5rem 0;
-    gap: 1rem;                /* Espaço entre os itens */
+    gap: 1rem;                
 }
 
 .header img {
@@ -165,7 +165,7 @@ button[type="submit"]:hover {
 }
 
 .header nav {
-    margin-left: auto;        /* Se quiser o nav à direita, senão remova */
+    margin-left: auto;  
     margin-right: 1rem;
     display: flex;
     align-items: center;
@@ -203,5 +203,6 @@ button[type="submit"]:hover {
 .card:hover{
     transform: scale(1.05);
     transition: transform 0.2s;
+    cursor: pointer;
 }
 /*=============== HOME ===================/*/
