@@ -13,7 +13,8 @@
             <h1>Administração <br>São Judas Tádeu</h1>
         </header>
         <section class="login-container" aria-label="Formulário de login administrativo">
-            <form action="homeAdmin" method="POST" autocomplete="username">
+
+            <form action="admin" method="POST" autocomplete="username">
                 <div class="form-group">
                     <label for="username">Usuário:</label>
                     <input type="text" id="username" name="username" required autocomplete="username">
@@ -24,6 +25,7 @@
                 </div>
                 <button type="submit">Entrar</button>
             </form>
+            
         </section>
     </main>
 </body>
