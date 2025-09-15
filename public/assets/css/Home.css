@@ -19,16 +19,47 @@ text-align: center;
     text-size-adjust: auto;
     
 }
-
+linkwebsite{
+    display: inline-block;
+    margin: 2%;
+    padding: 2%;
+    border: none;
+    border-radius: 5%;
+    background-color: #722222;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+margin-top: 22%;
+}
 img.img{
-    display: flex;
-    width: 40%;
+        display: flex;
+    margin-left: 27%;
+    margin-right: 5%;
     height: 40%;
+    width: 45%;
     border: none;
     border-radius: 5%;
     align-self: center;
     
-    
+}
+
+img#fachada{
+margin-bottom: -10%;
+}
+
+iframe#Mapa{
+    display: flex;
+    margin-left: 27%;
+    margin-right: 5%;
+    height: 40%;
+    width: 45%;
+    border: none;
+    border-radius: 5%;
+    align-self: center;
+    margin-bottom: -22%;
 }
 
 
@@ -45,14 +76,13 @@ text-align: center;
 
 iframe#video{
     display: flex;
+    margin-left: 10%;
+    margin-right: 5%;
+    height: 50%;
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 45%;
     border: none;
     border-radius: 5%;
     align-self: center;
-    margin: 20%;
     background-color:#FFE1A8;
 }
 
@@ -66,6 +96,20 @@ text-align: center;
     color: rgb(56, 11, 11);
     text-size-adjust: auto;
 }
+
+article{
+    display: inline-block;
+    width: 25%;
+    height: 50%;
+    margin: 2%;
+    padding: 2%;
+    border: none;
+    border-radius: 5%;
+    background-color: #722222;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
 section#HomePG5{
        display: relative;
     width: 100%;
@@ -77,13 +121,6 @@ text-align: center;
     text-size-adjust: auto;
 }
 
-iframe#Mapa{
-    width: 40%;
-    height: 40%;
-    border: none;
-    border-radius: 5%;
-    align-self: center;
-}
 
 #BoasVindas{
     display: flex;
