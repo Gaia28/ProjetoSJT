@@ -24,7 +24,7 @@ linkwebsite{
     margin: 2%;
     padding: 2%;
     border: none;
-    border-radius: 5%;
+    border-radius: 15%;
     background-color: #722222;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
     text-align: center;
@@ -59,7 +59,7 @@ iframe#Mapa{
     border: none;
     border-radius: 5%;
     align-self: center;
-    margin-bottom: -22%;
+    margin-bottom: -28%;
 }
 
 
@@ -118,7 +118,7 @@ section#HomePG5{
 text-align: center;
     background-color: #FFE1A8;
     color: rgb(56, 11, 11);
-    text-size-adjust: auto;
+    text-size-adjust: 5rem;
 }
 
 
@@ -148,4 +148,42 @@ text-align: center;
     z-index: -1;
     border-radius: 0%;
     filter: brightness(45%);  
+}
+div.linha{
+    border-bottom: none;
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 15%;
+    background-color: antiquewhite;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+button.botoes{
+    display: inline-block;
+    margin: 2%;
+    padding: 2%;
+    border: none;
+    border-radius: 15%;
+    background-color: #722222;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+p{
+    font-size: 1.5em;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    line-height: 1.6;
+}
+
+h1{
+    font-size: 3.0em;
+    margin-bottom: 2%;
+    font-family: 'Hina Mincho', serif;
 }
