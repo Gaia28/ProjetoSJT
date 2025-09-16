@@ -78,7 +78,8 @@ body {
 }
 .evento{
     width: 20%;
-    height: 30%;
+    height: auto;
+    max-height: 40%;
     padding: 1rem;
     border-radius: 5px;
     color: #FFE1A8;
