@@ -11,7 +11,7 @@
 
   <!-- Seção de boas-vindas -->
   <section id="BoasVindas" class="section-padrao section-full">
-    <h1>Bem-Vindo à Paróquia Santuário São Judas Tadeu</h1>
+    <h1>Bem-Vindo à Paróquia Santuário <br>São Judas Tadeu</h1>
     <img id="SaoJudas" src="public/assets/images/padroeiro.jpeg" alt="Imagem de São Judas Tadeu">
   </section>
 
@@ -76,13 +76,15 @@
   <!-- Sobre nós -->
   <section id="HomePG5" class="section-padrao">
     <div class="linha">
-      <h1>Sobre nós</h1>
       <img class="img" src="public/assets/images/cristo.jpeg" alt="Imagem de Cristo">
+     <div class="itens-direita"> 
+         <h1>Sobre nós</h1>
       <p>A paróquia- santuário São Judas Tadeu, localizada no bairro da Condor, o santo conhecido
 como padroeiro das causas impossíveis e desesperadas é também o padroeiro do
 funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrará seu jubileu de
 70 anos de fundação. </p>
     </div> 
+     </div>
   </section>
 
 </main>
