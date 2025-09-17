@@ -1,189 +1,220 @@
 @import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
-main#home{
+
+:root {
+    --cor-fundo: #FFE1A8;
+    --cor-primaria: #722222;
+    --cor-texto: #381111;
+}
+
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: rgb(245, 210, 165);
-    color: rgb(56, 11, 11);
-    
 }
 
-section#HomePG2{
-    display: relative;
+body {
+    font-family: 'Hina Mincho', serif;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* Seções */
+.section-padrao {
     width: 100%;
-    height: 100vh; 
-    align-items: center;
-text-align: center;
-    background-color: #FFE1A8;
-    color: rgb(56, 11, 11);
-    text-size-adjust: auto;
-    
-}
-linkwebsite{
-    display: inline-block;
-    margin: 2%;
-    padding: 2%;
-    border: none;
-    border-radius: 15%;
-    background-color: #722222;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-margin-top: 22%;
-}
-img.img{
-        display: flex;
-    margin-left: 27%;
-    margin-right: 5%;
-    height: 40%;
-    width: 45%;
-    border: none;
-    border-radius: 5%;
-    align-self: center;
-    
-}
-
-img#fachada{
-margin-bottom: -10%;
-}
-
-iframe#Mapa{
+    min-height: 100vh;
     display: flex;
-    margin-left: 27%;
-    margin-right: 5%;
-    height: 40%;
-    width: 45%;
-    border: none;
-    border-radius: 5%;
-    align-self: center;
-    margin-bottom: -28%;
-}
-
-
-section#HomePG3{
-    display: relative;
-    width: 100%;
-    height: 100vh; 
-    align-items: center;
-text-align: center;
-    background-color: #FFE1A8;
-    color: rgb(56, 11, 11);
-    text-size-adjust: auto;
-}
-
-iframe#video{
-    display: flex;
-    margin-left: 10%;
-    margin-right: 5%;
-    height: 50%;
-    width: 80%;
-    border: none;
-    border-radius: 5%;
-    align-self: center;
-    background-color:#FFE1A8;
-}
-
-section#HomePG4{
-    display: relative;
-    width: 100%;
-    height: 100vh; 
-    align-items: center;
-text-align: center;
-    background-color: #FFE1A8;
-    color: rgb(56, 11, 11);
-    text-size-adjust: auto;
-}
-
-article{
-    display: inline-block;
-    width: 25%;
-    height: 50%;
-    margin: 2%;
-    padding: 2%;
-    border: none;
-    border-radius: 5%;
-    background-color: #722222;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-}
-
-section#HomePG5{
-       display: relative;
-    width: 100%;
-    height: 100vh; 
-    align-items: center;
-text-align: center;
-    background-color: #FFE1A8;
-    color: rgb(56, 11, 11);
-    text-size-adjust: 5rem;
-}
-
-
-#BoasVindas{
-    display: flex;
-    width: 100%;
-    height: 100vh;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    position: relative; 
-    overflow: hidden;
-    
+    text-align: center;
 }
-#BoasVindas h1{
+
+.section-full {
+    position: relative;
+    flex-direction: column;
+    color: var(--cor-fundo);
+}
+
+.section-full h1 {
     font-size: 3em;
     z-index: 1;
-    color: #FFE1A8;
-    text-align: center;
-    font-family: 'Hina Mincho', serif;
 }
-#SaoJudas{
+
+#SaoJudas {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: fixed;
     z-index: -1;
-    border-radius: 0%;
-    filter: brightness(45%);  
-}
-div.linha{
-    border-bottom: none;
-    width: 80%;
-    height: 100%;
-    margin-left: 10%;
-    margin-right: 15%;
-    background-color: antiquewhite;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    filter: brightness(45%);
 }
 
-button.botoes{
+#HomePG2 .linha {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5%;
+}
+
+.itens-esquerda {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.itens-esquerda h1 {
+    font-size: 4em;
+}
+
+.links-sociais {
+    display: flex;
+    gap: 20px;
+    ;
+}
+
+/* Containers */
+.linha {
+    width: 100%;
+    min-height: 100dvh;
+    padding: 5%;
+    background: #fff8ee;
+}
+
+.links-sociais a {
     display: inline-block;
-    margin: 2%;
-    padding: 2%;
-    border: none;
-    border-radius: 15%;
-    background-color: #722222;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
+    margin: 0 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background: var(--cor-primaria);
+    color: #fff;
     text-decoration: none;
-    color: white;
     font-weight: bold;
-    font-size: 1.2em;
 }
 
-p{
-    font-size: 1.5em;
+.links-sociais a:hover {
+    background: #501717;
+}
+
+#HomePG3 .linha {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    line-height: 1.6;
+    
 }
 
-h1{
-    font-size: 3.0em;
-    margin-bottom: 2%;
+#HomePG3 h1 {
+    font-size: 4em;
+}
+
+#HomePG3 p {
+    font-size: 1.5rem;
+}
+
+#HomePG3 #video {
+    width: 70%;
+    height: 70vh;
+    border-radius: 12px;
+}
+
+#HomePG4 .linha {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+#HomePG4 h1 {
+    font-size: 4em;
+}
+
+#HomePG4 p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Imagens */
+.img,
+iframe {
+    width: 60%;
+    height: auto;
+    margin: 1.5rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: rgba(110, 4, 4, 0.35) 0px 5px 15px;
+}
+
+.icon {
+    width: 4%;
+    height: auto;
+    margin: 1.5rem auto 0 auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Cards de eventos */
+.eventos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1 1 250px;
+    background: var(--cor-primaria);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    background: var(--cor-primaria);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
     font-family: 'Hina Mincho', serif;
+
+}
+
+.btn:hover {
+    background: #501717;
+}
+
+/* Tipografia */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
