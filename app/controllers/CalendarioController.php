@@ -13,7 +13,7 @@ class CalendarioParoquial {
 
         $titulo = $_POST['titulo'];
         $dia = $_POST['dia_semana'];
-        $tipo = $_POST['tipo']; // melhor usar select no form
+        $tipo = $_POST['tipo']; 
         $hora = $_POST['horario'];
 
         try {
