@@ -32,6 +32,47 @@ body {
     font-size: 1.5em;
     
 }
+.scroll-mouse {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    position: relative;
+    background: rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    margin-bottom: 8px;
+}
+
+.wheel {
+    width: 6px;
+    height: 14px;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    transform: translateX(-50%);
+    animation: wheelMove 1.5s infinite;
+    opacity: 0.8;
+}
+
+@keyframes wheelMove {
+    0% { top: 14px; opacity: 0.8; }
+    50% { top: 32px; opacity: 0.3; }
+    100% { top: 14px; opacity: 0.8; }
+}
+
 
 .section-full {
     position: relative;
@@ -87,6 +128,7 @@ body {
     min-height: 100dvh;
     padding: 5%;
     background: #fff8ee;
+
 }
 
 .links-sociais a {
@@ -112,7 +154,7 @@ body {
 }
 
 #HomePG3 h1 {
-    font-size: 4em;
+    font-size: 3em;
 }
 
 #HomePG3 p {
@@ -129,15 +171,16 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding: 10%;
 }
 
 
 #HomePG4 h1 {
-    font-size: 4em;
+    font-size: 3em;
 }
 
 #HomePG4 p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 20px;
 }
 
@@ -160,7 +203,7 @@ body {
 }
 
 #HomePG5 .itens-direita h1 {
-    font-size: 4em;
+    font-size: 3em;
 }
 #HomePG5 .itens-direita p {
     font-size: 1.2rem;
@@ -204,10 +247,11 @@ iframe {
 }
 
 .card {
-    flex: 1 1 250px;
+    flex: 1 1 16%;
+    height: auto;
     background: var(--cor-primaria);
     color: #fff;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
