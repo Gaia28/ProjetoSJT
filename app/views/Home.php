@@ -13,6 +13,10 @@
   <section id="BoasVindas" class="section-padrao section-full">
     <h1>Bem-Vindo à Paróquia Santuário <br>São Judas Tadeu</h1>
     <img id="SaoJudas" src="public/assets/images/padroeiro.jpeg" alt="Imagem de São Judas Tadeu">
+    <div class="scroll-mouse">
+      <div class="mouse">
+          <div class="wheel"></div>
+      </div>
   </section>
 
   <?php include 'NavBar.php'; ?>
@@ -86,6 +90,15 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     </div> 
      </div>
   </section>
+
+  <section id="HomePG6" class="section-padrao">
+    <div class="linha">
+      <h1>liturgia diária</h1>
+      <?php include 'app/controllers/LiturgiaController.php'; 
+      $liturgiaController = new LiturgiaController();
+      $liturgia = $liturgiaController->mostrarLiturgia();
+      ?>
+    </div>
 
 </main>
     <script src="public/assets/js/navegacao.js"></script>
