@@ -1,81 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/assets/css/Home.css"> 
-
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="public/assets/css/Home.css"> 
 </head>
 <body>
-    
 <main id="Home">
 
-    <section id="BoasVindas">
-            <h1> Bem-Vindo à Paróquia Santuário São Judas Tadeu</h1>
-            <img id ="SaoJudas" src="../../public/assets/images/padroeiro.jpeg" alt = "Imagem de São Judas Tadeu">
-    </section>
+  <!-- Seção de boas-vindas -->
+  <section id="BoasVindas" class="section-padrao section-full">
+    <h1>Bem-Vindo à Paróquia Santuário São Judas Tadeu</h1>
+    <img id="SaoJudas" src="public/assets/images/padroeiro.jpeg" alt="Imagem de São Judas Tadeu">
+  </section>
 
-    <?php include 'NavBar.php'; ?>
+  <?php include 'NavBar.php'; ?>
 
-    <section class="Pages" id="HomePG2">
-        <div class="linha"> 
-            <h1>Paróquia Santuário <br>São Judas Tadeu</h1>
-                <iframe id="Mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.632573622634!2d-46.55397368502164!3d-23.601648984686803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a5e8b0f6b7b%3A0x8e6f3c4b8c4e4e0a!2sPar%C3%B3quia%20S%C3%A3o%20Judas%20Tadeu!5e0!3m2!1spt-BR!2sbr!4v1696061234567!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></br>
-        <img class="img" id="fachada" src="../../public/assets/images/fachada.jpeg" alt="">
-        <linkwebsite href="">Facebook</linkwebsite>
-        <linkwebsite href="">Instagram</linkwebsite>
-        <linkwebsite href="">WhatsApp</linkwebsite>
+  <!-- Sobre a paróquia -->
+  <section id="HomePG2" class="section-padrao">
+    <div class="linha"> 
+
+     
+    <div class="itens-esquerda">
+        <h1>Paróquia Santuário São Judas Tadeu</h1>
+        <button id="mostrarMapa" class="btn">Encontre-nos</button>
+      <div class="links-sociais">
+        <img src="public/assets/images/whatsapp.png" alt="whatsapp">
+        <img src="public/assets/images/facebook.png" alt="facebook">
+        <img src="public/assets/images/instagram.png" alt="instagram">
+      </div>
+       
         </div>
-    </section>
+      <img class="img" id="fachada" src="public/assets/images/fachada.jpeg" alt="Fachada da igreja">
+    </div>
+  </section>
 
-    <section id="HomePG3">
-        <div class="linha"> 
-        <h1>transmissões</h1></br>
-        <p>acompanhe-nos ao vivo no youtube</p></br>
-        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" title="YouTube live stream" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></br>  
-        </div>  
-         </section>
+  <!-- Transmissões -->
+  <section id="HomePG3" class="section-padrao">
+    <div class="linha"> 
+        <img class="icon" id="igreja" src="public/assets/images/youtube.png" alt="youTube"> 
+      <h1>Transmissões</h1>
+      <p>Acompanhe-nos ao vivo no YouTube</p>
+<iframe id="video" src="https://www.youtube.com/embed/WrllCjOtjCM?si=VNgiuDFX0Di9z7-q" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
+</div>  
+  </section>
 
-    <section id="HomePG4">
-<div class="linha">        
-        
-        <h1>horarios</h1></br>
-        <p>Participe de nossas celebrações e fortaleça sua fé em comunidade</p></br>
+  <!-- Programação -->
+  <section id="HomePG4" class="section-padrao">
+    <div class="linha">  
+        <img class="icon" src="public/assets/images/calendario.png" alt="">      
+      <h1>Calendário Paroquial</h1>
+      <p>Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
 
-        <article id="artigo1">
-            <icon></icon>
-            <h2>missas dominicais</h2>
-            <p>dia:</p>
-            <p>horário:</p>
-        </article>
+      <div class="eventos">
+        <?php if (!empty($eventos)): ?>
+          <?php foreach ($eventos as $evento): ?>
+            <article class="card">
+              <h2><?= htmlspecialchars($evento['titulo']) ?></h2>
+              <p><strong>Tipo:</strong> <?= htmlspecialchars($evento['tipo']) ?></p>
+              <p><strong>Dia:</strong> <?= htmlspecialchars($evento['dia_semana']) ?></p>
+              <p><strong>Horário:</strong> <?= htmlspecialchars($evento['horario']) ?></p>
+            </article>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p>Nenhum evento cadastrado no momento.</p>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
 
-        <article id="artigo2">
-            <icon></icon>
-            <h2>missas semanais</h2>
-            <p>dia:</p>
-            <p>horário:</p>
-        </article>
+  <!-- Sobre nós -->
+  <section id="HomePG5" class="section-padrao">
+    <div class="linha">
+      <h1>Sobre nós</h1>
+      <img class="img" src="public/assets/images/cristo.jpeg" alt="Imagem de Cristo">
+      <p>A paróquia- santuário São Judas Tadeu, localizada no bairro da Condor, o santo conhecido
+como padroeiro das causas impossíveis e desesperadas é também o padroeiro do
+funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrará seu jubileu de
+70 anos de fundação. </p>
+    </div> 
+  </section>
 
-        <article id="artigo3">
-            <icon></icon>
-            <h2>louvor e adoração</h2>
-            <p>dia:</p>
-            <p>horário:</p>
-        </article>
-</div>
-    </section>
-    <section id="HomePG5">
-        <div class="linha">
-        <h1>sobre nós</h1></br>
-        <img class="img" src="../../public/assets/images/cristo.jpeg" alt="">
-        <p>A Paróquia São Judas Tadeu é uma comunidade vibrante e acolhedora, dedicada a promover a fé, a esperança e o amor entre seus membros. Fundada em [ano de fundação], nossa paróquia tem sido um pilar espiritual na região, oferecendo uma variedade de serviços religiosos, programas educacionais e atividades comunitárias.</p>
-        <button class="botoes">saiba mais</button>
-    <section> 
-        </div> 
 </main>
-
+    <script src="public/assets/js/navegacao.js"></script>
 </body>
 </html>
-
