@@ -68,23 +68,23 @@ body {
     padding: 1rem 2rem;
 }
 .eventos{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
+
+  display: flex;
     flex-wrap: wrap;
-    margin-top: 1rem;
-    padding: 1rem;
+    justify-content: center;
+    gap: 1rem;
 }
 .evento{
-    width: 20%;
+     flex: 1 1 16%;
     height: auto;
-    max-height: 40%;
+    background: var(--cor-primaria);
+    color: #fff;
     padding: 1rem;
-    border-radius: 5px;
-    color: #FFE1A8;
-    background-color:rgb(146, 15, 15);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color:  rgb(146, 15, 15);
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
 }
 .evento .botaoEditar{
     background-color:#FFE1A8;

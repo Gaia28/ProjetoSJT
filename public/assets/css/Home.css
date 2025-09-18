@@ -100,8 +100,10 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    color: #501717;
     padding: 5%;
 }
+
 
 .itens-esquerda {
     display: flex;
@@ -236,6 +238,10 @@ iframe {
     margin: 1.5rem auto 0 auto;
     display: block;
     border-radius: 8px;
+}
+#whatsapp, #instagram, #facebook {
+    cursor: pointer;
+    
 }
 
 /* Cards de eventos */
