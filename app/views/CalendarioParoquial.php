@@ -80,8 +80,8 @@
                 
 
         </section>
-
-        <script src="public/assets/js/modal.js"></script>
+    <script src="public/assets/js/navegacao.js"></script>
+    <script src="public/assets/js/modal.js"></script>
 
 </body>
 </html>
