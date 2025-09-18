@@ -30,9 +30,9 @@
         <h1>Paróquia Santuário São Judas Tadeu</h1>
         <button id="mostrarMapa" class="btn">Encontre-nos</button>
       <div class="links-sociais">
-        <img src="public/assets/images/whatsapp.png" alt="whatsapp">
-        <img src="public/assets/images/facebook.png" alt="facebook">
-        <img src="public/assets/images/instagram.png" alt="instagram">
+        <img id="whatsapp" src="public/assets/images/whatsapp.png" alt="whatsapp">
+        <img id="facebook" src="public/assets/images/facebook.png" alt="facebook">
+        <img id="instagram" src="public/assets/images/instagram.png" alt="instagram">
       </div>
        
         </div>
