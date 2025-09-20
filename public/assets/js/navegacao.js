@@ -2,7 +2,7 @@ const cards = [
     { id: 'calendario-paroquial', url: 'calendarioParoquial' },
     { id: 'gerenciar-eventos', url: '/admin/eventos' },
     { id: 'gerenciar-usuarios', url: '/admin/usuarios' },
-    { id: 'gerenciar-sacramentos', url: '/admin/sacramentos' }
+    { id: 'gerenciar-sacramentos', url: 'sacramentos' }
 ];
 
 cards.forEach(card => {
