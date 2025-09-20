@@ -71,8 +71,25 @@ class Router
                     case "sacramentos":
                         require dirname(__DIR__) . '/controllers/SacramentosController.php';
                         $sacramentosController = new SacramentosController();
+                       if($_SERVER['REQUEST_METHOD'] ==='POST'){
+                        $sacramentosController->cadastrarSacramento();
+                       }else{
                         $sacramentosController->mostrarSacramentos();
+                       }
                         break;
+
+                        case 'editarSacramento':
+                            require dirname(__DIR__) . '/controllers/SacramentosController.php';
+                            $ctrl = new SacramentosController();
+                            $ctrl->editarSacramento();
+                            break;
+
+                        case 'deletarSacramento':
+                            require dirname(__DIR__) . '/controllers/SacramentosController.php';
+                            $ctrl = new SacramentosController();
+                            $ctrl->deletarSacramento();
+                            break;
+
 
 
             default:
