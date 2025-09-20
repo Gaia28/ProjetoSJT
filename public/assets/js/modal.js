@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Abrir/Fechar Modal "Adicionar Evento"
     // ========================
     const btAdcionarEvento = document.getElementById("adicionarEvento");
+    const btAdcionarSacramentos = document.getElementById("adicionarSacramentos");
     const modal = document.getElementById("modalEvento");
     const btFecharModal = document.getElementById("modalEvento");
 
@@ -14,6 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
         btFecharModal.addEventListener("click", () => modal.close());
     }
 
+    if (btAdcionarSacramentos && modal) {
+        btAdcionarSacramentos.addEventListener("click", () => modal.showModal());
+    }
+     
     // ========================
     // Editar Evento
     // ========================
@@ -34,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
             modalEditar.showModal();
         });
     });
+
+    
 
     // ========================
     // Excluir Evento
@@ -65,4 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+     // ========================
+    // Abrir/Fechar Modal "Adicionar Sacramento"
+    // ========================
+    const btAdicionarSacramento = document.getElementById("adicionarSacramento");
+    const modalSacramento = document.getElementById("modalSacramento");
+    const btFecharSacramento = modalSacramento.querySelector(".fecharModal");
+
+    if (btAdicionarSacramento && modalSacramento) {
+        btAdicionarSacramento.addEventListener("click", () => modalSacramento.showModal());
+    }
+
+    if (btFecharSacramento && modalSacramento) {
+        btFecharSacramento.addEventListener("click", () => modalSacramento.close());
+    }
 });
