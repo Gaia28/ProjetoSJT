@@ -17,12 +17,12 @@
             </nav>
         </header>
 
-        <section class="containerCalendario">
+        <section class="container">
             <h1>Calendário Paroquial</h1>
             <p style="color: rgb(146, 15, 15);">Gerencie o calendário da igreja aqui.</p>
 
                 <button class="botao" id="adicionarEvento">Adicionar Evento</button>
-                <dialog id="modalEvento" class="modalEvento">
+                <dialog id="modalAdicionarEvento" class="modalEvento">
                     <p class="fecharModal">X</p>
 
                 <form action="calendarioParoquial" method="POST">
@@ -63,7 +63,7 @@
             </form>
                 </dialog>
 
-        <dialog id="modalEditar" class="modalEvento">
+        <dialog id="modalEditarEvento" class="modalEvento">
                     <p id="btFecharModalEditar" class="fecharModal">X</p>
     <form action="editarEvento" method="POST">
         <input type="hidden" id="editar_id" name="id">
@@ -105,10 +105,10 @@
     </form>
 </dialog>
 
-               <div class="eventos">
+               <div class="cards">
     <?php if (!empty($eventos)): ?>
         <?php foreach ($eventos as $evento): ?>
-            <div class="evento">
+            <div class="card">
     <img src="public/assets/images/lixeira.png" alt="Excluir evento" class="botaoExcluir" data-id="<?= $evento['id'] ?>">
     <h3 class="titulo"><?= htmlspecialchars($evento['titulo']) ?></h3>
     <p class="tipo"><?= htmlspecialchars($evento['tipo']) ?></p>
