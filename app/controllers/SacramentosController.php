@@ -46,7 +46,6 @@ class SacramentosController {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
         $nome = $_POST['nome'];
-        $tipo = $_POST['tipo'];
         $valor = $_POST['valor'];
         $documentos = $_POST['documentos'];
 
@@ -55,18 +54,20 @@ class SacramentosController {
             $db = $conn->getConnection();
 
             $sql = "UPDATE sacramentos 
-                    SET nome = :nome, tipo = :tipo, valor = :valor, documentos = :documentos 
+                    SET nome = :nome, valor = :valor, descricao = :documentos 
                     WHERE id = :id";
             $stmt = $db->prepare($sql);
             $stmt->execute([
                 ':nome' => $nome,
-                ':tipo' => $tipo,
                 ':valor' => $valor,
                 ':documentos' => $documentos,
                 ':id' => $id
             ]);
 
-            echo json_encode(["success" => true]);
+            if($stmt->rowCount() > 0) {
+                echo '<script>alert("Sacramento atualizado com sucesso!"); window.location.href = "sacramentos";</script>';
+                exit();
+            }
         } catch (Exception $e) {
             echo json_encode(["success" => false, "message" => $e->getMessage()]);
         }
@@ -85,7 +86,6 @@ public function deletarSacramento() {
             $stmt = $db->prepare($sql);
             $stmt->execute([":id" => $id]);
 
-            echo json_encode(["success" => true]);
         } catch (Exception $e) {
             echo json_encode(["success" => false, "message" => $e->getMessage()]);
         }

@@ -24,8 +24,6 @@
   <!-- Sobre a paróquia -->
   <section id="HomePG2" class="section-padrao">
     <div class="linha"> 
-
-     
     <div class="itens-esquerda">
         <h1>Paróquia Santuário São Judas Tadeu</h1>
         <button id="mostrarMapa" class="btn">Encontre-nos</button>
@@ -39,7 +37,18 @@
       <img class="img" id="fachada" src="public/assets/images/fachada.jpeg" alt="Fachada da igreja">
     </div>
   </section>
-
+<section id="HomePG5" class="section-padrao">
+    <div class="linha">
+      <img class="img" src="public/assets/images/cristo.jpeg" alt="Imagem de Cristo">
+     <div class="itens-direita"> 
+         <h1>Sobre nós</h1>
+      <p>A paróquia- santuário São Judas Tadeu, localizada no bairro da Condor, o santo conhecido
+como padroeiro das causas impossíveis e desesperadas é também o padroeiro do
+funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrará seu jubileu de
+70 anos de fundação. </p>
+    </div> 
+     </div>
+  </section>
   <!-- Transmissões -->
   <section id="HomePG3" class="section-padrao">
     <div class="linha"> 
@@ -77,28 +86,27 @@
     </div>
   </section>
 
-  <!-- Sobre nós -->
-  <section id="HomePG5" class="section-padrao">
-    <div class="linha">
-      <img class="img" src="public/assets/images/cristo.jpeg" alt="Imagem de Cristo">
-     <div class="itens-direita"> 
-         <h1>Sobre nós</h1>
-      <p>A paróquia- santuário São Judas Tadeu, localizada no bairro da Condor, o santo conhecido
-como padroeiro das causas impossíveis e desesperadas é também o padroeiro do
-funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrará seu jubileu de
-70 anos de fundação. </p>
-    </div> 
-     </div>
-  </section>
 
   <section id="HomePG6" class="section-padrao">
     <div class="linha">
-      <h1>liturgia diária</h1>
-      <?php include 'app/controllers/LiturgiaController.php'; 
-      $liturgiaController = new LiturgiaController();
-      $liturgia = $liturgiaController->mostrarLiturgia();
-      ?>
+      <h1>Liturgia diária</h1>
+
+      <div class="liturgia-container">
+        <?php include 'app/controllers/LiturgiaController.php'; 
+        $liturgiaController = new LiturgiaController();
+        $liturgia = $liturgiaController->mostrarLiturgia();
+        ?>
+      </div>
     </div>
+
+    <section class="section-padrao">
+          <div class="linha">
+            <div class="itens-esquerda">
+              <p>teste</p>
+                <img id="qrcode" src="public/assets/images/QRcode.png" alt="">
+            </div>
+          </div>
+    </section>
 
 </main>
     <script src="public/assets/js/navegacao.js"></script>

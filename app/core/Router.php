@@ -68,6 +68,12 @@ class Router
                         $liturgiaController = new LiturgiaController();
                         $liturgiaController->mostrarLiturgia();
                         break;
+
+                        case 'nossosSacramentos':
+                            require dirname(__DIR__) . '/views/HomeSacramento.php';
+                        
+                            break;
+
                     case "sacramentos":
                         require dirname(__DIR__) . '/controllers/SacramentosController.php';
                         $sacramentosController = new SacramentosController();

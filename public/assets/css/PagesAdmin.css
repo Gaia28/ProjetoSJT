@@ -133,6 +133,7 @@ body {
   padding: 20px 30px;
   max-width: 450px;
   width: 90%;
+  text-align: left; /* força alinhamento à esquerda */
   box-shadow: 0 5px 25px rgba(0,0,0,0.3);
   background: #fff;
   animation: aparecer 0.3s ease-out;
@@ -155,6 +156,7 @@ body {
   color: #c00;
 }
 
+
 .modalEvento .form-group {
   margin-bottom: 15px;
   text-align: left;
@@ -174,6 +176,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
 
 .modalEvento button[type="submit"] {
   background: #501717;

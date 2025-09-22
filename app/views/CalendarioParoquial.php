@@ -64,7 +64,9 @@
                 </dialog>
 
         <dialog id="modalEditarEvento" class="modalEvento">
-                    <p id="btFecharModalEditar" class="fecharModal">X</p>
+            <p id="btFecharModalEditar" class="fecharModal">X</p>
+            <h2>Editar calendário</h2>
+
     <form action="editarEvento" method="POST">
         <input type="hidden" id="editar_id" name="id">
 

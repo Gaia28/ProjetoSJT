@@ -2,8 +2,8 @@
 
 :root {
     --cor-fundo: #FFE1A8;
-    --cor-primaria: #722222;
-    --cor-texto: #381111;
+    --cor-primaria: rgb(146, 15, 15); /* Alterado aqui */
+    --cor-texto:  rgb(146, 15, 15);
 }
 
 /* Reset básico */
@@ -28,10 +28,11 @@ body {
     align-items: center;
     text-align: center;
 }
+
 #BoasVindas {
     font-size: 1.5em;
-    
 }
+
 .scroll-mouse {
     position: absolute;
     left: 50%;
@@ -73,7 +74,6 @@ body {
     100% { top: 14px; opacity: 0.8; }
 }
 
-
 .section-full {
     position: relative;
     flex-direction: column;
@@ -100,10 +100,9 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    color: #501717;
+    color:  rgb(146, 15, 15);
     padding: 5%;
 }
-
 
 .itens-esquerda {
     display: flex;
@@ -121,16 +120,13 @@ body {
 .links-sociais {
     display: flex;
     gap: 20px;
-    ;
 }
 
-/* Containers */
 .linha {
     width: 100%;
     min-height: 100dvh;
     padding: 5%;
     background: #fff8ee;
-
 }
 
 .links-sociais a {
@@ -152,7 +148,6 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    
 }
 
 #HomePG3 h1 {
@@ -175,7 +170,6 @@ body {
     text-align: center;
     padding: 10%;
 }
-
 
 #HomePG4 h1 {
     font-size: 3em;
@@ -207,12 +201,14 @@ body {
 #HomePG5 .itens-direita h1 {
     font-size: 3em;
 }
+
 #HomePG5 .itens-direita p {
     font-size: 1.2rem;
     line-height: 1.6;
     text-align: justify;
     margin-top: 20px;
 }
+
 #HomePG5 .img {
     width: 100%;
     height: auto;
@@ -220,7 +216,36 @@ body {
     box-shadow: rgba(110, 4, 4, 0.35) 0px 5px 15px;
 }
 
-
+.liturgia-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--cor-primaria);
+    color: var(--cor-fundo);
+    border-radius: 8px;
+    box-shadow: rgba(110, 4, 4, 0.35) 0px 5px 15px;
+    text-align: left;
+}
+#HomePG6 .linha h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.liturgia-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.liturgia-container #titulo  {
+    text-align: center;
+}
+.liturgia-container p{
+    font-size: 1.5rem;
+}
+#qrcode{
+    width: 50%;
+    height: auto;
+}
 /* Imagens */
 .img,
 iframe {
@@ -239,9 +264,9 @@ iframe {
     display: block;
     border-radius: 8px;
 }
+
 #whatsapp, #instagram, #facebook {
     cursor: pointer;
-    
 }
 
 /* Cards de eventos */
@@ -289,7 +314,6 @@ iframe {
     font-weight: bold;
     cursor: pointer;
     font-family: 'Hina Mincho', serif;
-
 }
 
 .btn:hover {

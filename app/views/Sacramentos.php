@@ -44,17 +44,14 @@
             </form>
         </dialog>
 
-        <dialog id="modalEditarSacramento" class="modalSacramento">
+        <dialog id="modalEditarSacramento" class="modalEvento">
     <p class="fecharModal" id="fecharEditar">X</p>
     <h2>Editar Sacramento</h2>
-    <form id="formEditarSacramento" method="POST">
+    <form id="formEditarSacramento" action="editarSacramento" method="POST">
         <input type="hidden" name="id" id="editarId">
 
         <label for="editarNome">Nome:</label>
         <input type="text" name="nome" id="editarNome" required>
-
-        <label for="editarTipo">Tipo:</label>
-        <input type="text" name="tipo" id="editarTipo" required>
 
         <label for="editarValor">Valor:</label>
         <input type="number" name="valor" id="editarValor" required>
