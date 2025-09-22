@@ -13,66 +13,120 @@
             </div>
             <p>Paróquia Santuário São Judas Tadeu</p>
             <nav>
-                <a href="#">Voltar</a>
+                <a href="homeAdmin">Voltar</a>
             </nav>
         </header>
 
-        <section class="containerCalendario">
+        <section class="container">
             <h1>Calendário Paroquial</h1>
             <p style="color: rgb(146, 15, 15);">Gerencie o calendário da igreja aqui.</p>
 
                 <button class="botao" id="adicionarEvento">Adicionar Evento</button>
-                <dialog id="modalEvento">
+                <dialog id="modalAdicionarEvento" class="modalEvento">
+                    <p class="fecharModal">X</p>
 
-                    <form method="post" action="#" class="formEvento">
-                        <h2>Adicionar Evento</h2>
-                        <label for="titulo">Título:</label>
+                <form action="calendarioParoquial" method="POST">
+                    <div class="form-group">
+                        <label for="titulo">Título do evento:</label>
                         <input type="text" id="titulo" name="titulo" required>
+                    </div>
 
-                        <label for="dia da semana">Dia da Semana:</label>
-                        <input type="text" id="dia da semana" name="dia da semana" required>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de evento:</label>
+                        <select name="tipo" id="tipo" required>
+                            <option value="Missa">Missa</option>
+                            <option value="Grupo de oração">Grupo de oração</option>
+                            <option value="Louvor e Adoração">Louvor e Adoração</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
 
-                        <label for="hora">Hora:</label>
-                        <input type="time" id="hora" name="hora" required> 
-                        <div class="botoes">
-                            <button class="botao" type="submit">Salvar</button>
-                            <button class="botao" type="button" id="fecharModal">Cancelar</button>
-                        </div>
-                    </form>
+                    <div class="form-group">
+                        <label for="dia_semana">Dia da semana:</label>
+                        <select name="dia_semana" id="dia_semana" required>
+                            <option value="Domingo">Domingo</option>
+                            <option value="Segunda">Segunda</option>
+                            <option value="Terça">Terça</option>
+                            <option value="Quarta">Quarta</option>
+                            <option value="Quinta">Quinta</option>
+                            <option value="Sexta">Sexta</option>
+                            <option value="Sábado">Sábado</option>
+                        </select>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="horario">Horário:</label>
+                        <input type="time" id="horario" name="horario" required>
+                    </div>
+
+                    <button type="submit">Cadastrar</button>
+            </form>
                 </dialog>
-                <div class="eventos">
-                    <div class="evento">
-                        <h3>Evento 1</h3>
-                        <p>Data: 10/10/2024</p>
-                        <p>Descrição: Descrição do evento 1.</p>
-                        <button class="botaoEditar ">Editar</button>
-                    </div>
-                    <div class="evento">
-                        <h3>Evento 2</h3>
-                        <p>Data: 15/10/2024</p>
-                        <p>Descrição: Descrição do evento 2.</p>
-                        <button class="botaoEditar">Editar</button>
-                    </div>
-                    <div class="evento">
-                        <h3>Evento 3</h3>
-                        <p>Data: 20/10/2024</p>
-                        <p>Descrição: Descrição do evento 3.</p>
-                        <button class="botaoEditar">Editar</button>
-                    </div>
-                    <div class="evento">
-                        <h3>Evento 4</h3>
-                        <p>Data: 20/10/2024</p>
-                        <p>Descrição: Descrição do evento 3.</p>
-                        <button class="botaoEditar">Editar</button>
-                    </div>
-                    
-                </div>
+
+        <dialog id="modalEditarEvento" class="modalEvento">
+                    <p id="btFecharModalEditar" class="fecharModal">X</p>
+    <form action="editarEvento" method="POST">
+        <input type="hidden" id="editar_id" name="id">
+
+        <div class="form-group">
+            <label for="editar_titulo">Título do evento:</label>
+            <input type="text" id="editar_titulo" name="titulo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="editar_tipo">Tipo de evento:</label>
+            <select name="tipo" id="editar_tipo" required>
+                <option value="Missa">Missa</option>
+                <option value="Grupo de oração">Grupo de oração</option>
+                <option value="Louvor e Adoração">Louvor e Adoração</option>
+                <option value="Outros">Outros</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="editar_dia">Dia da semana:</label>
+            <select name="dia_semana" id="editar_dia" required>
+                <option value="Domingo">Domingo</option>
+                <option value="Segunda">Segunda</option>
+                <option value="Terça">Terça</option>
+                <option value="Quarta">Quarta</option>
+                <option value="Quinta">Quinta</option>
+                <option value="Sexta">Sexta</option>
+                <option value="Sábado">Sábado</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="editar_hora">Horário:</label>
+            <input type="time" id="editar_hora" name="horario" required>
+        </div>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+</dialog>
+
+               <div class="cards">
+    <?php if (!empty($eventos)): ?>
+        <?php foreach ($eventos as $evento): ?>
+            <div class="card">
+    <img src="public/assets/images/lixeira.png" alt="Excluir evento" class="botaoExcluir" data-id="<?= $evento['id'] ?>">
+    <h3 class="titulo"><?= htmlspecialchars($evento['titulo']) ?></h3>
+    <p class="tipo"><?= htmlspecialchars($evento['tipo']) ?></p>
+    <p class="dia">Dia da semana: <?= htmlspecialchars($evento['dia_semana']) ?></p>
+    <p class="hora">Horário: <?= htmlspecialchars($evento['horario']) ?></p>
+    <p class="descricao">Descrição: <?= htmlspecialchars($evento['descricao'] ?? 'Sem descrição') ?></p>
+    <button class="botaoEditar" data-id="<?= $evento['id'] ?>">Editar</button>
+</div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>Nenhuma programação cadastrada.</p>
+    <?php endif; ?>
+</div>
                 
 
         </section>
-
-        <script src="public/assets/js/modal.js"></script>
+    <script src="public/assets/js/navegacao.js"></script>
+    <script src="public/assets/js/modal.js"></script>
 
 </body>
 </html>
