@@ -13,8 +13,7 @@ body {
     /* justify-content: center; */ /* Removido para alinhar ao topo */
     align-items: center;
     padding-top: 2rem; /* Espaço do topo */
-    background-color: #FFE1A8;
-
+    background: #fff8ee;
 }
 
 header {

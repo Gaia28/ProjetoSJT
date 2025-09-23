@@ -242,11 +242,69 @@ body {
 .liturgia-container p{
     font-size: 1.5rem;
 }
-#qrcode{
-    width: 50%;
-    height: auto;
+/* --------- Seção QRCode --------- */
+.section-padrao {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
-/* Imagens */
+
+.qrcode-section {
+    width: 100%;                 
+    min-height: 100vh;          
+    display: block;              
+    padding: 5%;
+    text-align: left;            
+    background: #fff8ee;         
+}
+
+.qrcode-section .qrcode-linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+}
+
+
+.qrcode-texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.qrcode-texto h2 {
+    font-size: 3rem;
+    text-align: center;
+    color: var(--cor-primaria);
+}
+
+.qrcode-texto p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: #333;
+}
+
+.qrcode-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(110, 4, 4, 0.35) 0px 5px 15px;
+
+    
+}
+
+.qrcode-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
 .img,
 iframe {
     width: 60%;
@@ -284,6 +342,7 @@ iframe {
     color: #fff;
     padding: 1rem;
     border-radius: 8px;
+    text-align: start;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
 }
