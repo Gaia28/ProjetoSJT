@@ -9,12 +9,20 @@ class Router
 
         switch ($url) {
         case '':
-    require dirname(__DIR__) . '/controllers/CalendarioController.php';
-    $calendario = new CalendarioParoquial();
-    $eventos = $calendario->buscarProgramacao();
+            require dirname(__DIR__) . '/controllers/CalendarioController.php';
+            $calendario = new CalendarioParoquial();
+            $eventos = $calendario->buscarProgramacao();
 
-    require dirname(__DIR__) . '/views/Home.php';
-    break;
+            require dirname(__DIR__) . '/views/Home.php';
+            break;
+
+            case 'home':
+                        require dirname(__DIR__) . '/controllers/CalendarioController.php';
+            $calendario = new CalendarioParoquial();
+            $eventos = $calendario->buscarProgramacao();
+
+            require dirname(__DIR__) . '/views/Home.php';
+            break;
 
             case 'admin':
 
@@ -69,10 +77,13 @@ class Router
                         $liturgiaController->mostrarLiturgia();
                         break;
 
-                        case 'nossosSacramentos':
-                            require dirname(__DIR__) . '/views/HomeSacramento.php';
-                        
-                            break;
+                       case 'nossosSacramentos':
+                        require dirname(__DIR__) . '/controllers/SacramentosController.php';
+                        $ctrl = new SacramentosController();
+                        $sacramentos = $ctrl->listarSacramentos(); // pega os sacramentos
+                        require dirname(__DIR__) . '/views/HomeSacramento.php';
+                        break;
+
 
                     case "sacramentos":
                         require dirname(__DIR__) . '/controllers/SacramentosController.php';
