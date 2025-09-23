@@ -86,8 +86,13 @@ public function deletarSacramento() {
             $stmt = $db->prepare($sql);
             $stmt->execute([":id" => $id]);
 
+            // Retorna JSON de sucesso
+            echo json_encode(["success" => true, "message" => "Sacramento deletado com sucesso!"]);
+            exit();
+
         } catch (Exception $e) {
             echo json_encode(["success" => false, "message" => $e->getMessage()]);
+            exit();
         }
     }
 }

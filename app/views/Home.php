@@ -11,7 +11,7 @@
 
   <!-- Seção de boas-vindas -->
   <section id="BoasVindas" class="section-padrao section-full">
-    <h1>Bem-Vindo à Paróquia Santuário <br>São Judas Tadeu</h1>
+   <!-- <h1>Bem-Vindo à Paróquia Santuário <br>São Judas Tadeu</h1>-->
     <img id="SaoJudas" src="public/assets/images/padroeiro.jpeg" alt="Imagem de São Judas Tadeu">
     <div class="scroll-mouse">
       <div class="mouse">

@@ -15,7 +15,7 @@
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="home">Home</a></li>
                 <li><a href="#">Eventos</a></li>
                 <li><a href="#">Doações</a></li>
                 <li class="dropdown">
