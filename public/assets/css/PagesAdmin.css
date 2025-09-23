@@ -87,7 +87,7 @@ body {
   flex: 1 1 250px;
   max-width: 280px;
   background-color: rgb(146, 15, 15);
-  color: #fff;
+  color: #FFE1A8;
   padding: 1rem;
   border-radius: 8px;
   text-align: justify;
@@ -122,6 +122,13 @@ body {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 1rem;
+}
+.descricao {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  height: 60px; /* altura fixa para limitar o tamanho */
+  overflow: hidden; /* esconde o excesso de texto */
+  
 }
 
 /* =======================
