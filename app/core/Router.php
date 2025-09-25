@@ -107,6 +107,9 @@ class Router
                             $ctrl->deletarSacramento();
                             break;
 
+                        case 'pastorais':
+                            require dirname(__DIR__) . '/public/views/PastoraisAdmin.php';
+
 
 
             default:
