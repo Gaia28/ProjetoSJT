@@ -90,6 +90,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
 
   <section id="HomePG6" class="section-padrao">
     <div class="linha">
+      <img class="icon" src="public/assets/images/livro.png" alt="">
       <h1>Liturgia diária</h1>
 
       <div class="liturgia-container">

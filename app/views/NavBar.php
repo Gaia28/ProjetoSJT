@@ -22,7 +22,7 @@
                     <a>Saiba mais ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="nossosSacramentos">Sacramentos</a></li>
-                        <li><a href="#">Missão e Visão</a></li>
+                        <li><a href="pastorais">Pastorais</a></li>
                         <li><a href="#">Equipe</a></li>
                     </ul>
                 </li>

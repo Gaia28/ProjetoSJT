@@ -32,7 +32,7 @@
                     <h2>Gerenciar Eventos</h2>
                     <p>Adicione, edite ou remova eventos do calendário.</p>
                 </div>
-                <div class="card" id="gerenciar-usuarios">
+                <div class="card" id="gerenciar-pastorais">
                     <h2>Gerenciar Usuários</h2>
                     <p>Controle os usuários que têm acesso ao painel administrativo.</p>
                 </div>
