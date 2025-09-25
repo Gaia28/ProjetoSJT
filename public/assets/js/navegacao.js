@@ -1,6 +1,6 @@
 const cards = [
     { id: 'calendario-paroquial', url: 'calendarioParoquial' },
-    { id: 'gerenciar-pastorais', url: 'pastorais' },
+    { id: 'gerenciar-pastorais', url: 'Pastorais' },
     { id: 'gerenciar-usuarios', url: '/admin/usuarios' },
     { id: 'gerenciar-sacramentos', url: 'sacramentos' }
 ];
