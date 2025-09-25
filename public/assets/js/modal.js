@@ -1,126 +1,157 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ---------- Helpers ----------
-    const safe = (id) => document.getElementById(id);
+  const safe = id => document.getElementById(id);
 
-    // ---------- MODAL ADICIONAR / EDITAR - EVENTO ----------
-    const btAdicionarEvento = safe("adicionarEvento");
-    const modalAdicionarEvento = safe("modalAdicionarEvento");
-    const btFecharAdicionarEvento = modalAdicionarEvento ? modalAdicionarEvento.querySelector(".fecharModal") : null;
+  // helper para ligar abrir/fechar modal por IDs
+  function wireModal(openBtnId, modalId) {
+    const openBtn = safe(openBtnId);
+    const modal = safe(modalId);
+    const closeBtn = modal ? modal.querySelector(".fecharModal") : null;
 
-    if (btAdicionarEvento && modalAdicionarEvento) {
-        btAdicionarEvento.addEventListener("click", () => modalAdicionarEvento.showModal());
+    if (openBtn && modal) {
+      openBtn.addEventListener("click", () => modal.showModal());
     }
-    if (btFecharAdicionarEvento && modalAdicionarEvento) {
-        btFecharAdicionarEvento.addEventListener("click", () => modalAdicionarEvento.close());
+    if (closeBtn && modal) {
+      closeBtn.addEventListener("click", () => modal.close());
     }
+  }
 
-    const modalEditarEvento = safe("modalEditarEvento");
-    const btFecharModalEditarEvento = modalEditarEvento ? modalEditarEvento.querySelector(".fecharModal") : null;
+  // === wire básicos (ajuste conforme IDs que você tem nas views) ===
+  wireModal("adicionarEvento", "modalAdicionarEvento");       // calendário
+  wireModal("adicionarSacramento", "modalSacramento");        // sacramentos (admin)
+  wireModal("adicionarPastoral", "modalAdicionarPastoral");   // pastorais (admin)
 
-    // ---------- MODAL ADICIONAR / EDITAR - SACRAMENTO ----------
-    const btAdicionarSacramento = safe("adicionarSacramento");
-    const modalSacramento = safe("modalSacramento");
-    const btFecharSacramento = modalSacramento ? modalSacramento.querySelector(".fecharModal") : null;
+  // Se houver modais de edição com esses ids, ligar também
+  // (fechar botão)
+  const modalEditarEvento = safe("modalEditarEvento");
+  if (modalEditarEvento) {
+    const closeBtn = modalEditarEvento.querySelector(".fecharModal");
+    if (closeBtn) closeBtn.addEventListener("click", () => modalEditarEvento.close());
+  }
+  const modalEditarSacramento = safe("modalEditarSacramento");
+  if (modalEditarSacramento) {
+    const closeBtn = modalEditarSacramento.querySelector(".fecharModal");
+    if (closeBtn) closeBtn.addEventListener("click", () => modalEditarSacramento.close());
+  }
+  const modalEditarPastoral = safe("modalEditarPastoral");
+  if (modalEditarPastoral) {
+    const closeBtn = modalEditarPastoral.querySelector(".fecharModal");
+    if (closeBtn) closeBtn.addEventListener("click", () => modalEditarPastoral.close());
+  }
 
-    if (btAdicionarSacramento && modalSacramento) {
-        btAdicionarSacramento.addEventListener("click", () => modalSacramento.showModal());
-    }
-    if (btFecharSacramento && modalSacramento) {
-        btFecharSacramento.addEventListener("click", () => modalSacramento.close());
-    }
+  // === Funções globais para adicionar campos dinâmicos (mantém seus onclick inline) ===
+  // Mantemos como propriedades de window para ser compatível com os onclick existentes.
+  window.countCoord = window.countCoord || 1;
+  window.countEncontro = window.countEncontro || 1;
 
-    const modalEditarSacramento = safe("modalEditarSacramento");
-    const btFecharModalEditarSacramento = modalEditarSacramento ? modalEditarSacramento.querySelector(".fecharModal") : null;
-    if (btFecharModalEditarSacramento && modalEditarSacramento) {
-        btFecharModalEditarSacramento.addEventListener("click", () => modalEditarSacramento.close());
-    }
+  window.adicionarCoordenador = function() {
+    const div = document.getElementById("coordenadores");
+    if (!div) return console.warn("Elemento #coordenadores não encontrado.");
+    const idx = window.countCoord++;
+    div.insertAdjacentHTML("beforeend", `
+      <div class="form-group">
+        <label>Coordenador:</label>
+        <input type="text" name="coordenadores[${idx}][nome]" placeholder="Nome" required>
+        <input type="text" name="coordenadores[${idx}][telefone]" placeholder="Telefone">
+      </div>
+    `);
+  };
 
-    // ---------- BOTÕES EDITAR (GENÉRICO) ----------
-    // Seleciona todos os botões de editar (eventos e sacramentos)
-    document.querySelectorAll(".botaoEditar").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const entity = btn.dataset.entity || "evento"; // se quiser padronizar: evento / sacramento
-            const id = btn.dataset.id;
+  window.adicionarEncontro = function() {
+    const div = document.getElementById("encontros");
+    if (!div) return console.warn("Elemento #encontros não encontrado.");
+    const idx = window.countEncontro++;
+    div.insertAdjacentHTML("beforeend", `
+      <div class="form-group">
+        <label>Dia:</label>
+        <select name="encontros[${idx}][dia_semana]">
+            <option value="">-- Selecione --</option>
+            <option value="Domingo">Domingo</option>
+            <option value="Segunda">Segunda</option>
+            <option value="Terça">Terça</option>
+            <option value="Quarta">Quarta</option>
+            <option value="Quinta">Quinta</option>
+            <option value="Sexta">Sexta</option>
+            <option value="Sábado">Sábado</option>
+        </select>
+        <label>Horário:</label>
+        <input type="time" name="encontros[${idx}][horario]">
+      </div>
+    `);
+  };
 
-            if (entity === "sacramento" && modalEditarSacramento) {
-                // preenche campos do modal de sacramento (ids: editarId, editarNome, editarTipo, editarValor, editarDocumentos)
-                safe("editarId") && (safe("editarId").value = id);
-                safe("editarNome") && (safe("editarNome").value = btn.dataset.nome || "");
-                safe("editarTipo") && (safe("editarTipo").value = btn.dataset.tipo || "");
-                safe("editarValor") && (safe("editarValor").value = btn.dataset.valor || "");
-                safe("editarDocumentos") && (safe("editarDocumentos").value = btn.dataset.documentos || "");
-                modalEditarSacramento.showModal();
-                return;
-            }
+  // === Lógica genérica para botões "Editar" e "Excluir" (se houver) ===
+  document.querySelectorAll(".botaoEditar").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const entity = btn.dataset.entity || ""; // se usar dataset, prefira "data-entity"
+      // se existir modal de edição específico, preencha campos conforme atributos data-*
+      if (entity === "sacramento" && modalEditarSacramento) {
+        safe("editarId") && (safe("editarId").value = btn.dataset.id || "");
+        safe("editarNome") && (safe("editarNome").value = btn.dataset.nome || "");
+        safe("editarValor") && (safe("editarValor").value = btn.dataset.valor || "");
+        safe("editarDocumentos") && (safe("editarDocumentos").value = btn.dataset.documentos || "");
+        modalEditarSacramento.showModal();
+        return;
+      }
 
-            // caso seja evento (ou default) e exista modal de evento
-            if (entity === "evento" && modalEditarEvento) {
-                // preenche campos do modal do evento (ids: editar_id, editar_titulo, editar_tipo, editar_dia, editar_hora)
-                const card = btn.closest(".card");
-                safe("editar_id") && (safe("editar_id").value = id);
-                // tenta preencher a partir do card se não houver data-attributes
-                if (btn.dataset.titulo) {
-                    safe("editar_titulo") && (safe("editar_titulo").value = btn.dataset.titulo);
-                    safe("editar_tipo") && (safe("editar_tipo").value = btn.dataset.tipo || "");
-                    safe("editar_dia") && (safe("editar_dia").value = btn.dataset.dia || "");
-                    safe("editar_hora") && (safe("editar_hora").value = btn.dataset.hora || "");
-                } else if (card) {
-                    safe("editar_titulo") && (safe("editar_titulo").value = (card.querySelector(".titulo")?.textContent || "").trim());
-                    safe("editar_tipo") && (safe("editar_tipo").value = (card.querySelector(".tipo")?.textContent || "").trim());
-                    // remove labels "Dia da semana: " e "Horário: "
-                    safe("editar_dia") && (safe("editar_dia").value = (card.querySelector(".dia")?.textContent || "").replace("Dia da semana: ", "").trim());
-                    safe("editar_hora") && (safe("editar_hora").value = (card.querySelector(".hora")?.textContent || "").replace("Horário: ", "").trim());
-                }
-                modalEditarEvento.showModal();
-                return;
-            }
+      if (entity === "pastoral" && modalEditarPastoral) {
+        safe("editarPastoralId") && (safe("editarPastoralId").value = btn.dataset.id || "");
+        safe("editarPastoralNome") && (safe("editarPastoralNome").value = btn.dataset.nome || "");
+        // se quiser, parseie coordenadores/documentos do data-attribute (ex: JSON) e preencha campos aqui
+        modalEditarPastoral.showModal();
+        return;
+      }
 
-            // fallback: se modal especifico não existir, tenta detectar modal de sacramento por presença de campos
-            if (modalEditarSacramento) {
-                safe("editarId") && (safe("editarId").value = id);
-                safe("editarNome") && (safe("editarNome").value = btn.dataset.nome || "");
-                safe("editarTipo") && (safe("editarTipo").value = btn.dataset.tipo || "");
-                safe("editarValor") && (safe("editarValor").value = btn.dataset.valor || "");
-                safe("editarDocumentos") && (safe("editarDocumentos").value = btn.dataset.documentos || "");
-                modalEditarSacramento.showModal();
-            }
-        });
+      if (entity === "evento" && modalEditarEvento) {
+        // preencher campos do evento a partir do dataset ou do card (fallback)
+        const card = btn.closest(".card");
+        safe("editar_id") && (safe("editar_id").value = btn.dataset.id || "");
+        if (btn.dataset.titulo) {
+          safe("editar_titulo") && (safe("editar_titulo").value = btn.dataset.titulo || "");
+          safe("editar_tipo") && (safe("editar_tipo").value = btn.dataset.tipo || "");
+          safe("editar_dia") && (safe("editar_dia").value = btn.dataset.dia || "");
+          safe("editar_hora") && (safe("editar_hora").value = btn.dataset.hora || "");
+        } else if (card) {
+          safe("editar_titulo") && (safe("editar_titulo").value = (card.querySelector(".titulo")?.textContent || "").trim());
+          safe("editar_tipo") && (safe("editar_tipo").value = (card.querySelector(".tipo")?.textContent || "").trim());
+          safe("editar_dia") && (safe("editar_dia").value = (card.querySelector(".dia")?.textContent || "").replace("Dia da semana: ", "").trim());
+          safe("editar_hora") && (safe("editar_hora").value = (card.querySelector(".hora")?.textContent || "").replace("Horário: ", "").trim());
+        }
+        modalEditarEvento.showModal();
+      }
     });
+  });
 
-    // fecha modal editar evento se existir botão fechar
-    if (btFecharModalEditarEvento && modalEditarEvento) {
-        btFecharModalEditarEvento.addEventListener("click", () => modalEditarEvento.close());
-    }
+  // excluir (mantém seu padrão de fetch: devolve json { success: true/false })
+  document.querySelectorAll(".botaoExcluir").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      const entity = btn.dataset.entity || "evento";
+      if (!confirm("Tem certeza que deseja excluir?")) return;
 
-    // ---------- BOTÕES EXCLUIR (GENÉRICO) ----------
-    document.querySelectorAll(".botaoExcluir").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const id = btn.dataset.id;
-            const entity = btn.dataset.entity || "evento"; // entidade para construir a rota
+      const url = (entity === "sacramento") ? "deletarSacramento" :
+                  (entity === "pastoral") ? "deletarPastoral" : "excluirProgramacao";
 
-            if (!confirm("Tem certeza que deseja excluir?")) return;
-
-            const url = (entity === "sacramento") ? "deletarSacramento" : "excluirProgramacao";
-
-            fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: "id=" + encodeURIComponent(id)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    // remove o card da tela
-                    btn.closest(".card")?.remove();
-                } else {
-                    alert("Erro ao excluir: " + (data.message || "verifique o servidor"));
-                }
-            })
-            .catch(err => {
-                console.error("Erro:", err);
-                alert("Erro na requisição. Veja console.");
-            });
-        });
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "id=" + encodeURIComponent(id)
+      })
+      .then(r => {
+        // tente parsear json; backend deve retornar JSON
+        return r.json().catch(() => ({ success: false, message: "Resposta inválida do servidor" }));
+      })
+      .then(data => {
+        if (data.success) {
+          btn.closest(".card")?.remove();
+        } else {
+          alert("Erro ao excluir: " + (data.message || "Verifique o servidor"));
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Erro na requisição. Veja console.");
+      });
     });
+  });
 
-});
+}); // DOMContentLoaded
