@@ -92,7 +92,7 @@ body {
   border-radius: 8px;
   text-align: justify;
   margin-top: 1rem;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transition: transform 0.2s;
 }
 .card:hover {
@@ -143,7 +143,7 @@ body {
   max-width: 450px;
   width: 90%;
   text-align: left; /* força alinhamento à esquerda */
-  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   background: #fff;
   animation: aparecer 0.3s ease-out;
 }
