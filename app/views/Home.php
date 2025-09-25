@@ -127,7 +127,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     mapa.src =
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4968436772488!2d-48.4782222242187!3d-1.4746970358627465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48de08c562ba7%3A0xa88030050447e38d!2sPar%C3%B3quia%20Santu%C3%A1rio%20S%C3%A3o%20Judas%20Tadeu!5e0!3m2!1spt-BR!2sbr!4v1758669193062!5m2!1spt-BR!2sbr",
     mapa.width = "100%";
-    mapa.height = "400";
+    mapa.height = "450";
     mapa.style.border = "0";
     mapa.style.display = "none"; // começa oculto
     mapa.loading = "lazy";
@@ -137,8 +137,11 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     fachada.insertAdjacentElement("afterend", mapa);
 
     btn.addEventListener("click", () => {
-      if (fachada.style.display !== "none") {
+      if (fachada.style.display !== "none")
+        {
+           
         fachada.style.display = "none";
+        fachada.style.transition = "transform 1.0s";
         mapa.style.display = "block";
         btn.textContent = "Ver imagem";
       } else {

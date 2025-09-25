@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
 
 :root {
-    --cor-fundo: #FFE1A8;
+    --cor-fundo: lightgrey;
     --cor-primaria: rgb(146, 15, 15); /* Alterado aqui */
     --cor-texto:  rgb(146, 15, 15);
 }
@@ -51,14 +51,13 @@ body {
     border-radius: 20px;
     position: relative;
     background: rgba(0,0,0,0.15);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     margin-bottom: 8px;
 }
 
 .wheel {
     width: 6px;
     height: 14px;
-    background: #fff;
+    background: #cfcfcf;
     border-radius: 3px;
     position: absolute;
     left: 50%;
@@ -126,7 +125,7 @@ body {
     width: 100%;
     min-height: 100dvh;
     padding: 5%;
-    background: #fff8ee;
+    background: lightgrey;
 }
 
 .links-sociais a {
@@ -223,7 +222,7 @@ body {
     background: var(--cor-primaria);
     color: var(--cor-fundo);
     border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
     text-align: left;
 }
 #HomePG6 .linha h1 {
@@ -257,7 +256,7 @@ body {
     display: block;              
     padding: 5%;
     text-align: left;            
-    background: #fff8ee;         
+    background: lightgrey;         
 }
 
 .qrcode-section .qrcode-linha {
@@ -334,18 +333,19 @@ iframe {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    
 }
 
 .card {
     flex: 1 1 16%;
     height: auto;
     background: var(--cor-primaria);
-    color: #fff;
+    color: #cfcfcf;
     padding: 1rem;
     border-radius: 8px;
     text-align: start;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .card h2 {
@@ -360,6 +360,8 @@ iframe {
 
 .card:hover {
     transform: translateY(-5px);
+    transform: scale(1.09);
+    
 }
 /* --------- Sacramentos --------- */
 #Sacramentos {
@@ -368,6 +370,7 @@ iframe {
   align-items: stretch;         /* children ocupam largura disponível */
   justify-content: flex-start;  /* evita centralização vertical */
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   
   min-height: auto;   
 }
@@ -411,7 +414,7 @@ iframe {
 
 #Sacramentos .card:hover {
     transform: translateY(-5px);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
 }
 
 #Sacramentos .card h3 {

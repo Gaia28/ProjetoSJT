@@ -37,6 +37,7 @@ body {
 .header nav {
   margin-left: auto;
   margin-right: 1rem;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 .header nav a {
@@ -80,6 +81,7 @@ body {
   justify-content: center;
   gap: 1rem;
   padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .card {
@@ -96,7 +98,9 @@ body {
   transition: transform 0.2s;
 }
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.09);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  color: crimson;
 }
 
 #Sacramentos .card h3 {
