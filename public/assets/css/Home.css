@@ -18,6 +18,10 @@ body {
     background: var(--cor-fundo);
     color: var(--cor-texto);
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 .section-padrao {
     width: 100%;
@@ -147,6 +151,8 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding: 5%;
+
 }
 
 #HomePG3 h1 {
@@ -227,6 +233,10 @@ body {
     
     text-align: left;
 }
+#HomePG6 .linha{
+    padding: 8%;
+    
+}
 #HomePG6 .linha h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -280,7 +290,6 @@ body {
 
 .qrcode-texto h2 {
     font-size: 3rem;
-    text-align: center;
     color: var(--cor-primaria);
 }
 
@@ -288,23 +297,35 @@ body {
     font-size: 1.5rem;
     line-height: 1.6;
     text-align: justify;
-    color: #333;
+    color: var(--cor-primaria);
 }
 
 .qrcode-img {
     display: flex;
     justify-content: center;
     align-items: center;
-   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px
-    
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    margin-bottom: 10px;
 }
-
+.qrcode-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    background: var(--cor-primaria);
+    color: var(--cor-fundo);
+    border-radius: 18px;
+}
+.qrcode-container p{
+    font-size: 1.5rem;
+}
 .qrcode-img img {
     width: 100%;
     height: auto;
     border-radius: 12px;
 }
-
 
 .img,
 
@@ -342,7 +363,7 @@ iframe {
     flex: 1 1 16%;
     height: auto;
     background: var(--cor-primaria);
-    color: #cfcfcf;
+    color: var(--cor-fundo);
     padding: 1rem;
     border-radius: 8px;
     text-align: start;
