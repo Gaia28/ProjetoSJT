@@ -27,7 +27,7 @@
   <section id="HomePG2" class="section-padrao">
     <div class="linha"> 
     <div class="itens-esquerda">
-        <h1 class="titulos">Paróquia Santuário São Judas Tadeu</h1>
+        <h1 class="tracking-in-expand-fwd-bottom">Paróquia Santuário São Judas Tadeu</h1>
         <button id="mostrarMapa" class="btn">Encontre-nos</button>
       <div class="links-sociais">
         <img id="whatsapp" src="public/assets/images/whatsapp.png" alt="whatsapp">
@@ -44,8 +44,8 @@
     <div class="linha">
       <img class="img" src="public/assets/images/cristo.jpeg" alt="Imagem de Cristo">
      <div class="itens-direita"> 
-         <h1 class="titulos">Sobre nós</h1>
-      <p class="textos">A paróquia- santuário São Judas Tadeu, localizada no bairro da Condor, o santo conhecido
+         <h1 class="tracking-in-expand-fwd-bottom">Sobre nós</h1>
+      <p class="tracking-in-expand-fwd-bottom">A paróquia- santuário São Judas Tadeu, localizada no bairro da Condor, o santo conhecido
 como padroeiro das causas impossíveis e desesperadas é também o padroeiro do
 funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrará seu jubileu de
 70 anos de fundação. </p>
@@ -56,8 +56,8 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
   <section id="HomePG3" class="section-padrao">
     <div class="linha"> 
         <img class="icon" id="igreja" src="public/assets/images/youtube.png" alt="youTube"> 
-      <h1 class="titulo">Transmissões</h1>
-      <p class="texto">Acompanhe-nos ao vivo no YouTube</p>
+      <h1 class="tracking-in-expand-fwd-bottom">Transmissões</h1>
+      <p class="tracking-in-expand-fwd-bottom">Acompanhe-nos ao vivo no YouTube</p>
 <iframe id="video" src="https://www.youtube.com/embed/WrllCjOtjCM?si=VNgiuDFX0Di9z7-q" 
     title="YouTube video player" frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -69,8 +69,8 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
   <section id="HomePG4" class="section-padrao">
     <div class="linha">  
         <img class="icon" src="public/assets/images/calendario.png" alt="">      
-      <h1 class="titulo">Calendário Paroquial</h1>
-      <p class="texto">Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
+      <h1 class="tracking-in-expand-fwd-bottom">Calendário Paroquial</h1>
+      <p class="tracking-in-expand-fwd-bottom">Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
 
       <div class="eventos">
         <?php if (!empty($eventos)): ?>
@@ -83,7 +83,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
             </article>
           <?php endforeach; ?>
         <?php else: ?>
-          <p class="texto">Nenhum evento cadastrado no momento.</p>
+          <p class="tracking-in-expand-fwd-bottom">Nenhum evento cadastrado no momento.</p>
         <?php endif; ?>
       </div>
     </div>
@@ -93,7 +93,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
   <section id="HomePG6" class="section-padrao">
     <div class="linha">
       <img class="icon" src="public/assets/images/livro.png" alt="">
-      <h1 class="titulo">Liturgia diária</h1>
+      <h1 class="tracking-in-expand-fwd-bottom">Liturgia diária</h1>
 
       <div class="liturgia-container">
         <?php include 'app/controllers/LiturgiaController.php'; 
@@ -106,16 +106,16 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
    <section class="section-padrao qrcode-section">
   <div class="linha qrcode-linha" id="doacoes">
     <div class="qrcode-texto">
-      <h1 class="titulo">Contribua com a Paróquia</h1>
-      <p class="texto">A doação para a igreja é um ato de fé e gratidão que permite à instituição cumprir sua missão de evangelização, sustentação das atividades e apoio aos necessitados. Essa generosidade possibilita a manutenção das estruturas da igreja, a promoção de programas sociais e educacionais, e o alcance de mais pessoas com a mensagem de Cristo.</p>
-      <p class="texto">Escaneie o QR Code ao lado e contribua para a obra do</p>
+      <h1 class="tracking-in-expand-fwd-bottom">Contribua com a Paróquia</h1>
+      <p class="tracking-in-expand-fwd-bottom">A doação para a igreja é um ato de fé e gratidão que permite à instituição cumprir sua missão de evangelização, sustentação das atividades e apoio aos necessitados. Essa generosidade possibilita a manutenção das estruturas da igreja, a promoção de programas sociais e educacionais, e o alcance de mais pessoas com a mensagem de Cristo.</p>
+      <p class="tracking-in-expand-fwd-bottom">Escaneie o QR Code ao lado e contribua para a obra do</p>
     </div>
     <div class="qrcode-container">
           <div class="qrcode-img">
       <img id="qrcode" src="public/assets/images/QRcode.png" alt="QR Code de doação">
     </div>
-    <p class="texto">Paróquia São Judas Tádeu</p>
-    <p class="texto">chave pix</p>
+    <p class="tracking-in-expand-fwd-bottom">Paróquia São Judas Tádeu</p>
+    <p class="tracking-in-expand-fwd-bottom">chave pix</p>
   </div>
     </div>
 </section>
