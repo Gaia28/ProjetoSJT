@@ -16,7 +16,6 @@
     #HomePG5 .linha img,
     .qrcode-container {
         order: -1;
-        max-width: 90%;
         margin-bottom: 20px;
     }
 
