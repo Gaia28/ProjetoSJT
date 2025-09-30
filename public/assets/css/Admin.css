@@ -13,7 +13,8 @@ body {
     /* justify-content: center; */ /* Removido para alinhar ao topo */
     align-items: center;
     padding-top: 2rem; /* Espaço do topo */
-            background: #fff8ee}
+    background: #F8F0E2;
+}
 
 header {
     display: flex;
@@ -201,7 +202,7 @@ button[type="submit"]:hover {
 .card:hover{
     transform: scale(0.91);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  color: crimson;
+  color: rgb(146, 15, 15);
   cursor: pointer;
   background-color: antiquewhite;
   transition-duration: 0.3s;

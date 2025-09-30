@@ -5,6 +5,8 @@
   <title>Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/assets/css/Home.css"> 
+    <link rel="stylesheet" href="public/assets/css/HomeResponsivo.css"> 
+
 </head>
 <body>
 <main id="Home">
@@ -102,16 +104,20 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     </div>
 
    <section class="section-padrao qrcode-section">
-  <div class="linha qrcode-linha">
+  <div class="linha qrcode-linha" id="doacoes">
     <div class="qrcode-texto">
       <h2>Contribua com a Paróquia</h2>
       <p>A doação para a igreja é um ato de fé e gratidão que permite à instituição cumprir sua missão de evangelização, sustentação das atividades e apoio aos necessitados. Essa generosidade possibilita a manutenção das estruturas da igreja, a promoção de programas sociais e educacionais, e o alcance de mais pessoas com a mensagem de Cristo.</p>
       <p>Escaneie o QR Code ao lado e contribua para a obra do</p>
     </div>
-    <div class="qrcode-img">
+    <div class="qrcode-container">
+          <div class="qrcode-img">
       <img id="qrcode" src="public/assets/images/QRcode.png" alt="QR Code de doação">
     </div>
+    <p>Paróquia São Judas Tádeu</p>
+    <p>chave pix</p>
   </div>
+    </div>
 </section>
 
 

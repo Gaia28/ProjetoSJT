@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="home">Home</a></li>
                 <li><a href="#">Eventos</a></li>
-                <li><a href="#">Doações</a></li>
+                <li><a href="#doacoes">Doações</a></li>
                 <li class="dropdown">
                     <a>Saiba mais ▾</a>
                     <ul class="dropdown-menu">
