@@ -34,7 +34,7 @@
                     <input type="text" id="nome_pastoral" name="nome_pastoral" required>
                 </div>
 
-                <!-- Campo coordenadores dinâmicos -->
+                <!-- Coordenadores dinâmicos -->
                 <div id="coordenadores">
                     <div class="form-group">
                         <label>Coordenador:</label>
@@ -43,26 +43,6 @@
                     </div>
                 </div>
                 <button type="button" class="botao" onclick="adicionarCoordenador()">+ Adicionar Coordenador</button>
-
-                <!-- Campo encontros dinâmicos -->
-                <div id="encontros">
-                    <div class="form-group">
-                        <label>Dia:</label>
-                        <select name="encontros[0][dia_semana]">
-                            <option value="">-- Selecione --</option>
-                            <option value="Domingo">Domingo</option>
-                            <option value="Segunda">Segunda</option>
-                            <option value="Terça">Terça</option>
-                            <option value="Quarta">Quarta</option>
-                            <option value="Quinta">Quinta</option>
-                            <option value="Sexta">Sexta</option>
-                            <option value="Sábado">Sábado</option>
-                        </select>
-                        <label>Horário:</label>
-                        <input type="time" name="encontros[0][horario]">
-                    </div>
-                </div>
-                <button type="button" class="botao" onclick="adicionarEncontro()">+ Adicionar Encontro</button>
 
                 <button type="submit">Cadastrar</button>
             </form>
@@ -87,17 +67,6 @@
                             <p>Sem coordenadores cadastrados.</p>
                         <?php endif; ?>
 
-                        <p><strong>Encontros:</strong></p>
-                        <?php if (!empty($pastoral['encontros'])): ?>
-                            <ul>
-                                <?php foreach ($pastoral['encontros'] as $encontro): ?>
-                                    <li><?= htmlspecialchars($encontro['dia_semana']) ?> - <?= htmlspecialchars($encontro['horario']) ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php else: ?>
-                            <p>Sem encontros definidos.</p>
-                        <?php endif; ?>
-
                         <button class="botaoEditar" data-id="<?= $pastoral['id'] ?>">Editar</button>
                     </div>
                 <?php endforeach; ?>
@@ -112,7 +81,6 @@
 
     <script>
     let countCoord = 1;
-    let countEncontro = 1;
 
     function adicionarCoordenador() {
         const div = document.getElementById("coordenadores");
@@ -124,28 +92,6 @@
             </div>
         `);
         countCoord++;
-    }
-
-    function adicionarEncontro() {
-        const div = document.getElementById("encontros");
-        div.insertAdjacentHTML("beforeend", `
-            <div class="form-group">
-                <label>Dia:</label>
-                <select name="encontros[${countEncontro}][dia_semana]">
-                    <option value="">-- Selecione --</option>
-                    <option value="Domingo">Domingo</option>
-                    <option value="Segunda">Segunda</option>
-                    <option value="Terça">Terça</option>
-                    <option value="Quarta">Quarta</option>
-                    <option value="Quinta">Quinta</option>
-                    <option value="Sexta">Sexta</option>
-                    <option value="Sábado">Sábado</option>
-                </select>
-                <label>Horário:</label>
-                <input type="time" name="encontros[${countEncontro}][horario]">
-            </div>
-        `);
-        countEncontro++;
     }
     </script>
 </body>

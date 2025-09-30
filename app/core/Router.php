@@ -110,6 +110,12 @@ class Router
                         case 'Pastorais':
                             require dirname(__DIR__) . '/views/PastoraisAdmin.php';
 
+                        case 'salvarPastoral':
+                             require dirname(__DIR__) . '/views/PastoraisAdmin.php';
+                             $ctrl = new Pastorais();
+                             $ctrl->salvarPastoral();
+
+
 
             default:
                 http_response_code(404);

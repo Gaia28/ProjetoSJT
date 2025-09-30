@@ -1,0 +1,117 @@
+/* ------------------ RESPONSIVIDADE ------------------ */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+    /* Estrutura em coluna */
+    #HomePG2 .linha,
+    #HomePG5 .linha,
+    .qrcode-section .qrcode-linha {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Imagens sobem */
+    #HomePG2 .linha img,
+    #HomePG5 .linha img,
+    .qrcode-container {
+        order: -1;
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+
+    /* Títulos */
+    .itens-esquerda h1,
+    #HomePG5 .itens-direita h1,
+    #HomePG3 h1,
+    #HomePG4 h1,
+    #HomePG6 .linha h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Vídeos */
+    #HomePG3 #video,
+    iframe {
+        width: 90%;
+        height: auto;
+        box-shadow: none !important;
+
+        
+    }
+
+    /* Removendo sombras */
+    .card,
+    .btn,
+    .qrcode-container,
+    img {
+        box-shadow: none !important;
+    }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+    /* Títulos */
+    .itens-esquerda h1,
+    #HomePG5 .itens-direita h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Textos */
+    #HomePG3 p,
+    #HomePG4 p,
+    .qrcode-texto p,
+    #Sacramentos p {
+        font-size: 1rem;
+    }
+
+    /* Links sociais */
+    .links-sociais {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .links-sociais a {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* QRCode */
+    .qrcode-img img {
+        width: 80%;
+    }
+
+    /* Eventos */
+    .eventos {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 1 100%;
+        box-shadow: none !important;
+    }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 1rem;
+        box-shadow: none !important;
+    }
+
+    .qrcode-texto h2 {
+        font-size: 1.5rem;
+    }
+
+    .icon {
+        width: 12%;
+    }
+}

@@ -5,6 +5,8 @@
   <title>Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/assets/css/Home.css"> 
+    <link rel="stylesheet" href="public/assets/css/HomeResponsivo.css"> 
+
 </head>
 <body>
 <main id="Home">
