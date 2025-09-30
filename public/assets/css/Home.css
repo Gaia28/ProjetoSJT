@@ -18,6 +18,15 @@ body {
     background: var(--cor-fundo);
     color: var(--cor-texto);
 }
+/* efeitos de onda*/
+#onda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
 
 
 .section-padrao {
@@ -128,7 +137,7 @@ body {
     padding: 5%;
     background: var(--cor-fundo);
 }
-
+/*midias sociais*/
 .links-sociais a {
     display: inline-block;
     margin: 0 0.5rem;

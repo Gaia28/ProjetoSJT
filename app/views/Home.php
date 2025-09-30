@@ -15,11 +15,11 @@
   <section id="BoasVindas" class="section-padrao section-full">
    <!-- <h1>Bem-Vindo à Paróquia Santuário <br>São Judas Tadeu</h1>-->
     <img id="SaoJudas" src="public/assets/images/padroeiro.jpeg" alt="Imagem de São Judas Tadeu">
-    <div class="scroll-mouse">
-      <div class="mouse">
-          <div class="wheel"></div>
-      </div>
+    <svg id="onda" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ffffff" fill-opacity="1" d="M0,96L120,133.3C240,171,480,245,720,250.7C960,256,1200,192,1320,160L1440,128L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+    </svg>
   </section>
+  <!-- Barra de navegação -->
 
   <?php include 'NavBar.php'; ?>
 
