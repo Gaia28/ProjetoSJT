@@ -30,7 +30,7 @@ p {
     line-height: 1.6;
 }
 
-/*efeitos de texto e titulo*/
+/*efeitos de animaçoes*/
 
 h1.tracking-in-contract {
 	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
@@ -40,11 +40,12 @@ p.tracking-in-contract {
     -webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
             animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
-
-/* efeitos de onda*/
+.scale-up-center
+ {-webkit-animation:scale-up-center .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-center .4s cubic-bezier(.39,.575,.565,1.000) both}
+ 
 #onda {
     position: absolute;
-    bottom: 0;
+    bottom: -1rem;
     left: 0;
     width: 100%;
     height: auto;
@@ -172,7 +173,7 @@ p.tracking-in-contract {
     font-weight: bold;
 }
 
-.links-sociais:hover {
+.links-sociais a:hover {
       transform: scale(0.91);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   color: crimson;
@@ -264,9 +265,11 @@ p.tracking-in-contract {
     background: var(--cor-primaria);
     color: var(--cor-fundo);
     border-radius: 8px;
-    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     text-align: left;
 }
+
+/*home page 6*/
 #HomePG6 .linha{
     padding: 8%;
     
@@ -383,6 +386,7 @@ iframe {
 #whatsapp, #instagram, #facebook {
     cursor: pointer;
 }
+
 
 /* Cards de eventos */
 .eventos {
