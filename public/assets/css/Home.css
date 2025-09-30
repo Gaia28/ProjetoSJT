@@ -18,6 +18,29 @@ body {
     background: var(--cor-fundo);
     color: var(--cor-texto);
 }
+
+/* Tipografia */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/*efeitos de texto e titulo*/
+
+h1.tracking-in-contract {
+	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+p.tracking-in-contract {
+    -webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
 /* efeitos de onda*/
 #onda {
     position: absolute;
@@ -149,8 +172,13 @@ body {
     font-weight: bold;
 }
 
-.links-sociais a:hover {
-    background: #501717;
+.links-sociais:hover {
+      transform: scale(0.91);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  color: crimson;
+  cursor: pointer;
+  background-color: antiquewhite;
+  transition-duration: 0.3s;
 }
 
 #HomePG3 .linha {
@@ -483,13 +511,4 @@ iframe {
   transition-duration: 0.3s;
 }
 
-/* Tipografia */
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
 
-p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
