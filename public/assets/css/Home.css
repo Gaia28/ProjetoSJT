@@ -36,20 +36,26 @@ p.texto {
 @keyframes tracking-in-expand-fwd-bottom{0%{letter-spacing:-.5em;-webkit-transform:translateZ(-700px) translateY(500px);transform:translateZ(-700px) translateY(500px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0) translateY(0);transform:translateZ(0) translateY(0);opacity:1}}
 .tracking-in-expand-fwd-bottom{-webkit-animation:tracking-in-expand-fwd-bottom .8s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-expand-fwd-bottom .8s cubic-bezier(.215,.61,.355,1.000) both}
 /*imagens*/
+
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 .img{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both}
 /*importaçoes do banco*/
+
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
-.liturgia-container{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both}
+.eventos{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
+div.liturgia-container{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
+
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
-.eventos{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both}
+div.qrcode-container{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both}
 /*saidas*/
+
 @-webkit-keyframes scale-out-horizontal{0%{-webkit-transform:scaleX(1);transform:scaleX(1);opacity:1}100%{-webkit-transform:scaleX(0);transform:scaleX(0);opacity:1}}
 @keyframes scale-out-horizontal{0%{-webkit-transform:scaleX(1);transform:scaleX(1);opacity:1}100%{-webkit-transform:scaleX(0);transform:scaleX(0);opacity:1}}
 .scale-out-horizontal{-webkit-animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both;animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both}
+/*-----------------------------------*/
 
 #onda {
     position: absolute;
