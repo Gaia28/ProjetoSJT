@@ -39,13 +39,13 @@ p.texto {
 
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
-.img{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both}
+.img{-webkit-animation:scale-up-hor-center .8s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center .8s cubic-bezier(.39,.575,.565,1.000) both}
 /*importaçoes do banco*/
 
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
-.eventos{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
-div.liturgia-container{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
+.eventos{-webkit-animation:scale-up-hor-center 2s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 2s cubic-bezier(.39,.575,.565,1.000) both}
+div.liturgia-container{-webkit-animation:scale-up-hor-center 2s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 2s cubic-bezier(.39,.575,.565,1.000) both}
 iframe{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
 
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
