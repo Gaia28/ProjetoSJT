@@ -46,6 +46,7 @@ p.texto {
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 .eventos{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
 div.liturgia-container{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
+iframe{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000) both}
 
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
@@ -55,6 +56,7 @@ div.qrcode-container{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,
 @-webkit-keyframes scale-out-horizontal{0%{-webkit-transform:scaleX(1);transform:scaleX(1);opacity:1}100%{-webkit-transform:scaleX(0);transform:scaleX(0);opacity:1}}
 @keyframes scale-out-horizontal{0%{-webkit-transform:scaleX(1);transform:scaleX(1);opacity:1}100%{-webkit-transform:scaleX(0);transform:scaleX(0);opacity:1}}
 .scale-out-horizontal{-webkit-animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both;animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both}
+.scale-out-horizontalmap{-webkit-animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both;animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both}
 /*-----------------------------------*/
 
 #onda {
