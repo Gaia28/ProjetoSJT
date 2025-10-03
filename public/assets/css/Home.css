@@ -51,6 +51,11 @@ iframe{-webkit-animation:scale-up-hor-center 1s cubic-bezier(.39,.575,.565,1.000
 @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 @keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
 div.qrcode-container{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-hor-center .4s cubic-bezier(.39,.575,.565,1.000) both}
+
+
+@-webkit-keyframes kenburns-top{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0);-webkit-transform-origin:50% 16%;transform-origin:50% 16%}100%{-webkit-transform:scale(1.1) translateY(-15px);transform:scale(1.1) translateY(-15px);-webkit-transform-origin:top;transform-origin:top}}
+@keyframes kenburns-top{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0);-webkit-transform-origin:50% 16%;transform-origin:50% 16%}100%{-webkit-transform:scale(1.1) translateY(-15px);transform:scale(1.1) translateY(-15px);-webkit-transform-origin:top;transform-origin:top}}
+#SaoJudas{-webkit-animation:kenburns-top 1s cubic-bezier(.445,.05,.55,.95) reverse both;animation:kenburns-top 1s cubic-bezier(.445,.05,.55,.95) reverse both}
 /*saidas*/
 
 @-webkit-keyframes scale-out-horizontal{0%{-webkit-transform:scaleX(1);transform:scaleX(1);opacity:1}100%{-webkit-transform:scaleX(0);transform:scaleX(0);opacity:1}}
@@ -59,7 +64,7 @@ div.qrcode-container{-webkit-animation:scale-up-hor-center .4s cubic-bezier(.39,
 .scale-out-horizontalmap{-webkit-animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both;animation:scale-out-horizontal .5s cubic-bezier(.55,.085,.68,.53) both}
 /*-----------------------------------*/
 
-#onda {
+svg.onda {
     position: absolute;
     bottom: -1rem;
     left: 0;

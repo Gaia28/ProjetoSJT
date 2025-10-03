@@ -15,9 +15,12 @@
   <section id="BoasVindas" class="section-padrao section-full">
    <!-- <h1>Bem-Vindo à Paróquia Santuário <br>São Judas Tadeu</h1>-->
     <img id="SaoJudas" src="public/assets/images/padroeiro.jpeg" alt="Imagem de São Judas Tadeu">
-    <svg id="onda" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <svg class="onda" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path fill="#ffffff" fill-opacity="1" d="M0,96L120,133.3C240,171,480,245,720,250.7C960,256,1200,192,1320,160L1440,128L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
     </svg>
+    <svg class="onda" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ffffff" fill-opacity="0.5" d="M0,128L40,128C80,128,160,128,240,149.3C320,171,400,213,480,229.3C560,245,640,235,720,208C800,181,880,139,960,117.3C1040,96,1120,96,1200,106.7C1280,117,1360,139,1400,149.3L1440,160L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+</svg>
   </section>
   <!-- Barra de navegação -->
 
