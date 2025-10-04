@@ -1,5 +1,5 @@
 <?php
-use Config\Database;
+use Config\database;
 
 class Pastorais {
 
@@ -45,7 +45,7 @@ class Pastorais {
 
             $db->commit();
 
-            echo "<script>alert('Pastoral cadastrada com sucesso!'); window.location.href = 'pastorais';</script>";
+            echo "<script>alert('Pastoral cadastrada com sucesso!'); window.location.href = 'Pastorais';</script>";
             exit();
         } catch (Exception $e) {
             $db->rollBack();
@@ -74,26 +74,24 @@ class Pastorais {
         return $pastorais;
     }
 
-    public function excluirPastoral() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-            $id = intval($_POST['id']);
-            $connection = new Database();
-            $db = $connection->getConnection();
+  public function excluirPastoral() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+        $id = intval($_POST['id']);
+        $connection = new Database();
+        $db = $connection->getConnection();
 
-            try {
-                $query = "DELETE FROM pastorais WHERE id = :id";
-                $stmt = $db->prepare($query);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        try {
+            $query = "DELETE FROM pastorais WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
 
-                if ($stmt->execute()) {
-                    echo json_encode(['success' => true]);
-                } else {
-                    echo json_encode(['success' => false, 'message' => 'Erro ao excluir pastoral.']);
-                }
-            } catch (Exception $e) {
-                echo json_encode(['success' => false, 'message' => $e->getMessage()]);
-            }
-            exit;
+            echo "<script>alert('Pastoral excluída com sucesso!'); window.location.href='Pastorais';</script>";
+            exit();
+        } catch (Exception $e) {
+            die("Erro ao excluir pastoral: " . $e->getMessage());
         }
     }
+}
+
 }
