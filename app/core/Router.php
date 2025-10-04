@@ -108,12 +108,27 @@ class Router
                             break;
 
                         case 'Pastorais':
+                            require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                            $ctrl = new Pastorais();
+                            $pastorais = $ctrl->buscarPastorais(); // pega os dados
                             require dirname(__DIR__) . '/views/PastoraisAdmin.php';
+                            break;
 
                         case 'salvarPastoral':
-                             require dirname(__DIR__) . '/views/PastoraisAdmin.php';
-                             $ctrl = new Pastorais();
-                             $ctrl->salvarPastoral();
+                            require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                            $ctrl = new Pastorais();
+
+                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                $ctrl->salvarPastoral();
+                            } else {
+                                $ctrl->buscarPastorais();
+                            }
+                            break;
+                        case 'excluirPastoral':
+                            require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                            $ctrl = new Pastorais();
+                            $ctrl->excluirPastoral();
+                            break;
 
 
 

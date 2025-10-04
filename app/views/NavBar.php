@@ -15,8 +15,8 @@
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
         <nav>
             <ul>
-                <li><a href="home">Home</a></li>
-                <li><a href="#">Eventos</a></li>
+                <li><a href="#HomePG2">Home</a></li>
+                <li><a href="#HomePG4">Calendário</a></li>
                 <li><a href="#doacoes">Doações</a></li>
                 <li class="dropdown">
                     <a>Saiba mais ▾</a>
