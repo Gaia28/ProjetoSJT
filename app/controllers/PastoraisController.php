@@ -1,97 +1,184 @@
 <?php
 use Config\database;
 
-class Pastorais {
+class PastoraisController {
 
     public function mostrarPastorais() {
-        $pastorais = $this->buscarPastorais();
-        require dirname(__DIR__) . '/views/Pastorais.php';
+        $pastorais = $this->listarPastorais();
+        require dirname(__DIR__) . '/views/PastoraisAdmin.php';
+    }
+
+    // FUNÇÃO ATUALIZADA: Agora busca também o telefone para exibição
+    public function listarPastorais() {
+        $connection = new Database();
+        $db = $connection->getConnection();
+        
+        $query = "SELECT p.id, p.nome, 
+                         GROUP_CONCAT(CONCAT(c.nome, ' (', c.telefone, ')') SEPARATOR '; ') as coordenadores
+                  FROM pastorais p
+                  LEFT JOIN coordenadores c ON p.id = c.pastoral_id
+                  GROUP BY p.id, p.nome
+                  ORDER BY p.nome";
+        $stmt = $db->query($query);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // NOVA FUNÇÃO: Busca os detalhes de uma pastoral para o AJAX
+    public function getPastoralDetails() {
+        header('Content-Type: application/json');
+        $id = $_GET['id'] ?? 0;
+
+        if ($id == 0) {
+            echo json_encode(['error' => 'ID da pastoral não fornecido.']);
+            exit;
+        }
+
+        $connection = new Database();
+        $db = $connection->getConnection();
+
+        $stmtPastoral = $db->prepare("SELECT id, nome FROM pastorais WHERE id = :id");
+        $stmtPastoral->execute([':id' => $id]);
+        $pastoral = $stmtPastoral->fetch(PDO::FETCH_ASSOC);
+
+        if (!$pastoral) {
+             echo json_encode(['error' => 'Pastoral não encontrada.']);
+             exit;
+        }
+
+        $stmtCoords = $db->prepare("SELECT id, nome, telefone FROM coordenadores WHERE pastoral_id = :id");
+        $stmtCoords->execute([':id' => $id]);
+        $coordenadores = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
+
+        $pastoral['coordenadores'] = $coordenadores;
+        
+        echo json_encode($pastoral);
+        exit;
     }
 
     public function salvarPastoral() {
+        // ... (A função que criamos anteriormente continua a mesma) ...
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: Pastorais');
+            exit();
+        }
+
         $connection = new Database();
         $db = $connection->getConnection();
 
         $nomePastoral = $_POST['nome_pastoral'] ?? '';
         $coordenadores = $_POST['coordenadores'] ?? [];
 
+        if (empty($nomePastoral) || empty($coordenadores)) {
+            echo "<script>alert('O nome da pastoral e pelo menos um coordenador são obrigatórios.'); window.location.href = 'Pastorais';</script>";
+            exit();
+        }
+
         try {
             $db->beginTransaction();
 
-            // Inserir pastoral
-            $queryPastoral = "INSERT INTO pastorais (nome) VALUES (:nome)";
-            $stmtPastoral = $db->prepare($queryPastoral);
+            $stmtPastoral = $db->prepare("INSERT INTO pastorais (nome) VALUES (:nome)");
             $stmtPastoral->bindParam(':nome', $nomePastoral);
             $stmtPastoral->execute();
 
-            $pastoralId = $db->lastInsertId();
+            $idPastoral = $db->lastInsertId();
 
-            // Inserir coordenadores
-            if (!empty($coordenadores)) {
-                $queryCoord = "INSERT INTO coordenadores (pastoral_id, nome, telefone) 
-                               VALUES (:pastoral_id, :nome, :telefone)";
-                $stmtCoord = $db->prepare($queryCoord);
+            $stmtCoord = $db->prepare("INSERT INTO coordenadores (nome, telefone, pastoral_id) VALUES (:nome, :telefone, :pastoral_id)");
 
-                foreach ($coordenadores as $coord) {
-                    $nome = $coord['nome'];
-                    $telefone = $coord['telefone'] ?? null;
-
-                    $stmtCoord->bindParam(':pastoral_id', $pastoralId, PDO::PARAM_INT);
-                    $stmtCoord->bindParam(':nome', $nome);
-                    $stmtCoord->bindParam(':telefone', $telefone);
+            foreach ($coordenadores as $coord) {
+                if (!empty($coord['nome'])) {
+                    $stmtCoord->bindParam(':nome', $coord['nome']);
+                    $stmtCoord->bindParam(':telefone', $coord['telefone']);
+                    $stmtCoord->bindParam(':pastoral_id', $idPastoral, PDO::PARAM_INT);
                     $stmtCoord->execute();
                 }
             }
 
             $db->commit();
-
             echo "<script>alert('Pastoral cadastrada com sucesso!'); window.location.href = 'Pastorais';</script>";
-            exit();
+
         } catch (Exception $e) {
             $db->rollBack();
-            die("Erro ao salvar pastoral: " . $e->getMessage());
+            die("Erro ao cadastrar pastoral: " . $e->getMessage());
         }
+        exit();
     }
 
-    public function buscarPastorais() {
+    // FUNÇÃO ATUALIZADA: Agora edita a pastoral e seus coordenadores
+    public function editarPastoral() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: Pastorais');
+            exit();
+        }
+
         $connection = new Database();
         $db = $connection->getConnection();
 
-        // Buscar pastorais
-        $queryPastorais = "SELECT * FROM pastorais ORDER BY nome";
-        $stmt = $db->query($queryPastorais);
-        $pastorais = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        // Buscar coordenadores e agrupar por pastoral
-        foreach ($pastorais as &$pastoral) {
-            $queryCoord = "SELECT * FROM coordenadores WHERE pastoral_id = :id";
-            $stmtCoord = $db->prepare($queryCoord);
-            $stmtCoord->bindParam(':id', $pastoral['id'], PDO::PARAM_INT);
-            $stmtCoord->execute();
-            $pastoral['coordenadores'] = $stmtCoord->fetchAll(PDO::FETCH_ASSOC);
-        }
-
-        return $pastorais;
-    }
-
-  public function excluirPastoral() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-        $id = intval($_POST['id']);
-        $connection = new Database();
-        $db = $connection->getConnection();
+        $pastoralId = $_POST['id'] ?? 0;
+        $pastoralNome = $_POST['nome_pastoral'] ?? '';
+        $coordenadores = $_POST['coordenadores'] ?? [];
 
         try {
-            $query = "DELETE FROM pastorais WHERE id = :id";
-            $stmt = $db->prepare($query);
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
+            $db->beginTransaction();
 
-            echo "<script>alert('Pastoral excluída com sucesso!'); window.location.href='Pastorais';</script>";
-            exit();
+            // 1. Atualiza o nome da pastoral
+            $stmtUpdate = $db->prepare("UPDATE pastorais SET nome = :nome WHERE id = :id");
+            $stmtUpdate->execute([':nome' => $pastoralNome, ':id' => $pastoralId]);
+
+            // 2. Remove os coordenadores antigos para simplificar a lógica
+            $stmtDelete = $db->prepare("DELETE FROM coordenadores WHERE pastoral_id = :id");
+            $stmtDelete->execute([':id' => $pastoralId]);
+
+            // 3. Insere os coordenadores enviados pelo formulário (como se fossem novos)
+            $stmtInsert = $db->prepare("INSERT INTO coordenadores (nome, telefone, pastoral_id) VALUES (:nome, :telefone, :pastoral_id)");
+            foreach ($coordenadores as $coord) {
+                if (!empty($coord['nome'])) {
+                    $stmtInsert->execute([
+                        ':nome' => $coord['nome'],
+                        ':telefone' => $coord['telefone'],
+                        ':pastoral_id' => $pastoralId
+                    ]);
+                }
+            }
+
+            $db->commit();
+            echo "<script>alert('Pastoral atualizada com sucesso!'); window.location.href = 'Pastorais';</script>";
+
         } catch (Exception $e) {
-            die("Erro ao excluir pastoral: " . $e->getMessage());
+            $db->rollBack();
+            die("Erro ao atualizar pastoral: " . $e->getMessage());
+        }
+        exit();
+    }
+
+    public function deletarPastoral() {
+        // ... (A função de deletar continua a mesma) ...
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+            $id = intval($_POST['id']);
+            $connection = new Database();
+            $db = $connection->getConnection();
+
+            try {
+                $db->beginTransaction();
+
+                $stmtCoord = $db->prepare("DELETE FROM coordenadores WHERE pastoral_id = :id");
+                $stmtCoord->bindParam(':id', $id, PDO::PARAM_INT);
+                $stmtCoord->execute();
+                
+                $stmtPastoral = $db->prepare("DELETE FROM pastorais WHERE id = :id");
+                $stmtPastoral->bindParam(':id', $id, PDO::PARAM_INT);
+                $stmtPastoral->execute();
+
+                $db->commit();
+
+                header('Content-Type: application/json');
+                echo json_encode(['success' => true]);
+
+            } catch (Exception $e) {
+                $db->rollBack();
+                header('Content-Type: application/json');
+                echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+            }
+            exit;
         }
     }
-}
-
 }

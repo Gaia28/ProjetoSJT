@@ -107,31 +107,42 @@ class Router
                             $ctrl->deletarSacramento();
                             break;
 
-                        case 'Pastorais':
-                            require dirname(__DIR__) . '/controllers/PastoraisController.php';
-                            $ctrl = new Pastorais();
-                            $pastorais = $ctrl->buscarPastorais(); // pega os dados
-                            require dirname(__DIR__) . '/views/PastoraisAdmin.php';
-                            break;
+                        // ... outros cases ...
 
-                        case 'salvarPastoral':
-                            require dirname(__DIR__) . '/controllers/PastoraisController.php';
-                            $ctrl = new Pastorais();
+            case 'Pastorais':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->mostrarPastorais();
+                break;
 
-                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                $ctrl->salvarPastoral();
-                            } else {
-                                $ctrl->buscarPastorais();
-                            }
-                            break;
-                        case 'excluirPastoral':
-                            require dirname(__DIR__) . '/controllers/PastoraisController.php';
-                            $ctrl = new Pastorais();
-                            $ctrl->excluirPastoral();
-                            break;
+            case 'salvarPastoral':
+                 // A lógica de salvar deve estar no PastoraisController também
+                 // Por enquanto, vamos manter o que você tinha, mas o ideal é mover
+                 require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                 $ctrl = new PastoraisController(); 
+                 $ctrl->salvarPastoral();
+                 break;
 
+            case 'editarPastoral':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->editarPastoral();
+                break;
+            
+            case 'deletarPastoral':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->deletarPastoral();
+                break;
 
+            // --- NOVA ROTA ---
+            case 'getPastoralDetails':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->getPastoralDetails();
+                break;
 
+            // ... default case
             default:
                 http_response_code(404);
                 echo "<h1>404 - Página não encontrada</h1>";
