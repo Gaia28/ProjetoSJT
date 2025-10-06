@@ -54,7 +54,7 @@
                             <div class="card-evento-img-placeholder"><span>Sem Imagem</span></div>
                         <?php endif; ?>
                         <div class="card-evento-body">
-                            <h3><?= htmlspecialchars($evento['nome']) ?></h3>
+                            <h3 style="color:var(--cor--fundo)"><?= htmlspecialchars($evento['nome']) ?></h3>
                             <p class="evento-info">
                                 <strong>Data:</strong> <?= htmlspecialchars(date('d/m/Y', strtotime($evento['data_evento']))) ?><br>
                                 <strong>Horário:</strong> <?= htmlspecialchars(date('H:i', strtotime($evento['horario']))) ?><br>

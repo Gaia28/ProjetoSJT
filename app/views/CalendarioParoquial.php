@@ -113,7 +113,7 @@
         <?php foreach ($eventos as $evento): ?>
             <div class="card">
     <img src="public/assets/images/lixeira.png" alt="Excluir evento" class="botaoExcluir" data-id="<?= $evento['id'] ?>">
-    <h3 class="titulo"><?= htmlspecialchars($evento['titulo']) ?></h3>
+    <h3 class="titulo" style="color:var(--cor--fundo)"><?= htmlspecialchars($evento['titulo']) ?></h3>
     <p class="tipo"><?= htmlspecialchars($evento['tipo']) ?></p>
     <p class="dia">Dia da semana: <?= htmlspecialchars($evento['dia_semana']) ?></p>
     <p class="hora">Horário: <?= htmlspecialchars($evento['horario']) ?></p>

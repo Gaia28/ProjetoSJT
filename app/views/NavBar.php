@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="public/assets/css/NavBar.css">
     <title>Navigation Bar</title>
+    <style>
+        nav ul li {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,19 +17,18 @@
             <p>Santuário São Judas Tadeu</p>
         </div>
         
-
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
         <nav>
             <ul>
-                <li><a href="#HomePG2">Home</a></li>
-                <li><a href="#HomePG4">Calendário</a></li>
-                <li><a href="#doacoes">Doações</a></li>
+                <li data-target="HomePG2">Home</li>
+                <li data-target="HomePG4">Calendário</li>
+                <li data-target="doacoes">Doações</li>
                 <li class="dropdown">
-                    <a>Saiba mais ▾</a>
+                    <span>Saiba mais ▾</span>
                     <ul class="dropdown-menu">
-                        <li><a href="nossosSacramentos">Sacramentos</a></li>
-                        <li><a href="pastorais">Pastorais</a></li>
-                        <li><a href="#">Equipe</a></li>
+                        <li data-target="nossosSacramentos">Sacramentos</li>
+                        <li data-target="pastorais">Pastorais</li>
+                        <li data-target="equipe">Equipe</li>
                     </ul>
                 </li>
             </ul>
@@ -34,9 +38,35 @@
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const nav = document.querySelector('nav');
+        const items = document.querySelectorAll('nav ul li[data-target], .dropdown-menu li[data-target]');
 
+        // Mapeamento de páginas
+        const routes = {
+            HomePG2: "index.php#HomePG2",
+            HomePG4: "index.php#HomePG4",
+            doacoes: "index.php#doacoes",
+            nossosSacramentos: "nossosSacramentos",
+            pastorais: "nossasPastorais",
+            equipe: "equipe.php"
+        };
+
+        // Toggle menu mobile
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
+        });
+
+        // Clique nos itens da navbar
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.getAttribute('data-target');
+
+                if (routes[target]) {
+                    window.location.href = routes[target];
+                }
+
+                // Fecha o menu no mobile
+                nav.classList.remove('active');
+            });
         });
     </script>
 </body>

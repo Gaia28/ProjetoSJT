@@ -41,9 +41,13 @@ header nav ul {
 
 header nav ul li {
     position: relative;
+    color: rgb(146, 15, 15);
+    padding: 8px 12px;
+    display: block;
+    transition: color 0.3s;
 }
 
-header nav ul li a {
+header nav li {
     text-decoration: none;
     color: rgb(146, 15, 15);
     padding: 8px 12px;
@@ -51,7 +55,7 @@ header nav ul li a {
     transition: color 0.3s;
 }
 
-header nav ul li a:hover {
+header nav li:hover {
     color: #e6a00b;
      box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
      border-radius: 10%;

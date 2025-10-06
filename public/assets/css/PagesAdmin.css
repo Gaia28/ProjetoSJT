@@ -206,69 +206,6 @@ body {
 .modalEvento button[type="submit"]:hover {
   background: #8f3232;
 }
-.form-group-row {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.form-group-row > .form-group {
-    flex: 1;
-}
-
-#imagemPreview {
-    display: none; /* Começa escondida */
-    max-height: 200px;
-    width: 100%;
-    object-fit: cover;
-    margin-top: 1rem;
-    border-radius: var(--raio-borda);
-    border: 2px dashed var(--cor-borda);
-}
-
-.card-evento {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-evento-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: var(--raio-borda);
-    border-top-right-radius: var(--raio-borda);
-}
-
-.card-evento-img-placeholder {
-    width: 100%;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f0f0f0;
-    color: var(--cor-texto-suave);
-    font-style: italic;
-    border-top-left-radius: var(--raio-borda);
-    border-top-right-radius: var(--raio-borda);
-}
-
-.card-evento-body {
-    padding: 1.5rem;
-}
-
-.card-evento-body .evento-info {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--cor-texto-suave);
-    margin-bottom: 1rem;
-}
-
-.card-evento-body .descricao {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    padding-top: 1rem;
-    border-top: 1px solid var(--cor-borda);
-}
 
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(-20px); }
