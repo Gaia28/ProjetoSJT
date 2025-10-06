@@ -8,13 +8,14 @@
     <title>Sacramentos</title>
 </head>
 <body>
+    
     <?php include 'NavBar.php'; ?>
 
     <section id="Sacramentos" class="section-padrao">
         <div class="linha">  
-            <img class="icon" src="public/assets/images/calendario.png" alt="Ícone de sacramentos">      
-            <h1>Nossos Sacramentos</h1>
-            <p>Confira os sacramentos oferecidos pela nossa paróquia</p>
+            <img class="icon" src="public/assets/images/livro.png" alt="Ícone de sacramentos">      
+            <h1>Sacramentos</h1>
+            <p>Os sacramentos são os sinais visíveis e eficazes da graça de Deus, através dos quais Ele nos comunica a Sua vida divina.<br> Conheça os sacramentos oferecidos em nossa paróquia e como se preparar para recebê-los. </p>
 
             <div class="cards">
                 <?php if (!empty($sacramentos)): ?>
