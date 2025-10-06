@@ -9,8 +9,9 @@
     <header>
         <div class="circle">
             <img src="public/assets/images/logo.PNG" alt="Logo do Santuário">
+            <p>Santuário São Judas Tadeu</p>
         </div>
-        <p>Santuário São Judas Tadeu</p>
+        
 
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
         <nav>

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/assets/css/Home.css"> 
     <link rel="stylesheet" href="public/assets/css/HomeResponsivo.css"> 
+      <link rel="stylesheet" href="public/assets/css/base.css"> 
 
 </head>
 <body>
@@ -79,7 +80,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
         <?php if (!empty($eventos)): ?>
           <?php foreach ($eventos as $evento): ?>
             <article class="card">
-              <h2><?= htmlspecialchars($evento['titulo']) ?></h2>
+              <h2 style="color:var(--cor--fundo)"><?= htmlspecialchars($evento['titulo']) ?></h2>
               <p><strong>Tipo:</strong> <?= htmlspecialchars($evento['tipo']) ?></p>
               <p><strong>Dia:</strong> <?= htmlspecialchars($evento['dia_semana']) ?></p>
               <p><strong>Horário:</strong> <?= htmlspecialchars($evento['horario']) ?></p>

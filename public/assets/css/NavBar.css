@@ -91,7 +91,10 @@ header nav ul li a:hover {
 .menu-toggle {
     display: none;
 }
-
+.circle{
+    display: flex;
+    align-items: center;
+}
 @media(max-width: 768px) {
     header {
         flex-wrap: wrap;
