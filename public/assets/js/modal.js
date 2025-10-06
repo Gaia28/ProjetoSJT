@@ -34,10 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeBtn) closeBtn.addEventListener("click", () => modalEditarPastoral.close());
   }
 
-  // Contador global para garantir que os nomes dos inputs sejam únicos
   let coordCount = 1; 
 
-  // FUNÇÃO ATUALIZADA: Agora recebe o ID do container para ser mais reutilizável
   window.adicionarCoordenador = function(containerId) {
     const div = document.getElementById(containerId);
     if (!div) return;
@@ -58,7 +56,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const entity = btn.dataset.entity || "";
       const id = btn.dataset.id || "";
 
-      // LÓGICA ATUALIZADA PARA PASTORAIS (com AJAX)
+      // ===============================================================
+      // CORREÇÃO: LÓGICA PARA SACRAMENTOS QUE ESTAVA FALTANDO
+      // ===============================================================
+      if (entity === "sacramento" && modalEditarSacramento) {
+        safe("editarId").value = btn.dataset.id || "";
+        safe("editarNome").value = btn.dataset.nome || "";
+        safe("editarValor").value = btn.dataset.valor || "";
+        safe("editarDocumentos").value = btn.dataset.documentos || "";
+        modalEditarSacramento.showModal();
+        return; // Importante para parar a execução aqui
+      }
+
+      // LÓGICA PARA PASTORAIS (com AJAX)
       if (entity === "pastoral" && modalEditarPastoral && id) {
         try {
           const response = await fetch(`getPastoralDetails?id=${id}`);
@@ -67,12 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const data = await response.json();
           if (data.error) throw new Error(data.error);
 
-          // Preenche os campos do formulário com os dados recebidos
           safe("editarPastoralId").value = data.id;
           safe("editarPastoralNome").value = data.nome;
 
           const container = safe("coordenadoresEditar");
-          container.innerHTML = ''; // Limpa coordenadores antigos
+          container.innerHTML = ''; 
           
           if (data.coordenadores && data.coordenadores.length > 0) {
             data.coordenadores.forEach(coord => {
@@ -96,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
-      // Lógica antiga para as outras entidades...
+      // LÓGICA PARA EVENTOS
       if (entity === "evento" && modalEditarEvento) {
         safe("editar_id").value = btn.dataset.id || "";
         safe("editar_titulo").value = btn.dataset.titulo || "";
