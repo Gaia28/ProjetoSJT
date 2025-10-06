@@ -135,14 +135,25 @@ class Router
                 $controller->deletarPastoral();
                 break;
 
-            // --- NOVA ROTA ---
             case 'getPastoralDetails':
                 require dirname(__DIR__) . '/controllers/PastoraisController.php';
                 $controller = new PastoraisController();
                 $controller->getPastoralDetails();
                 break;
 
-            // ... default case
+             case 'gerenciar-eventos':
+                require dirname(__DIR__) . '/controllers/EventosController.php';
+                $controller = new EventosController();
+                $controller->mostrarPainel();
+                break;
+
+            case 'salvarEvento':
+                require dirname(__DIR__) . '/controllers/EventosController.php';
+                $controller = new EventosController();
+                $controller->cadastrarEvento();
+                break;
+
+          
             default:
                 http_response_code(404);
                 echo "<h1>404 - Página não encontrada</h1>";

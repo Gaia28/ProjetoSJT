@@ -13,6 +13,7 @@ header {
     width: 100%;
     background-color: white;
     align-items: center;
+    justify-content: space-around;
     padding: 5px 20px;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   
