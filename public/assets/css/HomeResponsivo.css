@@ -16,7 +16,6 @@
     #HomePG5 .linha img,
     .qrcode-container {
         order: -1;
-        margin-bottom: 20px;
     }
 
     /* Títulos */
@@ -54,6 +53,9 @@
     #HomePG5 .itens-direita h1 {
         font-size: 1.8rem;
     }
+    #HomePG2 .linha{
+        gap: 10px;
+    }
 
     /* Textos */
     #HomePG3 p,
@@ -63,9 +65,8 @@
         font-size: 1rem;
     }
 
-    /* Links sociais */
     .links-sociais {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
     }
 
@@ -73,11 +74,15 @@
         width: 100%;
         text-align: center;
     }
+    #fachada{
+        width: 100%;
+    }
 
     /* QRCode */
     .qrcode-img img {
         width: 80%;
     }
+
 
     /* Eventos */
     .eventos {
