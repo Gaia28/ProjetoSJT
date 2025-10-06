@@ -1,11 +1,5 @@
-/* ==========================================================================
-   1. FUNDAÇÃO - NOSSO MINI DESIGN SYSTEM
-   ========================================================================== */
-
-/* 1.1 Paleta de Cores e Variáveis Globais
-   -------------------------------------------------------------------------- */
 :root {
-    /* Cores Primárias (inspiradas em tons eclesiásticos e de confiança) */
+    
     --cor-primaria: #8C1D18; /* Um vermelho sóbrio, cor de vinho */
     --cor-primaria-escura: #6F1712;
     --cor-secundaria: #F2C94C; /* Um dourado/amarelo para detalhes e destaques */
