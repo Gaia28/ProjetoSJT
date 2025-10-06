@@ -1,5 +1,5 @@
 :root {
-    
+    /* Cores Primárias (inspiradas em tons eclesiásticos e de confiança) */
     --cor-primaria: #8C1D18; /* Um vermelho sóbrio, cor de vinho */
     --cor-primaria-escura: #6F1712;
     --cor-secundaria: #F2C94C; /* Um dourado/amarelo para detalhes e destaques */
@@ -43,6 +43,9 @@ body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
+}
+header{
+    position: sticky;
 }
 
 h1, h2, h3, h4, h5, h6 {
