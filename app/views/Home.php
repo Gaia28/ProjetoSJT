@@ -72,26 +72,52 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
   <!-- Programação -->
   <section id="HomePG4" class="section-padrao">
     <div class="linha">  
-        <img class="icon" src="public/assets/images/calendario.png" alt="">      
-      <h1 class="tracking-in-expand-fwd-bottom">Calendário Paroquial</h1>
-      <p class="tracking-in-expand-fwd-bottom">Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
+        <img class="icon" src="public/assets/images/calendario.png" alt="Calendário">
+        <h1 class="tracking-in-expand-fwd-bottom">Calendário Paroquial</h1>
+        <p class="tracking-in-expand-fwd-bottom">Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
 
-      <div class="eventos">
-        <?php if (!empty($eventos)): ?>
-          <?php foreach ($eventos as $evento): ?>
-            <article class="card">
-              <h2 style="color:var(--cor--fundo)"><?= htmlspecialchars($evento['titulo']) ?></h2>
-              <p><strong>Tipo:</strong> <?= htmlspecialchars($evento['tipo']) ?></p>
-              <p><strong>Dia:</strong> <?= htmlspecialchars($evento['dia_semana']) ?></p>
-              <p><strong>Horário:</strong> <?= htmlspecialchars($evento['horario']) ?></p>
-            </article>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <p class="tracking-in-expand-fwd-bottom">Nenhum evento cadastrado no momento.</p>
-        <?php endif; ?>
-      </div>
+        <?php
+        // ETAPA 1: Organizar os eventos por dia da semana (sem alterações)
+        if (!empty($eventos)) {
+            $diasDaSemana = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+            $programacaoPorDia = array_fill_keys($diasDaSemana, []);
+            foreach ($eventos as $evento) {
+                $dia = $evento['dia_semana'];
+                if (array_key_exists($dia, $programacaoPorDia)) {
+                    $programacaoPorDia[$dia][] = $evento;
+                }
+            }
+        }
+        ?>
+
+        <div class="calendario-semanal-container">
+            <?php if (!empty($programacaoPorDia)): ?>
+                <div class="calendario-grid">
+                    
+                    <?php foreach ($programacaoPorDia as $dia => $eventosDoDia): ?>
+                        <div class="dia-coluna">
+                            <div class="dia-header"><?= $dia ?></div>
+                            
+                            <?php if (!empty($eventosDoDia)): ?>
+                                <?php foreach ($eventosDoDia as $item): ?>
+                                    <div class="evento-item">
+                                        <span class="horario"><?= htmlspecialchars(date('H:i', strtotime($item['horario']))) ?></span>
+                                        <p class="titulo"><?= htmlspecialchars($item['titulo']) ?></p>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="sem-eventos">-</p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+            <?php else: ?>
+                <p class="tracking-in-expand-fwd-bottom">Nenhum evento cadastrado no momento.</p>
+            <?php endif; ?>
+        </div>
     </div>
-  </section>
+</section>
 
 
   <section id="HomePG6" class="section-padrao">

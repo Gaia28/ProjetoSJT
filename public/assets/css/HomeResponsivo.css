@@ -57,6 +57,14 @@
         gap: 10px;
     }
 
+    .calendario-grid {
+        /* Em celulares, vira uma única coluna */
+        grid-template-columns: 1fr;
+        gap: 2rem; /* Aumenta o espaçamento vertical entre os dias */
+    }
+    .dia-header {
+        text-align: left; /* Alinha o nome do dia à esquerda */
+    }
     /* Textos */
     #HomePG3 p,
     #HomePG4 p,
