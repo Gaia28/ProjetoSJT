@@ -585,7 +585,96 @@ iframe {
     line-height: 1.5;
     color: #f8f8f8;
 }
+/* ... (todo o seu CSS existente) ... */
 
+/* ==========================================================================
+   6. Seção de Próximos Eventos na Home
+   ========================================================================== */
+
+#HomeEventos h1 {
+    margin-bottom: 1rem;
+}
+
+.eventos-home-grid {
+    display: flex; /* Usando Flexbox para melhor controle */
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os cards no container */
+    gap: 2rem; /* Espaçamento entre os cards */
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.evento-card-home {
+    /* ESTA É A MUDANÇA PRINCIPAL */
+    flex: 0 1 350px; /* O card não cresce, pode encolher, e tem uma base de 350px */
+    
+    background-color: var(--cor-superficie, #fff);
+    border-radius: var(--raio-borda, 8px);
+    box-shadow: var(--sombra-padrao, 0 4px 12px rgba(0,0,0,0.08));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.evento-card-home:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.evento-card-home-img-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.evento-card-home-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.evento-card-home-data {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--cor-primaria, #8C1D18);
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.evento-card-home-data .dia {
+    font-size: 1.5rem;
+    display: block;
+}
+
+.evento-card-home-data .mes {
+    font-size: 0.9rem;
+    display: block;
+    text-transform: uppercase;
+}
+
+.evento-card-home-body {
+    padding: 1.5rem;
+}
+
+.evento-card-home-body h3 {
+    font-family: var(--fonte-titulos, serif);
+    font-size: 1.3rem;
+    color: var(--cor-texto, #333);
+    margin: 0 0 0.5rem 0;
+}
+
+.evento-card-home-body .local {
+    font-size: 0.95rem;
+    color: var(--cor-texto-suave, #666);
+}
 /* Botões */
 .btn {
     display: inline-block;

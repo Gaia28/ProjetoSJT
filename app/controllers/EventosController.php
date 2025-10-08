@@ -59,4 +59,14 @@ class EventosController {
         }
         exit();
     }
+     public function listarProximosEventos($limite = 3) {
+        $connection = new Database();
+        $db = $connection->getConnection();
+        // A cláusula WHERE garante que apenas eventos futuros ou de hoje sejam mostrados
+        $query = "SELECT * FROM eventos WHERE data_evento >= CURDATE() ORDER BY data_evento ASC LIMIT :limite";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':limite', $limite, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

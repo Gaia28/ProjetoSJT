@@ -119,6 +119,42 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     </div>
 </section>
 
+ </section>
+
+  <section id="HomeEventos" class="section-padrao animate-on-scroll">
+    <div class="linha">
+        <img class="icon" src="public/assets/images/calendario.png" alt="Eventos">
+        <h1>Próximos Eventos</h1>
+        <p>Fique por dentro das festas, retiros e celebrações especiais da nossa comunidade.</p>
+
+        <?php if (!empty($proximosEventos)): ?>
+            <div class="eventos-home-grid">
+                <?php foreach ($proximosEventos as $evento): ?>
+                    <div class="evento-card-home">
+                        <div class="evento-card-home-img-container">
+                            <?php if (!empty($evento['imagem'])): ?>
+                                <img class="evento-card-home-img" src="data:image/jpeg;base64,<?= base64_encode($evento['imagem']) ?>" alt="<?= htmlspecialchars($evento['nome']) ?>">
+                            <?php endif; ?>
+
+                            <div class="evento-card-home-data">
+                                <span class="dia"><?= date('d', strtotime($evento['data_evento'])) ?></span>
+                                <span class="mes"><?= date('M', strtotime($evento['data_evento'])) ?></span>
+                            </div>
+                        </div>
+                        <div class="evento-card-home-body">
+                            <h3><?= htmlspecialchars($evento['nome']) ?></h3>
+                            <p class="local"><?= htmlspecialchars($evento['local']) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <p>Nenhum evento especial agendado para os próximos dias.</p>
+        <?php endif; ?>
+    </div>
+  </section>
+
+
 
   <section id="HomePG6" class="section-padrao">
     <div class="linha">

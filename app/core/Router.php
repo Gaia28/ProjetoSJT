@@ -13,6 +13,10 @@ class Router
             $calendario = new CalendarioParoquial();
             $eventos = $calendario->buscarProgramacao();
 
+            require dirname(__DIR__) . '/controllers/EventosController.php';
+            $eventosController = new EventosController();
+            $proximosEventos = $eventosController->listarProximosEventos(3); 
+
             require dirname(__DIR__) . '/views/Home.php';
             break;
 
@@ -20,6 +24,9 @@ class Router
                         require dirname(__DIR__) . '/controllers/CalendarioController.php';
             $calendario = new CalendarioParoquial();
             $eventos = $calendario->buscarProgramacao();
+            require dirname(__DIR__) . '/controllers/EventosController.php';
+            $eventosController = new EventosController();
+            $proximosEventos = $eventosController->listarProximosEventos(3); 
 
             require dirname(__DIR__) . '/views/Home.php';
             break;
