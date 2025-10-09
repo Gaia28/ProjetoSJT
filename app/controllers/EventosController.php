@@ -69,4 +69,89 @@ class EventosController {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+     public function editarEvento() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: eventos');
+            exit();
+        }
+
+        $id = $_POST['id'];
+        $nome = $_POST['nome'];
+        $data_evento = $_POST['data_evento'];
+        $horario = $_POST['horario'];
+        $local = $_POST['local'];
+        $descricao = $_POST['descricao'];
+        
+        $connection = new Database();
+        $db = $connection->getConnection();
+
+        try {
+            // Prepara a query SQL base
+            $sql = "UPDATE eventos SET nome = :nome, data_evento = :data_evento, horario = :horario, local = :local, descricao = :descricao";
+            
+            // Prepara os parâmetros para a query
+            $params = [
+                ':id' => $id,
+                ':nome' => $nome,
+                ':data_evento' => $data_evento,
+                ':horario' => $horario,
+                ':local' => $local,
+                ':descricao' => $descricao
+            ];
+
+            // Se uma nova imagem for enviada, adiciona a atualização da imagem à query
+            if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+                $imagemBinaria = file_get_contents($_FILES['imagem']['tmp_name']);
+                $sql .= ", imagem = :imagem";
+                $params[':imagem'] = $imagemBinaria;
+            }
+
+            $sql .= " WHERE id = :id";
+            $stmt = $db->prepare($sql);
+            
+            // Faz o bind dos parâmetros, tratando a imagem como um BLOB se ela existir
+            $stmt->bindParam(':id', $params[':id'], PDO::PARAM_INT);
+            $stmt->bindParam(':nome', $params[':nome']);
+            $stmt->bindParam(':data_evento', $params[':data_evento']);
+            $stmt->bindParam(':horario', $params[':horario']);
+            $stmt->bindParam(':local', $params[':local']);
+            $stmt->bindParam(':descricao', $params[':descricao']);
+            if (isset($params[':imagem'])) {
+                $stmt->bindParam(':imagem', $params[':imagem'], PDO::PARAM_LOB);
+            }
+            
+            $stmt->execute();
+            
+            echo "<script>alert('Evento atualizado com sucesso!'); window.location.href = 'eventos';</script>";
+
+        } catch (Exception $e) {
+            die("Erro ao atualizar evento: " . $e->getMessage());
+        }
+        exit();
+    }
+
+    public function excluirEvento() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+            $id = intval($_POST['id']);
+            $connection = new Database();
+            $db = $connection->getConnection();
+
+            header('Content-Type: application/json');
+            try {
+                $query = "DELETE FROM eventos WHERE id = :id";
+                $stmt = $db->prepare($query);
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+                if ($stmt->execute()) {
+                    echo json_encode(['success' => true]);
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'Erro ao executar a exclusão.']);
+                }
+            } catch (Exception $e) {
+                echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+            }
+            exit;
+        }
+    }
 }

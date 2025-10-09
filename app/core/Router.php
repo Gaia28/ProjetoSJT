@@ -157,6 +157,18 @@ class Router
                 $controller->cadastrarEvento();
                 break;
 
+            case 'editarEventoAdmin': // Usamos um nome único para não conflitar com o calendário
+            require dirname(__DIR__) . '/controllers/EventosController.php';
+            $controller = new EventosController();
+            $controller->editarEvento();
+            break;
+
+            case 'excluirEvento':
+                require dirname(__DIR__) . '/controllers/EventosController.php';
+                $controller = new EventosController();
+                $controller->excluirEvento();
+                break;
+
           
             default:
                 http_response_code(404);

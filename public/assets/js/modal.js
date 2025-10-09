@@ -116,6 +116,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  if (entity === "eventoAdmin" && modalEditarEventoAdmin) {
+          modalEditarEventoAdmin.querySelector('#editar_id').value = btn.dataset.id || '';
+          modalEditarEventoAdmin.querySelector('#editar_nome').value = btn.dataset.nome || '';
+          modalEditarEventoAdmin.querySelector('#editar_data').value = btn.dataset.data_evento || '';
+          modalEditarEventoAdmin.querySelector('#editar_horario').value = btn.dataset.horario || '';
+          modalEditarEventoAdmin.querySelector('#editar_local').value = btn.dataset.local || '';
+          modalEditarEventoAdmin.querySelector('#editar_descricao').value = btn.dataset.descricao || '';
+          
+          modalEditarEventoAdmin.querySelector('#editar_imagem').value = '';
+          const preview = modalEditarEventoAdmin.querySelector('#imagemPreviewEditar');
+          if (preview) {
+              preview.style.display = 'none';
+              preview.setAttribute('src', '#');
+          }
+
+          modalEditarEventoAdmin.showModal();
+          return;
+      }
+    });
 
   document.querySelectorAll(".botaoExcluir").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -145,4 +164,3 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => alert("Erro na requisição. Veja o console."));
     });
   });
-});
