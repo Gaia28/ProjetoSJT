@@ -13,6 +13,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Hina Mincho', serif;
     background: var(--cor-fundo);
@@ -143,7 +144,7 @@ svg.onda {
 }
 
 #SaoJudas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

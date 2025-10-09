@@ -26,8 +26,7 @@
     --transicao-rapida: all 0.2s ease-in-out;
 }
 
-/* 1.2 Reset Básico e Estilos Globais
-   -------------------------------------------------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -46,6 +45,9 @@ body {
 }
 header{
     position: sticky;
+}
+nav{
+    position: -webkit-sticky;
 }
 
 h1, h2, h3, h4, h5, h6 {
