@@ -585,29 +585,22 @@ iframe {
     line-height: 1.5;
     color: #f8f8f8;
 }
-/* ... (todo o seu CSS existente) ... */
-
-/* ==========================================================================
-   6. Seção de Próximos Eventos na Home
-   ========================================================================== */
-
 #HomeEventos h1 {
     margin-bottom: 1rem;
 }
 
 .eventos-home-grid {
-    display: flex; /* Usando Flexbox para melhor controle */
-    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
-    justify-content: center; /* Centraliza os cards no container */
-    gap: 2rem; /* Espaçamento entre os cards */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
     width: 100%;
     margin-top: 3rem;
 }
 
 .evento-card-home {
-    /* ESTA É A MUDANÇA PRINCIPAL */
-    flex: 0 1 350px; /* O card não cresce, pode encolher, e tem uma base de 350px */
-    
+    /* CORREÇÃO 1: Tamanho do card */
+    flex: 0 1 350px; 
     background-color: var(--cor-superficie, #fff);
     border-radius: var(--raio-borda, 8px);
     box-shadow: var(--sombra-padrao, 0 4px 12px rgba(0,0,0,0.08));
@@ -616,7 +609,6 @@ iframe {
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .evento-card-home:hover {
     transform: translateY(-8px);
@@ -666,13 +658,14 @@ iframe {
 
 .evento-card-home-body h3 {
     font-family: var(--fonte-titulos, serif);
-    font-size: 1.3rem;
+    font-size: 1.5rem; 
     color: var(--cor-texto, #333);
     margin: 0 0 0.5rem 0;
 }
 
 .evento-card-home-body .local {
-    font-size: 0.95rem;
+    /* CORREÇÃO 3: Tamanho do Subtexto */
+    font-size: 1rem; /* Aumentado para melhor legibilidade e padrão */
     color: var(--cor-texto-suave, #666);
 }
 /* Botões */

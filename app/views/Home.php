@@ -124,8 +124,8 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
   <section id="HomeEventos" class="section-padrao animate-on-scroll">
     <div class="linha">
         <img class="icon" src="public/assets/images/calendario.png" alt="Eventos">
-        <h1>Próximos Eventos</h1>
-        <p>Fique por dentro das festas, retiros e celebrações especiais da nossa comunidade.</p>
+        <h1 style='font-size: 3rem;'>Próximos Eventos</h1>
+        <p style='font-size: 1.3rem;'>Fique por dentro das festas, retiros e celebrações especiais da nossa comunidade.</p>
 
         <?php if (!empty($proximosEventos)): ?>
             <div class="eventos-home-grid">
