@@ -113,7 +113,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
 
                 </div>
             <?php else: ?>
-                <p class="tracking-in-expand-fwd-bottom">Nenhum evento cadastrado no momento.</p>
+                <p class="tracking-in-expand-fwd-bottom">Nenhuma programação cadastrada no momento.</p>
             <?php endif; ?>
         </div>
     </div>
