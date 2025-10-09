@@ -17,6 +17,10 @@ class Router
             $eventosController = new EventosController();
             $proximosEventos = $eventosController->listarProximosEventos(3); 
 
+            require_once dirname(__DIR__) . '/controllers/LiturgiaController.php';
+            $liturgiaController = new LiturgiaController();
+            $liturgiaDiaria = $liturgiaController->getLiturgiaData();
+
             require dirname(__DIR__) . '/views/Home.php';
             break;
 

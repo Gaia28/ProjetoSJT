@@ -4,9 +4,14 @@ require_once dirname(__DIR__) . '/models/ApiModel.php';
 
 class LiturgiaController {
 
-    public function mostrarLiturgia() {
+     public function getLiturgiaData() {
+        require_once dirname(__DIR__) . '/models/ApiModel.php';
         $apiModel = new ApiModel();
-        $liturgia = $apiModel->getLiturgia();
-        return require dirname(__DIR__) . '/views/Liturgia.php';
+        return $apiModel->getLiturgia();
     }
-}   
+
+    public function mostrarLiturgia() {
+        $liturgia = $this->getLiturgiaData();
+        require dirname(__DIR__) . '/views/Liturgia.php';
+    }
+}
