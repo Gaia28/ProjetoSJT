@@ -12,40 +12,52 @@
 </head>
 <body>
     <header>
-        <nav class="navbar" role="navigation" aria-label="Menu principal">
-            <div class="navbar-container">
-                <a href="home" class="navbar-logo" aria-label="Ir para a página inicial">
-                    <img src="public/assets/images/logo.PNG" alt="Logo Santuário">
-                    <span>Paróquia Santuário</span>
-                </a>
+       <nav class="navbar">
+    <div class="navbar-container">
+        <a href="home" class="navbar-logo">
+            <img src="public/assets/images/logo.PNG" alt="Logo Santuário">
+            <span>Paróquia Santuário</span>
+        </a>
 
-                <ul class="navbar-menu-desktop" role="menubar">
-                    <li role="none"><a href="#" role="menuitem" data-target="HomePG2">Sobre Nós</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="HomePG4">Calendário</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="HomePG6">Liturgia</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="nossosSacramentos">Sacramentos</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="doacoes">Doações</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="admin">Admin</a></li>
+        <ul class="navbar-menu-desktop">
+            <li><a href="#HomePG2">Sobre Nós</a></li>
+            <li><a href="#HomePG4">Calendário</a></li>
+            <li><a href="#HomePG6">Liturgia</a></li>
+            <li><a href="#doacoes">Doações</a></li>
+
+            <li class="menu-item-has-dropdown">
+                <a href="#">Saiba mais</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Pastorais</a></li>
+                    <li><a href="nossosSacramentos">Sacramentos</a></li>
+                    <li><a href="#">Contatos</a></li>
+                    <li><a href="#">Administração</a></li>
                 </ul>
+            </li>
 
-                <button class="navbar-toggler" id="navbarToggler" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbarMenuMobile">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+        </ul>
 
-            <div class="navbar-menu-mobile" id="navbarMenuMobile" aria-hidden="true" style="display:none">
-                <ul role="menu">
-                    <li role="none"><a href="#" role="menuitem" data-target="HomePG2">Sobre Nós</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="HomePG4">Programação</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="HomePG6">Liturgia</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="nossosSacramentos">Sacramentos</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="doacoes">Doações</a></li>
-                    <li role="none"><a href="#" role="menuitem" data-target="admin">Admin</a></li>
-                </ul>
-            </div>
-        </nav>
+        <button class="navbar-toggler" id="navbarToggler" aria-label="Abrir menu">
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+    <div class="navbar-menu-mobile" id="navbarMenuMobile">
+        <ul>
+            <li><a href="#HomePG2">Sobre Nós</a></li>
+            <li><a href="#HomePG4">Programação</a></li>
+            <li><a href="#HomePG6">Liturgia</a></li>
+            <li><a href="nossosSacramentos">Sacramentos</a></li>
+            <li><a href="#">Pastorais</a></li>
+            <li><a href="#">Contatos</a></li>
+            <li><a href="#">Administração</a></li>
+            <li><a href="#doacoes">Doações</a></li>
+            <li><a href="admin">Admin</a></li>
+        </ul>
+    </div>
+</nav>
     </header>
 
     <!-- se você já tem um navbar.js, pode removê-lo ou mantê-lo; o script abaixo é autônomo -->

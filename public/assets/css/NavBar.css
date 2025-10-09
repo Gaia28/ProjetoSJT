@@ -71,6 +71,57 @@
 .navbar.is-active .navbar-toggler-icon:nth-child(3) {
     transform: translateY(-11px) rotate(-45deg);
 }
+.navbar-menu-desktop .menu-item-has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+
+    /* Estilo e Posicionamento */
+    position: absolute;
+    top: 100%; /* Aparece logo abaixo do item pai */
+    left: 0;
+    z-index: 1001;
+    background-color: var(--cor-superficie, #fff);
+    border-radius: var(--raio-borda, 8px);
+    box-shadow: var(--sombra-padrao, 0 4px 12px rgba(0,0,0,0.08));
+    border: 1px solid var(--cor-borda, #E0E0E0);
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 200px; /* Largura mínima do dropdown */
+}
+
+/*
+  Quando o usuário passa o mouse sobre o item pai, o dropdown se torna visível.
+*/
+.navbar-menu-desktop .menu-item-has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--cor-texto-suave, #666);
+    font-weight: normal; /* Texto normal, não em negrito */
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5;
+    color: var(--cor-primaria, #8C1D18);
+}
+
+/* Remove o efeito de sublinhado animado do item "Saiba mais" */
+.menu-item-has-dropdown > a::after {
+    display: none;
+}
 
 /* ==========================================================================
    NOVO ESTILO DO MENU MOBILE (DROPDOWN)
@@ -168,4 +219,70 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px
 
         text-decoration: none;
     }
+}
+/* ==========================================================================
+   CÓDIGO ADICIONAL PARA FUNCIONALIDADE DO DROPDOWN
+   - Adicione este bloco ao final do seu NavBar.css
+   ========================================================================== */
+
+/*
+  1. O item da lista que contém o dropdown precisa de um contexto
+     de posicionamento. Esta é a regra mais importante.
+*/
+.navbar-menu-desktop .menu-item-has-dropdown {
+    position: relative;
+}
+
+/*
+  2. O menu dropdown em si.
+     - 'position: absolute' o retira do fluxo normal da página.
+     - 'opacity: 0' e 'visibility: hidden' o escondem por padrão.
+*/
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Posiciona-o logo abaixo do item "Saiba mais" */
+    left: 0;
+    z-index: 1001; /* Garante que fique acima de outros conteúdos */
+
+    background-color: #fff; /* Fundo branco para o dropdown */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+    min-width: 200px; /* Largura mínima */
+
+    /* Animação suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+/*
+  3. A "mágica" do hover.
+     Quando o mouse passa sobre o item pai (.menu-item-has-dropdown),
+     o .dropdown-menu que está dentro dele se torna visível.
+*/
+.menu-item-has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 4. Estilo dos links dentro do dropdown */
+.dropdown-menu li {
+    list-style: none; /* Remove bolinhas da lista */
+}
+
+.dropdown-menu a {
+    display: block; /* Faz o link ocupar todo o espaço do 'li' */
+    padding: 0.75rem 1.5rem;
+    color: #333; /* Cor do texto */
+    text-decoration: none;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5; /* Cor de fundo ao passar o mouse */
+    color: rgb(146, 15, 15); /* Cor primária do seu site */
 }

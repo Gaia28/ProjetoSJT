@@ -77,7 +77,6 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
         <p class="tracking-in-expand-fwd-bottom">Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
 
         <?php
-        // ETAPA 1: Organizar os eventos por dia da semana (sem alterações)
         if (!empty($eventos)) {
             $diasDaSemana = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
             $programacaoPorDia = array_fill_keys($diasDaSemana, []);
