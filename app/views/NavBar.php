@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-       <nav class="navbar">
+     <nav class="navbar">
     <div class="navbar-container">
         <a href="home" class="navbar-logo">
             <img src="public/assets/images/logo.PNG" alt="Logo Santuário">
@@ -20,21 +20,20 @@
         </a>
 
         <ul class="navbar-menu-desktop">
-            <li><a href="#HomePG2">Sobre Nós</a></li>
-            <li><a href="#HomePG4">Calendário</a></li>
-            <li><a href="#HomePG6">Liturgia</a></li>
-            <li><a href="#doacoes">Doações</a></li>
+            <li><a href="home#HomePG2">Sobre Nós</a></li>
+            <li><a href="home#HomePG4">Calendário</a></li>
+            <li><a href="home#HomePG6">Liturgia</a></li>
+            <li><a href="home#doacoes">Doações</a></li>
 
             <li class="menu-item-has-dropdown">
-                <a href="#">Saiba mais</a>
+                <a href="javascript:void(0);" aria-haspopup="true">Saiba mais</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Pastorais</a></li>
+                    <li><a href="Pastorais">Pastorais</a></li>
                     <li><a href="nossosSacramentos">Sacramentos</a></li>
                     <li><a href="#">Contatos</a></li>
-                    <li><a href="#">Administração</a></li>
+                    <li><a href="admin">Administração</a></li>
                 </ul>
             </li>
-
         </ul>
 
         <button class="navbar-toggler" id="navbarToggler" aria-label="Abrir menu">
@@ -46,14 +45,14 @@
 
     <div class="navbar-menu-mobile" id="navbarMenuMobile">
         <ul>
-            <li><a href="#HomePG2">Sobre Nós</a></li>
-            <li><a href="#HomePG4">Programação</a></li>
-            <li><a href="#HomePG6">Liturgia</a></li>
+            <li><a href="home#HomePG2">Sobre Nós</a></li>
+            <li><a href="home#HomePG4">Programação</a></li>
+            <li><a href="home#HomePG6">Liturgia</a></li>
             <li><a href="nossosSacramentos">Sacramentos</a></li>
-            <li><a href="#">Pastorais</a></li>
+            <li><a href="Pastorais">Pastorais</a></li>
             <li><a href="#">Contatos</a></li>
-            <li><a href="#">Administração</a></li>
-            <li><a href="#doacoes">Doações</a></li>
+            <li><a href="admin">Administração</a></li>
+            <li><a href="home#doacoes">Doações</a></li>
             <li><a href="admin">Admin</a></li>
         </ul>
     </div>

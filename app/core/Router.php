@@ -8,35 +8,29 @@ class Router
         $url = trim($url, '/');
 
         switch ($url) {
-        case '':
+          case '':
+        case 'home':
+            // Carrega dados do Calendário
             require dirname(__DIR__) . '/controllers/CalendarioController.php';
             $calendario = new CalendarioParoquial();
             $eventos = $calendario->buscarProgramacao();
 
+            // Carrega dados dos Próximos Eventos
             require dirname(__DIR__) . '/controllers/EventosController.php';
             $eventosController = new EventosController();
             $proximosEventos = $eventosController->listarProximosEventos(3); 
 
+            // Carrega dados da Liturgia Diária
             require_once dirname(__DIR__) . '/controllers/LiturgiaController.php';
             $liturgiaController = new LiturgiaController();
             $liturgiaDiaria = $liturgiaController->getLiturgiaData();
 
-            require dirname(__DIR__) . '/views/Home.php';
-            break;
-
-            case 'home':
-                        require dirname(__DIR__) . '/controllers/CalendarioController.php';
-            $calendario = new CalendarioParoquial();
-            $eventos = $calendario->buscarProgramacao();
-            require dirname(__DIR__) . '/controllers/EventosController.php';
-            $eventosController = new EventosController();
-            $proximosEventos = $eventosController->listarProximosEventos(3); 
-
+            // Renderiza a view da Home com todas as variáveis prontas
             require dirname(__DIR__) . '/views/Home.php';
             break;
 
             case 'admin':
-
+                // ... (o resto do seu router continua igual) ...
                 require dirname(__DIR__) . '/controllers/AdminController.php';
                 $controller = new AdminController();
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -44,7 +38,6 @@ class Router
                 } else {
                     $controller->mostrarLogin();
                 }
-
                 break;
 
             case 'homeAdmin':

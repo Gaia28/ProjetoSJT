@@ -154,8 +154,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
   </section>
 
 
-
- <section id="HomePG6" class="section-padrao animate-on-scroll">
+<section id="HomePG6" class="section-padrao animate-on-scroll">
     <div class="linha">
         <img class="icon" src="public/assets/images/livro.png" alt="Liturgia">
         <h1>Liturgia Diária</h1>
@@ -188,7 +187,9 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
                         <div class="leitura-header">
                              <div>
                                 <h3>Salmo Responsorial</h3>
-                                <span class="ref"><?= htmlspecialchars($liturgiaDiaria['salmo']['referencia']) ?></span>
+                                <?php if (isset($liturgiaDiaria['salmo']['ref'])): ?>
+                                    <span class="ref"><?= htmlspecialchars($liturgiaDiaria['salmo']['referencia']) ?></span>
+                                <?php endif; ?>
                             </div>
                             <span class="toggle-icon">+</span>
                         </div>
