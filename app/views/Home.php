@@ -245,23 +245,59 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
 <script src="public/assets/js/animations.js"></script>
 <script>
 </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // --- LÓGICA DO ACCORDION DA LITURGIA ---
     const accordionItems = document.querySelectorAll('.leitura-item');
     accordionItems.forEach(item => {
         const header = item.querySelector('.leitura-header');
         header.addEventListener('click', () => {
+            // Fecha outros itens abertos
             accordionItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('is-active');
-                }
+                if (otherItem !== item) otherItem.classList.remove('is-active');
             });
+            // Alterna o item clicado
             item.classList.toggle('is-active');
         });
     });
-});
-</script>
+
+    // --- LÓGICA DO BOTÃO "ENCONTRE-NOS" (MAPA) ---
+    const btnMapa = document.getElementById("mostrarMapa");
+    const fachada = document.getElementById("fachada");
+    if (btnMapa && fachada) {
+        const mapa = document.createElement("iframe");
+        mapa.src = 
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4968436772488!2d-48.4782222242187!3d-1.4746970358627465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48de08c562ba7%3A0xa88030050447e38d!2sPar%C3%B3quia%20Santu%C3%A1rio%20S%C3%A3o%20Judas%20Tadeu!5e0!3m2!1spt-BR!2sbr!4v1758669193062!5m2!1spt-BR!2sbr",
+        mapa.width = "100%";
+        mapa.height = "450";
+        mapa.style.border = "0";
+        mapa.style.display = "none";
+        mapa.loading = "lazy";
+        mapa.allowFullscreen = true;
+        mapa.classList.add('img');
+        fachada.insertAdjacentElement("afterend", mapa);
+        btnMapa.addEventListener("click", () => {
+            if (fachada.style.display !== "none") {
+                fachada.classList.add("scale-out-horizontal");
+                setTimeout(() => {
+                    fachada.style.display = "none";
+                    mapa.style.display = "block";
+                    btnMapa.textContent = "Ver Imagem";
+                    fachada.classList.remove("scale-out-horizontal");
+                }, 500);
+            } else {
+                mapa.classList.add("scale-out-horizontalmap");
+                setTimeout(() => {
+                    mapa.style.display = "none";
+                    fachada.style.display = "block";
+                    btnMapa.textContent = "Encontre-nos";
+                    mapa.classList.remove("scale-out-horizontalmap");
+                }, 500);
+            }
+        });
+    }
+  });
+  </script>
 
 
 </body>
