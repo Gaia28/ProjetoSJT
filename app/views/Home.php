@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="public/assets/css/Home.css"> 
     <link rel="stylesheet" href="public/assets/css/HomeResponsivo.css"> 
       <link rel="stylesheet" href="public/assets/css/base.css"> 
+          <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -236,7 +237,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     </div>
 </section>
 
-
+    <?php include 'Footer.php'; // ADICIONAR ESTA LINHA ?>
 </main>
 
 <script src="public/assets/js/navegacao.js"></script>

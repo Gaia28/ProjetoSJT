@@ -18,10 +18,10 @@
     <?php include 'NavBar.php'; // Incluindo a barra de navegação ?>
 
     <main>
-        <header class="sacramento-header animate-on-scroll">
+        <div class="sacramento-header animate-on-scroll">
             <h1>Sacramentos</h1>
             <p>Os sacramentos são sinais sagrados através dos quais, por uma certa imitação dos sacramentos, são significados e, por impetração da Igreja, obtidos efeitos sobretudo espirituais.</p>
-        </header>
+</div>
 
         <section class="sacramento-container">
             <?php if (!empty($sacramentos)): ?>
