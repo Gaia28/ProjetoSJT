@@ -1,0 +1,22 @@
+{
+    "name": "gaia/projeto-sjt",
+    "autoload": {
+        "psr-4": {
+            "Gaia\\ProjetoSjt\\": "src/",
+            "App\\": "app/",
+            "Config\\": "app/config/",
+            "Controllers\\":"app/controllers/",
+            "Models\\":"app/models/"         
+
+        }
+    },
+    "authors": [
+        {
+            "name": "Gaia28",
+            "email": "matheusgaia33@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
