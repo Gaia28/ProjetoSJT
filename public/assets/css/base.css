@@ -1,0 +1,160 @@
+:root {
+    /* Cores Primárias (inspiradas em tons eclesiásticos e de confiança) */
+    --cor-primaria: #8C1D18; /* Um vermelho sóbrio, cor de vinho */
+    --cor-primaria-escura: #6F1712;
+    --cor-secundaria: #F2C94C; /* Um dourado/amarelo para detalhes e destaques */
+
+    /* Cores Neutras (para fundos, textos e bordas) */
+    --cor-fundo: #F8F7F5;      /* Um branco levemente "quente", mais confortável aos olhos */
+    --cor-superficie: #FFFFFF; /* Branco puro para cards e modais */
+    --cor-texto: #333333;        /* Cinza escuro para textos, melhor que preto puro */
+    --cor-texto-suave: #666666;  /* Cinza mais claro para textos secundários */
+    --cor-borda: #E0E0E0;      /* Cinza claro para bordas e divisórias */
+
+    /* Cores de Feedback (para notificações e alertas) */
+    --cor-sucesso: #27AE60;
+    --cor-erro: #EB5757;
+    --cor-aviso: #F2994A;
+    
+    /* Tipografia */
+    --fonte-principal: 'Roboto', sans-serif; /* Uma fonte moderna e muito legível */
+    --fonte-titulos: 'Merriweather', serif; /* Uma fonte com serifa para títulos, mais clássica */
+
+    /* Outras Variáveis */
+    --raio-borda: 8px; /* Bordas levemente arredondadas para um look suave */
+    --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transicao-rapida: all 0.2s ease-in-out;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+header{
+    position: sticky;
+}
+nav{
+    position: -webkit-sticky;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: var(--transicao-rapida);
+}
+
+a:hover {
+    color: var(--cor-primaria-escura);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ==========================================================================
+   2. COMPONENTES PADRONIZADOS
+   ========================================================================== */
+
+/* 2.1 Botões
+   -------------------------------------------------------------------------- */
+.botao {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--cor-primaria);
+    color: white;
+    font-family: var(--fonte-principal);
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: var(--raio-borda);
+    cursor: pointer;
+    transition: var(--transicao-rapida);
+    text-decoration: none; /* Garante que links estilizados como botões não tenham sublinhado */
+}
+
+.botao:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-2px); /* Efeito sutil de elevação */
+    box-shadow: var(--sombra-padrao);
+    color: white;
+    text-decoration: none;
+}
+
+/* 2.2 Cards
+   -------------------------------------------------------------------------- */
+.card {
+    background-color: var(--cor-primaria);
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-padrao);
+    padding: 1.5rem;
+    transition: var(--transicao-rapida);
+    overflow: hidden; /* Garante que nada saia dos cantos arredondados */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 2.3 Formulários (para a área de Admin)
+   -------------------------------------------------------------------------- */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--cor-texto-suave);
+}
+
+.form-group input[type="text"],
+.form-group input[type="time"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    transition: var(--transicao-rapida);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(140, 29, 24, 0.2);
+}

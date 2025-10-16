@@ -8,24 +8,29 @@ class Router
         $url = trim($url, '/');
 
         switch ($url) {
-        case '':
+          case '':
+        case 'home':
+            // Carrega dados do Calendário
             require dirname(__DIR__) . '/controllers/CalendarioController.php';
             $calendario = new CalendarioParoquial();
             $eventos = $calendario->buscarProgramacao();
 
-            require dirname(__DIR__) . '/views/Home.php';
-            break;
+            // Carrega dados dos Próximos Eventos
+            require dirname(__DIR__) . '/controllers/EventosController.php';
+            $eventosController = new EventosController();
+            $proximosEventos = $eventosController->listarProximosEventos(3); 
 
-            case 'home':
-                        require dirname(__DIR__) . '/controllers/CalendarioController.php';
-            $calendario = new CalendarioParoquial();
-            $eventos = $calendario->buscarProgramacao();
+            // Carrega dados da Liturgia Diária
+            require_once dirname(__DIR__) . '/controllers/LiturgiaController.php';
+            $liturgiaController = new LiturgiaController();
+            $liturgiaDiaria = $liturgiaController->getLiturgiaData();
 
+            // Renderiza a view da Home com todas as variáveis prontas
             require dirname(__DIR__) . '/views/Home.php';
             break;
 
             case 'admin':
-
+                // ... (o resto do seu router continua igual) ...
                 require dirname(__DIR__) . '/controllers/AdminController.php';
                 $controller = new AdminController();
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -33,7 +38,6 @@ class Router
                 } else {
                     $controller->mostrarLogin();
                 }
-
                 break;
 
             case 'homeAdmin':
@@ -107,16 +111,65 @@ class Router
                             $ctrl->deletarSacramento();
                             break;
 
-                        case 'Pastorais':
-                            require dirname(__DIR__) . '/views/PastoraisAdmin.php';
+                        // ... outros cases ...
 
-                        case 'salvarPastoral':
-                             require dirname(__DIR__) . '/views/PastoraisAdmin.php';
-                             $ctrl = new Pastorais();
-                             $ctrl->salvarPastoral();
+            case 'Pastorais':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->mostrarPastorais();
+                break;
 
+            case 'salvarPastoral':
+                 // A lógica de salvar deve estar no PastoraisController também
+                 // Por enquanto, vamos manter o que você tinha, mas o ideal é mover
+                 require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                 $ctrl = new PastoraisController(); 
+                 $ctrl->salvarPastoral();
+                 break;
 
+            case 'editarPastoral':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->editarPastoral();
+                break;
+            
+            case 'deletarPastoral':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->deletarPastoral();
+                break;
 
+            case 'getPastoralDetails':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->getPastoralDetails();
+                break;
+
+             case 'gerenciar-eventos':
+                require dirname(__DIR__) . '/controllers/EventosController.php';
+                $controller = new EventosController();
+                $controller->mostrarPainel();
+                break;
+
+            case 'salvarEvento':
+                require dirname(__DIR__) . '/controllers/EventosController.php';
+                $controller = new EventosController();
+                $controller->cadastrarEvento();
+                break;
+
+            case 'editarEventoAdmin': // Usamos um nome único para não conflitar com o calendário
+            require dirname(__DIR__) . '/controllers/EventosController.php';
+            $controller = new EventosController();
+            $controller->editarEvento();
+            break;
+
+            case 'excluirEvento':
+                require dirname(__DIR__) . '/controllers/EventosController.php';
+                $controller = new EventosController();
+                $controller->excluirEvento();
+                break;
+
+          
             default:
                 http_response_code(404);
                 echo "<h1>404 - Página não encontrada</h1>";

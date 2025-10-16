@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/assets/css/Home.css"> 
     <link rel="stylesheet" href="public/assets/css/HomeResponsivo.css"> 
+      <link rel="stylesheet" href="public/assets/css/base.css"> 
+          <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -71,42 +73,154 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
   <!-- Programação -->
   <section id="HomePG4" class="section-padrao">
     <div class="linha">  
-        <img class="icon" src="public/assets/images/calendario.png" alt="">      
-      <h1 class="tracking-in-expand-fwd-bottom">Calendário Paroquial</h1>
-      <p class="tracking-in-expand-fwd-bottom">Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
+        <img class="icon" src="public/assets/images/calendario.png" alt="Calendário">
+        <h1 class="tracking-in-expand-fwd-bottom">Calendário Paroquial</h1>
+        <p class="tracking-in-expand-fwd-bottom">Participe de nossas celebrações e fortaleça sua fé em comunidade</p>
 
-      <div class="eventos">
-        <?php if (!empty($eventos)): ?>
-          <?php foreach ($eventos as $evento): ?>
-            <article class="card">
-              <h2><?= htmlspecialchars($evento['titulo']) ?></h2>
-              <p><strong>Tipo:</strong> <?= htmlspecialchars($evento['tipo']) ?></p>
-              <p><strong>Dia:</strong> <?= htmlspecialchars($evento['dia_semana']) ?></p>
-              <p><strong>Horário:</strong> <?= htmlspecialchars($evento['horario']) ?></p>
-            </article>
-          <?php endforeach; ?>
+        <?php
+        if (!empty($eventos)) {
+            $diasDaSemana = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+            $programacaoPorDia = array_fill_keys($diasDaSemana, []);
+            foreach ($eventos as $evento) {
+                $dia = $evento['dia_semana'];
+                if (array_key_exists($dia, $programacaoPorDia)) {
+                    $programacaoPorDia[$dia][] = $evento;
+                }
+            }
+        }
+        ?>
+
+        <div class="calendario-semanal-container">
+            <?php if (!empty($programacaoPorDia)): ?>
+                <div class="calendario-grid">
+                    
+                    <?php foreach ($programacaoPorDia as $dia => $eventosDoDia): ?>
+                        <div class="dia-coluna">
+                            <div class="dia-header"><?= $dia ?></div>
+                            
+                            <?php if (!empty($eventosDoDia)): ?>
+                                <?php foreach ($eventosDoDia as $item): ?>
+                                    <div class="evento-item">
+                                        <span class="horario"><?= htmlspecialchars(date('H:i', strtotime($item['horario']))) ?></span>
+                                        <p class="titulo"><?= htmlspecialchars($item['titulo']) ?></p>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="sem-eventos">-</p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+            <?php else: ?>
+                <p class="tracking-in-expand-fwd-bottom">Nenhuma programação cadastrada no momento.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
+ </section>
+
+  <section id="HomeEventos" class="section-padrao animate-on-scroll">
+    <div class="linha">
+        <img class="icon" src="public/assets/images/calendario.png" alt="Eventos">
+        <h1 style='font-size: 3rem;'>Próximos Eventos</h1>
+        <p style='font-size: 1.3rem;'>Fique por dentro das festas, retiros e celebrações especiais da nossa comunidade.</p>
+
+        <?php if (!empty($proximosEventos)): ?>
+            <div class="eventos-home-grid">
+                <?php foreach ($proximosEventos as $evento): ?>
+                    <div class="evento-card-home">
+                        <div class="evento-card-home-img-container">
+                            <?php if (!empty($evento['imagem'])): ?>
+                                <img class="evento-card-home-img" src="data:image/jpeg;base64,<?= base64_encode($evento['imagem']) ?>" alt="<?= htmlspecialchars($evento['nome']) ?>">
+                            <?php endif; ?>
+
+                            <div class="evento-card-home-data">
+                                <span class="dia"><?= date('d', strtotime($evento['data_evento'])) ?></span>
+                                <span class="mes"><?= date('M', strtotime($evento['data_evento'])) ?></span>
+                            </div>
+                        </div>
+                        <div class="evento-card-home-body">
+                            <h3><?= htmlspecialchars($evento['nome']) ?></h3>
+                            <p class="local"><?= htmlspecialchars($evento['local']) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         <?php else: ?>
-          <p class="tracking-in-expand-fwd-bottom">Nenhum evento cadastrado no momento.</p>
+            <p>Nenhum evento especial agendado para os próximos dias.</p>
         <?php endif; ?>
-      </div>
     </div>
   </section>
 
 
-  <section id="HomePG6" class="section-padrao">
+<section id="HomePG6" class="section-padrao animate-on-scroll">
     <div class="linha">
-      <img class="icon" src="public/assets/images/livro.png" alt="">
-      <h1 class="tracking-in-expand-fwd-bottom">Liturgia diária</h1>
+        <img class="icon" src="public/assets/images/livro.png" alt="Liturgia">
+        <h1>Liturgia Diária</h1>
 
-      <div class="liturgia-container">
-        <?php include 'app/controllers/LiturgiaController.php'; 
-        $liturgiaController = new LiturgiaController();
-        $liturgia = $liturgiaController->mostrarLiturgia();
-        ?>
-      </div>
+        <?php if (!empty($liturgiaDiaria) && !isset($liturgiaDiaria['error'])): ?>
+            <div class="liturgia-moderna-container">
+                <div class="liturgia-header">
+                    <h2><?= htmlspecialchars($liturgiaDiaria['data']) ?></h2>
+                    <p>
+                        <?= htmlspecialchars($liturgiaDiaria['liturgia']) ?>
+                        <span class="liturgia-cor" style="background-color: <?= strtolower(htmlspecialchars($liturgiaDiaria['cor'])) ?>;"></span>
+                    </p>
+                </div>
+
+                <div class="leituras-accordion">
+                    <div class="leitura-item">
+                        <div class="leitura-header">
+                            <div>
+                                <h3><?= htmlspecialchars($liturgiaDiaria['primeiraLeitura']['titulo']) ?></h3>
+                                <span class="ref"><?= htmlspecialchars($liturgiaDiaria['primeiraLeitura']['referencia']) ?></span>
+                            </div>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="leitura-conteudo">
+                            <p><?= nl2br(htmlspecialchars($liturgiaDiaria['primeiraLeitura']['texto'])) ?></p>
+                        </div>
+                    </div>
+
+                    <div class="leitura-item">
+                        <div class="leitura-header">
+                             <div>
+                                <h3>Salmo Responsorial</h3>
+                                <?php if (isset($liturgiaDiaria['salmo']['ref'])): ?>
+                                    <span class="ref"><?= htmlspecialchars($liturgiaDiaria['salmo']['referencia']) ?></span>
+                                <?php endif; ?>
+                            </div>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="leitura-conteudo">
+                            <p class="refrao">R. <?= htmlspecialchars($liturgiaDiaria['salmo']['refrao']) ?></p>
+                            <p><?= nl2br(htmlspecialchars($liturgiaDiaria['salmo']['texto'])) ?></p>
+                        </div>
+                    </div>
+
+                    <div class="leitura-item">
+                        <div class="leitura-header">
+                             <div>
+                                <h3><?= htmlspecialchars($liturgiaDiaria['evangelho']['titulo']) ?></h3>
+                                <span class="ref"><?= htmlspecialchars($liturgiaDiaria['evangelho']['referencia']) ?></span>
+                            </div>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="leitura-conteudo">
+                            <p><?= nl2br(htmlspecialchars($liturgiaDiaria['evangelho']['texto'])) ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php else: ?>
+            <p>Não foi possível carregar a liturgia de hoje. Tente novamente mais tarde.</p>
+        <?php endif; ?>
     </div>
+</section>
 
-   <section class="section-padrao qrcode-section">
+ <section class="section-padrao qrcode-section">
   <div class="linha qrcode-linha" id="doacoes">
     <div class="qrcode-texto">
       <h1 class="tracking-in-expand-fwd-bottom">Contribua com a Paróquia</h1>
@@ -123,53 +237,66 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     </div>
 </section>
 
-
+    <?php include 'Footer.php'; // ADICIONAR ESTA LINHA ?>
 </main>
-    <script src="public/assets/js/navegacao.js"></script>
-    <script>
+
+<script src="public/assets/js/navegacao.js"></script>
+<script src="public/assets/js/navbar.js"></script>
+<script src="public/assets/js/animations.js"></script>
+<script>
+</script>
+ <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("mostrarMapa");
+    // --- LÓGICA DO ACCORDION DA LITURGIA ---
+    const accordionItems = document.querySelectorAll('.leitura-item');
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.leitura-header');
+        header.addEventListener('click', () => {
+            // Fecha outros itens abertos
+            accordionItems.forEach(otherItem => {
+                if (otherItem !== item) otherItem.classList.remove('is-active');
+            });
+            // Alterna o item clicado
+            item.classList.toggle('is-active');
+        });
+    });
+
+    // --- LÓGICA DO BOTÃO "ENCONTRE-NOS" (MAPA) ---
+    const btnMapa = document.getElementById("mostrarMapa");
     const fachada = document.getElementById("fachada");
-
-    // Cria o iframe do Google Maps
-    const mapa = document.createElement("iframe");
-    mapa.src =
+    if (btnMapa && fachada) {
+        const mapa = document.createElement("iframe");
+        mapa.src = 
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4968436772488!2d-48.4782222242187!3d-1.4746970358627465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48de08c562ba7%3A0xa88030050447e38d!2sPar%C3%B3quia%20Santu%C3%A1rio%20S%C3%A3o%20Judas%20Tadeu!5e0!3m2!1spt-BR!2sbr!4v1758669193062!5m2!1spt-BR!2sbr",
-    mapa.width = "100%";
-    mapa.height = "450";
-    mapa.style.border = "0";
-    mapa.style.display = "none"; // começa oculto
-    mapa.loading = "lazy";
-    mapa.allowFullscreen = true;
-
-    // insere o iframe logo depois da imagem da fachada
-    fachada.insertAdjacentElement("afterend", mapa);
-
-    btn.addEventListener("click", () => {
-      if (fachada.style.display !== "none")
-        {
-          fachada.classList.add("scale-out-horizontal");
-        setTimeout(() => {
-          fachada.classList.remove("scale-out-horizontal");
-        }, 500);  
-        setTimeout(() => {
-          fachada.style.display = "none";
-          mapa.style.display = "block";
-          btn.textContent = "Ver imagem";
-        }, 500);
-      } else {
-           mapa.classList.add("scale-out-horizontalmap");
-        setTimeout(() => {
-          mapa.classList.remove("scale-out-horizontalmap");
-        }, 500);  
-        setTimeout(() => {
-        fachada.style.display = "block";
+        mapa.width = "100%";
+        mapa.height = "450";
+        mapa.style.border = "0";
         mapa.style.display = "none";
-        btn.textContent = "Encontre-nos";
-      }, 500);
+        mapa.loading = "lazy";
+        mapa.allowFullscreen = true;
+        mapa.classList.add('img');
+        fachada.insertAdjacentElement("afterend", mapa);
+        btnMapa.addEventListener("click", () => {
+            if (fachada.style.display !== "none") {
+                fachada.classList.add("scale-out-horizontal");
+                setTimeout(() => {
+                    fachada.style.display = "none";
+                    mapa.style.display = "block";
+                    btnMapa.textContent = "Ver Imagem";
+                    fachada.classList.remove("scale-out-horizontal");
+                }, 500);
+            } else {
+                mapa.classList.add("scale-out-horizontalmap");
+                setTimeout(() => {
+                    mapa.style.display = "none";
+                    fachada.style.display = "block";
+                    btnMapa.textContent = "Encontre-nos";
+                    mapa.classList.remove("scale-out-horizontalmap");
+                }, 500);
+            }
+        });
     }
   });
-});
 </script>
 <!---rodape-->
 <section id="rodape" class="PG7">

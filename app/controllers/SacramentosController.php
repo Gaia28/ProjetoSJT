@@ -35,13 +35,14 @@ class SacramentosController {
         }
     }
     public function listarSacramentos() {
-        $connection = new Database();
-        $db = $connection->getConnection();
-
-        $query = "SELECT * FROM sacramentos ORDER BY nome";
-        $stmt = $db->query($query);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    $connection = new Database();
+    $db = $connection->getConnection();
+    
+    $query = "SELECT id, nome, valor, descricao FROM sacramentos ORDER BY nome";
+    
+    $stmt = $db->query($query);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
     public function editarSacramento() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];

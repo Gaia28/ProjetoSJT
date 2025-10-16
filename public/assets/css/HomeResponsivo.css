@@ -16,7 +16,6 @@
     #HomePG5 .linha img,
     .qrcode-container {
         order: -1;
-        margin-bottom: 20px;
     }
 
     /* Títulos */
@@ -54,7 +53,18 @@
     #HomePG5 .itens-direita h1 {
         font-size: 1.8rem;
     }
+    #HomePG2 .linha{
+        gap: 10px;
+    }
 
+    .calendario-grid {
+        /* Em celulares, vira uma única coluna */
+        grid-template-columns: 1fr;
+        gap: 2rem; /* Aumenta o espaçamento vertical entre os dias */
+    }
+    .dia-header {
+        text-align: left; /* Alinha o nome do dia à esquerda */
+    }
     /* Textos */
     #HomePG3 p,
     #HomePG4 p,
@@ -63,9 +73,8 @@
         font-size: 1rem;
     }
 
-    /* Links sociais */
     .links-sociais {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
     }
 
@@ -73,11 +82,15 @@
         width: 100%;
         text-align: center;
     }
+    #fachada{
+        width: 100%;
+    }
 
     /* QRCode */
     .qrcode-img img {
         width: 80%;
     }
+
 
     /* Eventos */
     .eventos {

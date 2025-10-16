@@ -1,8 +1,0 @@
-/.env
-/vendor/
-composer.lock
-composer.json
-index.php
-index.html
-.gitignore
-

@@ -33,8 +33,8 @@
                     <p>Adicione, edite ou remova eventos do calendário.</p>
                 </div>
                 <div class="card" id="gerenciar-pastorais">
-                    <h2>Gerenciar Usuários</h2>
-                    <p>Controle os usuários que têm acesso ao painel administrativo.</p>
+                    <h2>Gerenciar Pastorais</h2>
+                    <p>Gerenciar as pastorais da igreja</p>
                 </div>
                 <div class="card" id="gerenciar-sacramentos">
                     <h2>Sacramentos</h2>

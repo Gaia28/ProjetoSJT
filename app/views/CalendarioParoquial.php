@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/assets/css/PagesAdmin.css">
+      <link rel="stylesheet" href="public/assets/css/base.css"> 
     <title>Document</title>
 </head>
 <body>
@@ -112,13 +113,20 @@
         <?php foreach ($eventos as $evento): ?>
             <div class="card">
     <img src="public/assets/images/lixeira.png" alt="Excluir evento" class="botaoExcluir" data-id="<?= $evento['id'] ?>">
-    <h3 class="titulo"><?= htmlspecialchars($evento['titulo']) ?></h3>
+    <h3 class="titulo" style="color:var(--cor--fundo)"><?= htmlspecialchars($evento['titulo']) ?></h3>
     <p class="tipo"><?= htmlspecialchars($evento['tipo']) ?></p>
     <p class="dia">Dia da semana: <?= htmlspecialchars($evento['dia_semana']) ?></p>
     <p class="hora">Horário: <?= htmlspecialchars($evento['horario']) ?></p>
     <p class="descricao">Descrição: <?= htmlspecialchars($evento['descricao'] ?? 'Sem descrição') ?></p>
-    <button class="botaoEditar" data-id="<?= $evento['id'] ?>">Editar</button>
-</div>
+<button class="botaoEditar" 
+        data-id="<?= $evento['id'] ?>" 
+        data-entity="evento"
+        data-titulo="<?= htmlspecialchars($evento['titulo']) ?>"
+        data-tipo="<?= htmlspecialchars($evento['tipo']) ?>"
+        data-dia="<?= htmlspecialchars($evento['dia_semana']) ?>"
+        data-hora="<?= htmlspecialchars($evento['horario']) ?>">
+    Editar
+</button></div>
         <?php endforeach; ?>
     <?php else: ?>
         <p>Nenhuma programação cadastrada.</p>

@@ -1,128 +1,292 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-}
-
-header {
-    position: sticky;  
-    top: 0; 
-    display: flex;
+header, nav {
+    position: sticky;
+    top: 0;
     z-index: 1000;
+}
+.navbar {
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cor-borda, #E0E0E0);
+    padding: 0.8rem 1rem;
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-color: white;
-    align-items: center;
-    padding: 5px 20px;
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-  
+    z-index: 1000;
 }
 
-img {
-    width: 3rem;
-}
-
-header p {
-    color: rgb(146, 15, 15);
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-left: 15px;
-    flex: 1; 
-}
-
-/* === NAV === */
-header nav ul {
-    list-style: none;
+.navbar-container {
     display: flex;
-    gap: 20px;
-    
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-header nav ul li {
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--fonte-titulos, serif);
+    font-weight: bold;
+    color: var(--cor-primaria, #8C1D18);
+    font-size: 1rem;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.navbar-logo img { height: auto; width: 10%; }
+
+.navbar-menu-desktop {
+    display: none;
+}
+
+/* Estilos do Botão Hambúrguer (sem alterações) */
+.navbar-toggler {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.navbar-toggler-icon {
+    width: 30px;
+    height: 3px;
+    background-color: var(--cor-primaria, #8C1D18);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animação do botão para "X" quando ativo (sem alterações) */
+.navbar.is-active .navbar-toggler-icon:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+.navbar.is-active .navbar-toggler-icon:nth-child(2) {
+    opacity: 0;
+}
+.navbar.is-active .navbar-toggler-icon:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+.navbar-menu-desktop .menu-item-has-dropdown {
     position: relative;
 }
 
-header nav ul li a {
-    text-decoration: none;
-    color: rgb(146, 15, 15);
-    padding: 8px 12px;
-    display: block;
-    transition: color 0.3s;
-}
-
-header nav ul li a:hover {
-    color: #e6a00b;
-     box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-     border-radius: 10%;
-}
-
-/* === DROPDOWN === */
 .dropdown-menu {
-    display: none;
+    /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+
+    /* Estilo e Posicionamento */
     position: absolute;
-    top: 100%;
+    top: 100%; /* Aparece logo abaixo do item pai */
     left: 0;
-    background: white;
-    border: 1px solid #ddd;
-    min-width: 150px;
-    border: none;
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-    border-bottom-left-radius: 8%;
-    border-bottom-right-radius: 8%;
-    z-index: 999;
-    flex-direction: column;
-    
+    z-index: 1001;
+    background-color: var(--cor-superficie, #fff);
+    border-radius: var(--raio-borda, 8px);
+    box-shadow: var(--sombra-padrao, 0 4px 12px rgba(0,0,0,0.08));
+    border: 1px solid var(--cor-borda, #E0E0E0);
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 200px; /* Largura mínima do dropdown */
 }
 
-@-webkit-keyframes scale-up-ver-top{0%{-webkit-transform:scaleY(.4);transform:scaleY(.4);-webkit-transform-origin:100% 0;transform-origin:100% 0}100%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:100% 0;transform-origin:100% 0}}
-@keyframes scale-up-ver-top{0%{-webkit-transform:scaleY(.4);transform:scaleY(.4);-webkit-transform-origin:100% 0;transform-origin:100% 0}100%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:100% 0;transform-origin:100% 0}}
-.dropdown-menu {-webkit-animation:scale-up-ver-top .4s cubic-bezier(.39,.575,.565,1.000) both;animation:scale-up-ver-top .4s cubic-bezier(.39,.575,.565,1.000) both}
-
-.dropdown-menu li a {
-    padding: 10px;
-    white-space: nowrap;
+/*
+  Quando o usuário passa o mouse sobre o item pai, o dropdown se torna visível.
+*/
+.navbar-menu-desktop .menu-item-has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown-menu a {
     display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--cor-texto-suave, #666);
+    font-weight: normal; /* Texto normal, não em negrito */
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
 }
 
-/* === RESPONSIVIDADE === */
-.menu-toggle {
+.dropdown-menu a:hover {
+    background-color: #f5f5f5;
+    color: var(--cor-primaria, #8C1D18);
+}
+
+/* Remove o efeito de sublinhado animado do item "Saiba mais" */
+.menu-item-has-dropdown > a::after {
     display: none;
 }
 
-@media(max-width: 768px) {
-    header {
-        flex-wrap: wrap;
-        padding: 10px;
-    }
+/* ==========================================================================
+   NOVO ESTILO DO MENU MOBILE (DROPDOWN)
+   ========================================================================== */
+.navbar-menu-mobile {
+    background-color: var(--cor-superficie, #fff);
+    border-bottom: 1px solid var(--cor-borda, #E0E0E0);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
-    header nav {
+    /* Posicionamento como dropdown */
+    position: absolute;
+    top: 100%; /* Começa logo abaixo da navbar */
+    left: 0;
+    right: 0;
+
+    /* Animação de "deslizar para baixo" */
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s;
+
+    padding: 1rem 0;
+}
+
+/* Quando a navbar está ativa, o menu se torna visível */
+.navbar.is-active .navbar-menu-mobile {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-menu-mobile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-menu-mobile li {
+    text-align: center;
+}
+
+.navbar-menu-mobile a {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-family: var(--fonte-principal, sans-serif);
+    font-weight: bold;
+    color: var(--cor-texto-suave, #666);
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.navbar-menu-mobile a:hover {
+    background-color: #f5f5f5;
+    color: var(--cor-primaria, #8C1D18);
+}
+
+
+/* === Media Query para Telas Maiores (Desktop) === */
+@media (min-width: 800px) {
+    .navbar-toggler { display: none; }
+    .navbar-menu-mobile { display: none; } /* Garante que o menu mobile nunca apareça em desktop */
+    
+    .navbar-menu-desktop {
+        width: 50%;
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+    }
+    .navbar-menu-desktop a {
+        font-family: var(--fonte-principal, sans-serif);
+        font-weight: bold;
+        color: var(--cor-primaria);
+        text-decoration: none;
+        padding: 0.5rem 0;
+        position: relative;
+    }
+    .navbar-menu-desktop a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: rgb(224, 167, 21);
+        transition: width 0.3s ease-in-out;
+    }
+    .navbar-menu-desktop a:hover::after {
         width: 100%;
-        display: none;
     }
+    .navbar-menu-desktop a:hover {
+        padding: 8px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        color: #8C1D18;
 
-    header nav.active {
-        display: block;
+        text-decoration: none;
     }
+}
+/* ==========================================================================
+   CÓDIGO ADICIONAL PARA FUNCIONALIDADE DO DROPDOWN
+   - Adicione este bloco ao final do seu NavBar.css
+   ========================================================================== */
 
-    header nav ul {
-        flex-direction: column;
-        gap: 10px;
-        border-top: 1px solid #ddd;
-        padding-top: 10px;
-    }
+/*
+  1. O item da lista que contém o dropdown precisa de um contexto
+     de posicionamento. Esta é a regra mais importante.
+*/
+.navbar-menu-desktop .menu-item-has-dropdown {
+    position: relative;
+}
 
-    .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        border: none;
-    }
+/*
+  2. O menu dropdown em si.
+     - 'position: absolute' o retira do fluxo normal da página.
+     - 'opacity: 0' e 'visibility: hidden' o escondem por padrão.
+*/
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Posiciona-o logo abaixo do item "Saiba mais" */
+    left: 0;
+    z-index: 1001; /* Garante que fique acima de outros conteúdos */
 
-    .menu-toggle {
-        display: block;
-        font-size: 2rem;
-        cursor: po
-    }
+    background-color: #fff; /* Fundo branco para o dropdown */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+    min-width: 200px; /* Largura mínima */
+
+    /* Animação suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+/*
+  3. A "mágica" do hover.
+     Quando o mouse passa sobre o item pai (.menu-item-has-dropdown),
+     o .dropdown-menu que está dentro dele se torna visível.
+*/
+.menu-item-has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 4. Estilo dos links dentro do dropdown */
+.dropdown-menu li {
+    list-style: none; /* Remove bolinhas da lista */
+}
+
+.dropdown-menu a {
+    display: block; /* Faz o link ocupar todo o espaço do 'li' */
+    padding: 0.75rem 1.5rem;
+    color: #333; /* Cor do texto */
+    text-decoration: none;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5; /* Cor de fundo ao passar o mouse */
+    color: rgb(146, 15, 15); /* Cor primária do seu site */
 }
