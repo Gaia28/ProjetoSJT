@@ -20,8 +20,8 @@
         </header>
 
         <section class="home-content">
-            <h1>Bem-vindo ao Painel Administrativo</h1>
-            <p>Gerencie o conteúdo do site aqui.</p>
+            <h1 class="h1">Bem-vindo ao Painel Administrativo</h1>
+            <p class="p">Gerencie o conteúdo do site aqui.</p>
 
             <div class="cards">
                 <div class="card" id="calendario-paroquial">
