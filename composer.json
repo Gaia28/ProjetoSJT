@@ -1,8 +1,8 @@
 {
-    "name": "gaia/projeto-sjt",
+    "name": "hugoo/projeto-sjt",
     "autoload": {
         "psr-4": {
-            "Gaia\\ProjetoSjt\\": "src/",
+            "hugoo\\ProjetoSJT\\": "src/",
             "App\\": "app/",
             "Config\\": "app/config/",
             "Controllers\\":"app/controllers/",
@@ -12,8 +12,8 @@
     },
     "authors": [
         {
-            "name": "Gaia28",
-            "email": "matheusgaia33@gmail.com"
+            "name": "hugo",
+            "email": "hugoomartins2005@outlook.com"
         }
     ],
     "require": {

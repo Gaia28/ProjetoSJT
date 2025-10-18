@@ -28,7 +28,7 @@ class Database
         catch(PDOException $e){
             echo "Connection error: " . $e->getMessage();
         }
-        catch(Exception $e){
+        catch(\Exception $e){
             echo "General error: " . $e->getMessage();
         }
 }  public function getConnection()

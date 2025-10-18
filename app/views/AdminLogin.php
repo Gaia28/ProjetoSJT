@@ -30,3 +30,21 @@
     </main>
 </body>
 </html>
+
+
+
+<div class="box-admin">
+    <h2 class="titulo" style="--i: 17; --j: 0;">entrar</h2>
+
+    <form action="admin" method="POST" autocomplete="username">
+                <div class="form-group" style="--i: 18; --j: 1;">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group" style="--i: 19; --j: 2;">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="entrar" style="--i: 20; --j: 3;">Entrar</button>
+            </form>
+</div>

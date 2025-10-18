@@ -38,7 +38,7 @@ class CalendarioParoquial {
         }
     }
     public function buscarProgramacao() { 
-        $connection = new Database();
+$connection = new Database();
         $db = $connection->getConnection();
         
         $query = "SELECT * FROM calendario_paroquial ORDER BY dia_semana ";
