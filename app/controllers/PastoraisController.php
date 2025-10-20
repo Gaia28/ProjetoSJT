@@ -8,17 +8,27 @@ class PastoraisController {
         require dirname(__DIR__) . '/views/PastoraisAdmin.php';
     }
 
+    public function mostrarPastoraisPublico() {
+        $pastorais = $this->listarPastorais();
+        require dirname(__DIR__) . '/views/NossasPastorais.php';
+    }
+
     // FUNÇÃO ATUALIZADA: Agora busca também o telefone para exibição
-    public function listarPastorais() {
+    private function listarPastorais() {
         $connection = new Database();
         $db = $connection->getConnection();
         
-        $query = "SELECT p.id, p.nome, 
-                         GROUP_CONCAT(CONCAT(c.nome, ' (', c.telefone, ')') SEPARATOR '; ') as coordenadores
+        // Query adaptada para buscar apenas pastorais e seus coordenadores
+        $query = "SELECT 
+                    p.id, 
+                    p.nome,
+                    -- Junta nome e telefone com um separador '|' e cada coordenador com ';'
+                    GROUP_CONCAT(DISTINCT CONCAT(c.nome, '|', c.telefone) ORDER BY c.nome SEPARATOR ';') as coordenadores
                   FROM pastorais p
                   LEFT JOIN coordenadores c ON p.id = c.pastoral_id
                   GROUP BY p.id, p.nome
                   ORDER BY p.nome";
+                  
         $stmt = $db->query($query);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

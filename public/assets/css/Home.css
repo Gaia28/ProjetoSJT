@@ -516,7 +516,7 @@ iframe {
 }
 
 .card p {
-    font-size: 0.8rem;
+font-size: 1.3rem;
     line-height: 1.4;
 }
 
@@ -766,3 +766,89 @@ iframe {
   transition-duration: 0.3s;
 }
 
+/* ==========================================================================
+   Estilos para a Página Pública de Pastorais
+   ========================================================================== */
+
+.pastorais-header {
+    text-align: center;
+    position: relative;
+    padding: 5rem 2rem;
+    background-color: var(--cor-superficie, #fff);
+    border-bottom: 1px solid var(--cor-borda, #E0E0E0);
+    position: relative; /* Ativa o controle de camada */
+    z-index: 1;
+}
+.pastorais-header h1 {
+    font-size: 3rem;
+}
+.pastorais-header p {
+    font-size: 1.2rem;
+    color: var(--cor-texto-suave, #666);
+    max-width: 800px;
+    margin: 1rem auto 0 auto;
+    line-height: 1.7;
+}
+
+.pastorais-container {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pastorais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.pastoral-card {
+    background-color: var(--cor-superficie, #fff);
+    border: 1px solid var(--cor-borda, #E0E0E0);
+    border-radius: var(--raio-borda, 8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pastoral-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.pastoral-card .card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pastoral-card h3 {
+    font-size: 1.8rem;
+    color: var(--cor-primaria, #8C1D18);
+    margin-bottom: 1.5rem;
+}
+
+.pastoral-card .info-item {
+    font-size: 1.5rem;
+    color: var(--cor-texto-suave, #666);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.pastoral-card .info-item:last-child {
+    margin-bottom: 0;
+}
+.pastoral-card .info-item strong {
+    color: var(--cor-texto, #333);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--fonte-titulos, serif);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 600px) {
+    .pastorais-header { padding: 3rem 1rem; }
+    .pastorais-header h1 { font-size: 2.2rem; }
+    .pastorais-container { padding: 3rem 1rem; }
+    .pastoral-card .card-body { padding: 1.5rem; }
+}

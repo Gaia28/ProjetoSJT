@@ -43,8 +43,6 @@ class Router
             case 'homeAdmin':
 
                 require dirname(__DIR__) . '/views/HomeAdmin.php';
-                   $calendarioParoquial = new CalendarioParoquial();
-                   $calendarioParoquial->mostrarCalendario();
                 break;
 
             case 'calendarioParoquial':
@@ -131,6 +129,11 @@ class Router
                 require dirname(__DIR__) . '/controllers/PastoraisController.php';
                 $controller = new PastoraisController();
                 $controller->editarPastoral();
+                break;
+            case 'NossasPastorais':
+                require dirname(__DIR__) . '/controllers/PastoraisController.php';
+                $controller = new PastoraisController();
+                $controller->mostrarPastoraisPublico();
                 break;
             
             case 'deletarPastoral':

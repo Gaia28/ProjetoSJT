@@ -28,7 +28,7 @@
             <li class="menu-item-has-dropdown">
                 <a href="javascript:void(0);" aria-haspopup="true">Saiba mais</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Pastorais">Pastorais</a></li>
+                    <li><a href="NossasPastorais">Pastorais</a></li>
                     <li><a href="nossosSacramentos">Sacramentos</a></li>
                     <li><a href="#">Contatos</a></li>
                     <li><a href="admin">Administração</a></li>
