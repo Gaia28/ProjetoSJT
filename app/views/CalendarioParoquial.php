@@ -20,7 +20,7 @@
 
         <section class="container">
             <h1>Calendário Paroquial</h1>
-            <p style="color: rgb(146, 15, 15);">Gerencie o calendário da igreja aqui.</p>
+            <p>Gerencie o calendário da igreja aqui.</p>
 
                 <button class="botao" id="adicionarEvento">Adicionar Evento</button>
                 <dialog id="modalAdicionarEvento" class="modalEvento">
@@ -60,7 +60,7 @@
                         <input type="time" id="horario" name="horario" required>
                     </div>
 
-                    <button type="submit">Cadastrar</button>
+                    <button class="botaoCadastro" type="submit">Cadastrar</button>
             </form>
                 </dialog>
 
@@ -104,7 +104,7 @@
             <input type="time" id="editar_hora" name="horario" required>
         </div>
 
-        <button type="submit">Salvar Alterações</button>
+        <button class="botaoCadastro" type="submit">Salvar Alterações</button>
     </form>
 </dialog>
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/assets/css/PagesAdmin.css">
+    <link rel="stylesheet" href="public/assets/css/base.css">
     <title>Pastorais</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
 
     <section class="container">
         <h1>Pastorais</h1>
-        <p style="color: rgb(146, 15, 15);">Gerencie as pastorais da paróquia aqui.</p>
+        <p >Gerencie as pastorais da paróquia aqui.</p>
 
         <button class="botao" id="adicionarPastoral">Adicionar Pastoral</button>
 
@@ -40,7 +41,7 @@
                 </div>
                 <button type="button" class="botao" onclick="adicionarCoordenador('coordenadores')">+ Adicionar Coordenador</button>
                 <br><br>
-                <button type="submit">Cadastrar</button>
+                <button class="botaoCadastro" type="submit">Cadastrar</button>
             </form>
         </dialog>
 
@@ -56,7 +57,7 @@
                 <div id="coordenadoresEditar"></div>
                 <button type="button" class="botao" onclick="adicionarCoordenador('coordenadoresEditar')">+ Adicionar Coordenador</button>
                 <br><br>
-                <button type="submit">Salvar Alterações</button>
+                <button class="botaoCadastro" type="submit">Salvar Alterações</button>
             </form>
         </dialog>
         

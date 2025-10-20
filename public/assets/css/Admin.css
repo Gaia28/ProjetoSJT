@@ -228,3 +228,70 @@ section.home-content{
   transition-duration: 0.3s;
 }
 /*=============== HOME ===================/*/
+/* ... (todo o seu CSS existente) ... */
+
+/* ==========================================================================
+   Estilos para o Novo Dashboard (HomeAdmin)
+   ========================================================================== */
+
+.admin-header {
+    background-color: var(--cor-superficie, #fff);
+    padding: 2.5rem;
+    border-bottom: 1px solid var(--cor-borda, #E0E0E0);
+}
+
+.admin-header h1 {
+    font-size: 2.2rem;
+    color: var(--cor-texto, #333);
+    margin: 0;
+}
+
+.admin-header p {
+    font-size: 1.1rem;
+    color: var(--cor-texto-suave, #666);
+    margin-top: 0.5rem;
+}
+
+.dashboard-grid {
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.dashboard-card {
+    display: block;
+    text-decoration: none;
+    background-color: var(--cor-superficie, #fff);
+    border: 1px solid var(--cor-borda, #E0E0E0);
+    border-radius: var(--raio-borda, 8px);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-padrao, 0 8px 25px rgba(0,0,0,0.1));
+}
+
+.dashboard-card .icon {
+    font-size: 2.5rem;
+    color: var(--cor-primaria, #8C1D18);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.dashboard-card h3 {
+    color: var(--cor-texto, #333);
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.dashboard-card p {
+    color: var(--cor-texto-suave, #666);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}

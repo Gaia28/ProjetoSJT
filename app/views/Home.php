@@ -298,11 +298,6 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     }
   });
 </script>
-<!---rodape-->
-<section id="rodape" class="PG7">
-  <div class="linha">
-    <div class="itens-esquerda">
-      <h2>copyright</h2>
 
 </body>
 </html>

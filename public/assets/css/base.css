@@ -111,7 +111,6 @@ img {
 /* 2.2 Cards
    -------------------------------------------------------------------------- */
 .card {
-    background-color: var(--cor-primaria);
     border-radius: var(--raio-borda);
     box-shadow: var(--sombra-padrao);
     padding: 1.5rem;
@@ -157,4 +156,11 @@ img {
     outline: none;
     border-color: var(--cor-primaria);
     box-shadow: 0 0 0 3px rgba(140, 29, 24, 0.2);
+}
+
+.botaoCadastro {
+    width: 100%; /* Faz o botão ocupar toda a largura do formulário */
+    padding: 14px; /* Deixa o botão um pouco maior e mais fácil de clicar */
+    font-size: 1rem;
+    margin-top: 1rem; /* Adiciona um espaço acima do botão */
 }

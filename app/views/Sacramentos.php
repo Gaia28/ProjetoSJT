@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/assets/css/PagesAdmin.css">
+    <link rel="stylesheet" href="public/assets/css/base.css">
     <title>Sacramentos</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
 
     <section class="container">
         <h1>Sacramentos</h1>
-        <p style="color: rgb(146, 15, 15);">Gerencie os sacramentos da paróquia aqui.</p>
+        <p>Gerencie os sacramentos da paróquia aqui.</p>
 
         <button class="botao" id="adicionarSacramento">Adicionar Sacramento</button>
 
@@ -39,7 +40,7 @@
                     <label for="documentos">Documentos Necessários:</label>
                     <textarea id="descricao" name="descricao" rows="4"></textarea>
                 </div>
-                <button type="submit">Cadastrar</button>
+                <button class="botaoCadastro" type="submit">Cadastrar</button>
             </form>
         </dialog>
 
@@ -60,7 +61,7 @@
                     <label for="editarDocumentos">Documentos Necessários:</label>
                     <textarea id="editarDocumentos" name="documentos" rows="4"></textarea>
                 </div>
-                <button type="submit">Salvar Alterações</button>
+                <button class="botaoCadastro" type="submit">Salvar Alterações</button>
             </form>
         </dialog>
 
