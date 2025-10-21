@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true){
+    header('Location: admin');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -22,7 +29,7 @@
         </div>
         <p>Paróquia Santuário São Judas Tadeu</p>
         <nav>
-            <a href="home">Sair do Painel</a>
+            <a href="processarLogout">Sair do Painel</a>
         </nav>
     </header>
 

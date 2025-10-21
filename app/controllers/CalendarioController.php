@@ -1,4 +1,5 @@
 <?php
+
 use Config\database;
 
 class CalendarioParoquial {
