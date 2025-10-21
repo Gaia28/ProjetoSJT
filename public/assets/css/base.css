@@ -164,3 +164,6 @@ img {
     font-size: 1rem;
     margin-top: 1rem; /* Adiciona um espaço acima do botão */
 }
+.fecharModal{
+    cursor: pointer;
+}
