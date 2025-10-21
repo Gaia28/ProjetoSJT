@@ -44,6 +44,11 @@ class Router
 
                 require dirname(__DIR__) . '/views/HomeAdmin.php';
                 break;
+            case 'processarLogout':
+                require dirname(__DIR__) . '/controllers/AdminController.php';
+                $controller = new AdminController();
+                $controller->processarLogout();
+                break;
 
             case 'calendarioParoquial':
                 
