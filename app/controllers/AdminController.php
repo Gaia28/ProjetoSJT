@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class AdminController {
 
     public function mostrarLogin(){
@@ -12,6 +12,7 @@ class AdminController {
             $senha = $_POST['password'] ?? '';
 
             if($usuario === 'admin' && $senha === '123456'){
+                $_SESSION['admin_logged_in'] = true;
                 header('Location: homeAdmin');
                 exit();
             } else {
@@ -21,5 +22,12 @@ class AdminController {
             }    
 
         }
+    }
+
+    public function processarLogout() {
+        $_SESSION = array();
+        session_destroy();
+        header('Location: admin');
+        exit();
     }
 }
