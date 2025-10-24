@@ -225,7 +225,7 @@ funcionário público. Em 6 de janeiro de 2026, a Paróquia-Santuário celebrar�
     <div class="qrcode-texto">
       <h1 class="tracking-in-expand-fwd-bottom">Contribua com a Paróquia</h1>
       <p class="tracking-in-expand-fwd-bottom">A doação para a igreja é um ato de fé e gratidão que permite à instituição cumprir sua missão de evangelização, sustentação das atividades e apoio aos necessitados. Essa generosidade possibilita a manutenção das estruturas da igreja, a promoção de programas sociais e educacionais, e o alcance de mais pessoas com a mensagem de Cristo.</p>
-      <p class="tracking-in-expand-fwd-bottom">Escaneie o QR Code ao lado e contribua para a obra do</p>
+      <p class="tracking-in-expand-fwd-bottom">Escaneie o QR Code e contribua para a obra do</p>
     </div>
     <div class="qrcode-container">
           <div class="qrcode-img">

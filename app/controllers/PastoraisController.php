@@ -13,16 +13,13 @@ class PastoraisController {
         require dirname(__DIR__) . '/views/NossasPastorais.php';
     }
 
-    // FUNÇÃO ATUALIZADA: Agora busca também o telefone para exibição
     private function listarPastorais() {
         $connection = new Database();
         $db = $connection->getConnection();
         
-        // Query adaptada para buscar apenas pastorais e seus coordenadores
         $query = "SELECT 
                     p.id, 
                     p.nome,
-                    -- Junta nome e telefone com um separador '|' e cada coordenador com ';'
                     GROUP_CONCAT(DISTINCT CONCAT(c.nome, '|', c.telefone) ORDER BY c.nome SEPARATOR ';') as coordenadores
                   FROM pastorais p
                   LEFT JOIN coordenadores c ON p.id = c.pastoral_id

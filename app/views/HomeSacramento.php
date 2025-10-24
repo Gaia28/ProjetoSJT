@@ -56,6 +56,7 @@
     </main>
 
     <script src="public/assets/js/animations.js"></script>
+    <script src="public/assets/js/navbar.js"></script> </body>
 
 </body>
 </html>
