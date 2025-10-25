@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Estilos para a Página Pública de Contatos
+   - Baseado no estilo da página de Pastorais para consistência
+   ========================================================================== */
+
+/* 1. Cabeçalho (Reutiliza o estilo de .pastorais-header) */
+.contatos-header {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: var(--cor-superficie, #fff);
+    border-bottom: 1px solid var(--cor-borda, #E0E0E0);
+    position: static;
+}
+.contatos-header h1 {
+    font-size: 3rem;
+}
+.contatos-header p {
+    font-size: 1.2rem;
+    color: var(--cor-texto-suave, #666);
+    max-width: 800px;
+    margin: 1rem auto 0 auto;
+    line-height: 1.7;
+}
+
+/* 2. Container (Reutiliza o estilo de .pastorais-container) */
+.contatos-container {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3. Grid (Reutiliza o estilo de .pastorais-grid) */
+.contatos-grid {
+    display: grid;
+    /* Ajustado para potencialmente menos colunas, dependendo do design */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 2.5rem;
+}
+
+/* 4. Card de Contato (Reutiliza a base de .pastoral-card) */
+.contato-card {
+    background-color: var(--cor-superficie, #fff);
+    border: 1px solid var(--cor-borda, #E0E0E0);
+    border-radius: var(--raio-borda, 8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contato-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contato-card .card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.contato-card h3 {
+    font-size: 1.8rem; /* Nome do contato em destaque */
+    color: var(--cor-primaria, #8C1D18);
+    margin: 0 0 0.5rem 0; /* Menos espaço abaixo do nome */
+}
+
+.contato-card .funcao {
+    font-size: 1.1rem; /* Função com um pouco de destaque */
+    color: var(--cor-texto-suave, #666);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    display: block;
+}
+
+.contato-card .info-contato {
+    font-size: 1rem;
+    color: var(--cor-texto, #333);
+    line-height: 1.7;
+    margin-top: auto; /* Empurra para o final */
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--cor-borda, #E0E0E0);
+}
+
+.contato-card .info-contato p {
+    margin-bottom: 0.5rem;
+}
+.contato-card .info-contato p:last-child {
+    margin-bottom: 0;
+}
+
+.contato-card .info-contato strong {
+    color: var(--cor-texto-suave, #666);
+    margin-right: 0.5rem;
+    min-width: 70px; /* Alinha os ícones ou texto */
+    display: inline-block;
+}
+
+.contato-card .info-contato a {
+    color: var(--cor-primaria, #8C1D18);
+    text-decoration: none;
+}
+.contato-card .info-contato a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Responsividade (Reutiliza a lógica) --- */
+@media (max-width: 600px) {
+    .contatos-header { padding: 3rem 1rem; }
+    .contatos-header h1 { font-size: 2.2rem; }
+    .contatos-container { padding: 3rem 1rem; }
+    .contato-card .card-body { padding: 1.5rem; }
+}

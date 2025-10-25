@@ -2,11 +2,8 @@
 
 /* Tablets (até 1024px) */
 @media (max-width: 1024px) {
-
-    /* * CORREÇÃO PRINCIPAL:
-     * Reseta a altura mínima das seções e adiciona um padding
-     * vertical para separar o conteúdo.
-     */
+    
+ 
    .section-padrao:not(#BoasVindas) {
         min-height: auto; /* Remove a altura mínima de 100vh */
         padding: 4rem 0;  /* Adiciona um espaçamento vertical entre as seções */

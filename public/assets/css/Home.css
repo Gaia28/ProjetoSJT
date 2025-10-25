@@ -80,11 +80,11 @@ svg.onda {
 
 .section-padrao {
     width: 100%;
-    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: 5rem 2rem; /* <-- AJUSTE O PADDING (ex: 5rem vertical, 2rem horizontal) */
     text-align: center;
 }
 
@@ -156,6 +156,7 @@ svg.onda {
 
 #HomePG2 .linha {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 10px;
     color:  rgb(146, 15, 15);
@@ -182,7 +183,6 @@ svg.onda {
 
 .linha {
     width: 100%;
-    min-height: 100dvh;
     padding: 5%;
     background: var(--cor-fundo);
 }
