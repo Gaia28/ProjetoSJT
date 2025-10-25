@@ -176,6 +176,36 @@ class Router
                 $controller = new EventosController();
                 $controller->excluirEvento();
                 break;
+                
+            case 'contatos-admin':
+                require dirname(__DIR__) . '/controllers/ContatosController.php';
+                $controller = new ContatosController();
+                $controller->mostrarPainelAdmin();
+                break;
+
+            case 'salvar-contato':
+                require dirname(__DIR__) . '/controllers/ContatosController.php';
+                $controller = new ContatosController();
+                $controller->cadastrarContato();
+                break;
+            
+            case 'editar-contato':
+                require dirname(__DIR__) . '/controllers/ContatosController.php';
+                $controller = new ContatosController();
+                $controller->editarContato();
+                break;
+
+            case 'excluir-contato':
+                require dirname(__DIR__) . '/controllers/ContatosController.php';
+                $controller = new ContatosController();
+                $controller->excluirContato();
+                break;
+
+            case 'nossos-contatos':
+                require dirname(__DIR__) . '/controllers/ContatosController.php';
+                $controller = new ContatosController();
+                $controller->exibirPaginaPublica();
+                break;
 
           
             default:
