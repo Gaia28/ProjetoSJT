@@ -26,7 +26,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="NossasPastorais">Pastorais</a></li>
                     <li><a href="nossosSacramentos">Sacramentos</a></li>
-                    <li><a href="#">Contatos</a></li>
+                    <li><a href="nossos-contatos">Contatos</a></li>
                     <li><a href="admin">Administração</a></li>
                 </ul>
             </li>
@@ -46,7 +46,7 @@
             <li><a href="home#HomePG6">Liturgia</a></li>
             <li><a href="nossosSacramentos">Sacramentos</a></li>
             <li><a href="NossasPastorais">Pastorais</a></li>
-            <li><a href="#">Contatos</a></li>
+            <li><a href="nossos-contatos">Contatos</a></li>
             <li><a href="home#doacoes">Doações</a></li>
             <li><a href="admin">Administração</a></li>
 
@@ -54,8 +54,6 @@
     </div>
 </nav>
     </header>
-
-    <!-- se você já tem um navbar.js, pode removê-lo ou mantê-lo; o script abaixo é autônomo -->
     
 </body>
 </html>

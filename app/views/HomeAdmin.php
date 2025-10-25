@@ -47,7 +47,7 @@ if(!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true
                 <p>Gerencie as missas e programações semanais recorrentes.</p>
             </a>
 
-            <a href="calendarioParoquial" class="dashboard-card">
+            <a href="gerenciar-eventos" class="dashboard-card">
                 <div class="icon"><i class="fas fa-star"></i></div>
                 <h3>Eventos Especiais</h3>
                 <p>Adicione e edite os eventos únicos como festas e retiros.</p>
@@ -65,6 +65,11 @@ if(!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true
                 <p>Gerencie as pastorais e seus respectivos coordenadores.</p>
             </a>
 
+            <a href="contatos-admin" class="dashboard-card">
+                <div class="icon"><i class="fas fa-star"></i></div>
+                <h3>Contatos</h3>
+                <p>Adicione e edite os eventos únicos como festas e retiros.</p>
+            </a>
         </div>
     </main>
 
